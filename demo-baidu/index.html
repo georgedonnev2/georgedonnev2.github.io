@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>百度一下，你就知道</title>
+
+	<style type="text/css">
+		body,
+		td,
+		th {
+			font-family: "微软雅黑";
+			color: #333333;
+			font-size: 15px;
+		}
+
+		body {
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+
+		.top {
+			height: 30px;
+			width: 100%;
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 8px;
+		}
+
+		.top .top-left {
+			float: left;
+			height: 30px;
+			width: 442px;
+			line-height: 30px;
+		}
+
+		.top .top-right .sz-l {
+			float: left;
+			height: 30px;
+			width: 40px;
+			line-height: 30px;
+		}
+
+		.top .top-right .login {
+			float: left;
+			height: 25px;
+			width: 50px;
+			margin-left: 5px;
+			line-height: 25px;
+			background-color: #4e6ef2;
+			font-family: "微软雅黑";
+			font-size: 14px;
+			color: #fff;
+			text-align: center;
+			border-radius: 8px;
+			margin-top: 3px;
+		}
+
+		.top .top-right {
+			float: right;
+			height: 30px;
+			width: 125px;
+		}
+
+		a:link {
+			color: #000000;
+			text-decoration: none;
+		}
+
+		a:visited {
+			text-decoration: none;
+			color: #000000;
+		}
+
+		a:hover {
+			text-decoration: none;
+			color: #4e6ef2;
+		}
+
+		a:active {
+			text-decoration: none;
+		}
+
+		a.white:link {
+			color: #fff;
+			text-decoration: none;
+		}
+
+		a.white:visited {
+			text-decoration: none;
+			color: #fff;
+		}
+
+		a.white:hover {
+			text-decoration: none;
+			color: #f8f8f8;
+		}
+
+		a.white:active {
+			text-decoration: none;
+		}
+
+		.main {
+			height: 400px;
+			width: 720px;
+			margin-top: 140px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.main .logo {
+			height: 84px;
+			width: 240px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.main .search {
+			height: 42px;
+			width: 720px;
+			margin-top: 30px;
+		}
+
+		.main .search .s-text {
+			height: 42px;
+			width: 580px;
+			float: left;
+		}
+
+		.main .search .an-but {
+			float: left;
+			height: 42px;
+			width: 140px;
+			font-family: "微软雅黑";
+			font-size: 19px;
+			line-height: 42px;
+			background-color: #4e6ef2;
+			text-align: center;
+			color: #fff;
+		}
+
+		.main .search .an-but:hover {
+			background-color: #405dd5;
+			float: left;
+			height: 42px;
+			width: 140px;
+			font-family: "微软雅黑";
+			font-size: 19px;
+			line-height: 42px;
+			text-align: center;
+			color: #fff;
+		}
+
+		.main .search .s-text input {
+			height: 38px;
+			width: 580px;
+			border: 1px solid #c4c7ce;
+			border-radius: 6px;
+		}
+
+		.main .news {
+			height: 200px;
+			width: 720px;
+			margin-top: 45px;
+			font-family: "微软雅黑";
+			font-size: 15px;
+			line-height: 45px;
+			color: #333333;
+		}
+
+		.footer {
+			height: 23px;
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			font-family: "微软雅黑";
+			font-size: 13px;
+			color: #bbbbbb;
+			text-align: center;
+		}
+
+		.ayahei {
+			font-family: "微软雅黑";
+			font-size: 17px;
+			font-weight: bold;
+			color: #000;
+		}
+
+		#bq {
+			height: 36px;
+			width: 1000px;
+			margin-right: auto;
+			margin-left: auto;
+			border-top-width: 1px;
+			border-top-style: solid;
+			border-top-color: #f2f2f2;
+			background-image: url(http://cdn.psdhtml.cn/lxidw7.svg);
+			background-color: #fff;
+			margin-top: 90px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="top">
+		<div class="top-left">
+			&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <a href="#">新闻</a>&nbsp;&nbsp;&nbsp;
+			<a href="#">hao123</a>&nbsp;&nbsp;&nbsp;
+			<a href="#">地图</a>&nbsp;&nbsp;&nbsp;
+			<a href="#">贴吧</a>&nbsp;&nbsp;&nbsp;
+			<a href="#">视频</a>&nbsp;&nbsp;&nbsp;
+			<a href="#">图片</a>&nbsp;&nbsp;&nbsp;
+			<a href="#">网盘</a>&nbsp;&nbsp;&nbsp; <a href="#">更多</a>
+		</div>
+
+		<div class="top-right">
+			<div class="sz-l"><a href="#">设置</a></div>
+			<div class="login"><a ref="#" class="white">登录</a></div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="logo">
+			<a href="index.html"><img src="http://cdn.psdhtml.cn/baidu-logo.png" width="240" height="84" /></a>
+		</div>
+
+		<div class="search">
+			<div class="s-text"><input name="" type="text" /></div>
+			<div class="an-but"><a href="#" class="white">百度一下</a></div>
+		</div>
+
+		<div class="news">
+			<table width="100%" border="0">
+				<tr>
+					<td colspan="2" class="ayahei">百度热搜</td>
+				</tr>
+				<tr>
+					<td width="65%">
+						<a href="#">习近平发表2022年新年贺词</a>&nbsp;
+						<img src="http://cdn.psdhtml.cn/baidu-hot.png" width="17" height="16" /><br />
+						<a href="#">西安正抓紧改进服务保障不到位情况</a>&nbsp;
+						<img src="http://cdn.psdhtml.cn/baidu-hot.png" alt="" width="17" height="16" /><br />
+						<a href="#">十九届六中全会决议中的10个明确</a>
+					</td>
+					<td width="35%">
+						<a href="#">台湾海域6.4级地震 福建震感强烈</a><br />
+						<a href="#">广告中使用红领巾 三只松鼠致歉</a><br />
+						<a href="#">西安市新增高风险地区2个</a>&nbsp;
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="footer">
+		关于百度&nbsp;&nbsp;&nbsp; About Baidu&nbsp;&nbsp;&nbsp;
+		使用百度前必读&nbsp;&nbsp;&nbsp; 帮助中心京&nbsp;&nbsp;&nbsp;
+		公网安备11000002000001号&nbsp;&nbsp;&nbsp;
+		京ICP证030173号&nbsp;&nbsp;&nbsp; ©2022 Baidu &nbsp;&nbsp;
+		互联网药品信息服务资格证书 (京)-经营性-2017-0020&nbsp;&nbsp;&nbsp;
+		信息网络传播视听节目许可证 0110516
+	</div>
+	<div id="bq">
+		<a href="http://www.psdhtml.cn/index.php?c=thread&fid=18?ymbd" target="_blank"><img
+				src="http://cdn.psdhtml.cn/lxidw7.svg" width="1000" height="36" /></a>
+	</div>
+</body>
+
+</html>

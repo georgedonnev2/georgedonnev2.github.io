@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+#dangdang {
+	position: absolute;
+	width: 100%;
+	height: 1216px;
+	z-index: 1;
+	left: 0px;
+	top: 0px;
+}
+#dangdang #logo {
+	height: 85px;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 10px;
+}
+#dangdang #logo #logo_right {
+	float: right;
+	height: 33px;
+	width: 253px;
+	margin-top: 50px;
+	background-color: #eafffa;
+	border: 1px solid #bfebe0;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #666;
+}
+#dangdang #daohang {
+	height: 37px;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 2px;
+	font-size: 13px;
+	color: #FFF;
+	background-image: url(img/menuBg.jpg);
+}
+#dangdang #logo #logo_left {
+	float: left;
+	height: 75px;
+	width: 158px;
+}
+
+
+#dangdang #toutu {
+	height: 130px;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+#dangdang #main {
+	height: 860px;
+	width: 960px;
+	margin-top: 8px;
+	margin-right: auto;
+	margin-left: auto;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #a8a8a8;
+}
+#dangdang #main #m_left {
+	float: left;
+	height: 620px;
+	width: 183px;
+}
+#dangdang #main #m_left #l_up {
+	height: 413px;
+	line-height:25px;
+	border: 2px solid #c68400;
+}
+#dangdang #main #m_left #l_up #title_up {
+	background-image: url(img/navTitleBg.jpg);
+	height: 25px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #FFF;
+	font-weight: bold;
+}
+#dangdang #main #m_left #l_up #body_up {
+	height: 388px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #78766a;
+	background-color: #fcf9ea;
+}
+#dangdang #main #m_left #l_down {
+	height: 182px;
+	line-height:25px;
+	border: 2px solid #c68400;
+	margin-top: 15px;
+}
+#dangdang #main #m_left #l_down #title_down {
+	background-image: url(img/navTitleBg.jpg);
+	height: 25px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	color: #FFF;
+	font-weight: bold;
+}
+#dangdang #main #m_left #l_down #body_down {
+	height: 157px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #78766a;
+	background-color: #fcf9ea;
+}
+#dangdang #main #m-ringht {
+	width: 775px;
+	float: left;
+	margin-left: 2px;
+	height: 790px;
+}
+#dangdang #main #m-ringht #fenlan {
+	height: 270px;
+}
+#dangdang #main #m-ringht #fenlan #biaoti {
+	height: 42px;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #ca8000;
+	font-family: "微软雅黑";
+	color: #d98433;
+}
+#dangdang #main #m-ringht #fenlan #w145_210 {
+	height: 220px;
+	width: 145px;
+	margin-left: 8px;
+	float: left;
+}
+#dangdang #main #m-ringht #fenlan #w145_210 #w123_123 {
+	height: 123px;
+	width: 123px;
+	margin-left: 12px;
+	margin-top: 9px;
+	border: 1px solid #a5a5a5;
+}
+#dangdang #main #m-ringht #fenlan #w145_210 #wenzi {
+	height: 75px;
+	margin-top: 4px;
+}
+#dangdang #main #m-ringht #fenlan #w145_210 #w123_123 #img {
+	height: 123px;
+	width: 123px;
+	float: left;
+	margin-top: 0px;
+}
+#dangdang #main #m-ringht #fenlan #w145_210 #w123_123 #div40 {
+	height: 40px;
+	width: 40px;
+	float: left;
+	margin-top: -123px;
+	margin-left: 0px;
+	z-index: 5;
+}
+.ablue {
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color: #155cb4;
+}
+.a_huise {
+	font-family: "微软雅黑";
+	color: #958a88;
+	font-size: 13px;
+	text-decoration: line-through;
+}
+.a_red {
+	font-family: "微软雅黑";
+	color: #bf0100;
+	font-size: 14px;
+	font-weight: bolder;
+}
+#dangdang #down {
+	height: 60px;
+	width: 960px;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	color: #BFBFBF;
+	font-family: "微软雅黑";
+	font-size: 13px;
+}
+a.white:link {
+	color: #FFF;
+	text-decoration: none;
+}
+a.white:visited {
+	text-decoration: none;
+	color: #FFF;
+}
+a.white:hover {
+	text-decoration: none;
+	color: #000000;
+}
+a.white:active {
+	text-decoration: none;
+}
+a.black:link {
+	color: #847f83;
+	text-decoration: none;
+}
+a.black:visited {
+	text-decoration: none;
+	color: #847f83;
+}
+a.black:hover {
+	text-decoration: none;
+	color: #f75e00;
+}
+a.black:active {
+	text-decoration: none;
+}
+a.bluea:link {
+	color: #155cb4;
+	text-decoration: none;
+}
+a.bluea:visited {
+	text-decoration: none;
+	color: #155cb4;
+}
+a.bluea:hover {
+	text-decoration: none;
+	color: #f75e00;
+}
+a.bluea:active {
+	text-decoration: none;
+}
+</style>
+</head>
+	<body>
+	<div id="dangdang">
+      <div id="logo">
+        <div id="logo_left"><a href="#"><img src="img/logo.svg" width="158" height="75"></a></div>
+        <div id="logo_right"><table width="100%" border="0">
+  <tr>
+    <td height="30" align="center">尾品会</td>
+    <td align="center">当当优品</td>
+    <td align="center">数字馆</td>
+    <td align="center">都看阅读</td>
+  </tr>
+</table>
+</div>
+      </div>
+      <div id="daohang"><table width="100%" border="0">
+  <tr>
+    <td width="6%" height="34" align="center" valign="middle"><a href="#" class="white">首页</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">图书</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">音像</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">童装</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">服装</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">鞋靴</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">运动</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">箱包</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">美妆</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">珠宝</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">家居</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">食品</a></td>
+    <td width="5%" align="center" valign="middle"><a href="#" class="white">酒</a></td>
+    <td width="5%" align="center" valign="middle"><a href="#" class="white">手机</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">数码</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">电脑</a></td>
+    <td width="6%" align="center" valign="middle"><a href="#" class="white">家电</a></td>
+  </tr>
+</table>
+</div>
+      <div id="toutu"><img src="img/banner.jpg" width="960" height="130"></div>
+      <div id="main">
+        <div id="m_left">
+          <div id="l_up">
+            <div id="title_up">  &nbsp;&nbsp;&nbsp; 分类浏览</div>
+            <div id="body_up">
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">数码影音</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">家居装饰</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">母婴用品</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">美妆个护</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">食品保健</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">潮流服装</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">家具装饰</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">手表饰品</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">鞋包皮具</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">家用电器</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">电脑办公</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">玩具文具</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">汽车用品</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">手机通讯</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">流行饰品</a><br> </div>
+          </div>
+          <div id="l_down">
+            <div id="title_down">  &nbsp;&nbsp;&nbsp;推荐榜单</div>
+            <div id="body_down">
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">图书畅销榜</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">音乐畅销榜</a><br>
+&nbsp;&nbsp; •&nbsp; 影视畅销榜<a href="#" class="black"></a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">百货畅销榜</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">图书飙升榜</a><br>
+&nbsp;&nbsp; •&nbsp; <a href="#" class="black">新书热卖榜</a><br></div>
+          </div>
+        </div>
+        <div id="m-ringht">
+          <div id="fenlan">
+            <div id="biaoti">
+              <table width="100%" border="0">
+                <tr>
+                  <td width="6%" height="40" align="right" valign="middle">&nbsp;&nbsp;<img src="img/titleDot.jpg" alt="" width="28" height="21"></td>
+                  <td width="94%" valign="middle">数码影音</td>
+                </tr>
+              </table>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/electron-01.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_1.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">【仅限一天】爱国者 半岛铁盒 U10000毫</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥699.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥299.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/electron-02.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_2.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">【限时抢购】羽博YB637 YB647移动电源苹</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥499.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥199.00~359.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/electron-03.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_3.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">【2013升级版/热销5000件】Philips/飞利</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥499.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥299.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/electron-04.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_4.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">【绝对超值】紫光电子 双声道立体声耳机</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥99.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥49.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/electron-05.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_5.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">【热销2000台】紫光电子 专业高清V-P30</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥599.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥299.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            
+          </div>
+          <div id="fenlan">
+            <div id="biaoti">
+              <table width="100%" border="0">
+                <tr>
+                  <td width="6%" height="40" align="right" valign="middle">&nbsp;&nbsp;<img src="img/titleDot.jpg" alt="" width="28" height="21"></td>
+                  <td width="94%" valign="middle">家居装饰</td>
+                </tr>
+              </table>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/home-1.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_1.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">当当优品 牛津布百纳箱 收纳箱 66L（多</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥179.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥79.00~89.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/home-2.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_2.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">当当优品 全棉柔软吸水 纯色经典家庭中</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥49.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥29.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/home-3.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_3.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">索尔诺五层儿童书柜/多功能收纳层架/简</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥200.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥105.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/home-4.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_4.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">[当当自营]LOCK&amp;LOCK乐扣 格拉</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥299.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥156.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/home-5.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_5.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">[当当自营]LOCK&amp;LOCK乐扣 水杯</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥149.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥89.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            
+          </div>
+          <div id="fenlan">
+            <div id="biaoti">
+              <table width="100%" border="0">
+                <tr>
+                  <td width="6%" height="40" align="right" valign="middle">&nbsp;&nbsp;<img src="img/titleDot.jpg" alt="" width="28" height="21"></td>
+                  <td width="94%" valign="middle">流行饰品 </td>
+                </tr>
+              </table>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/beauty-1.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_1.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">诗蔓 【原创正品 独家首发】专柜正品 纯</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥568.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥128.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/beauty-2.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_2.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">鼎顺 29.9秒杀 天然红檀木 佛珠手链手</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥99.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥29.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/beauty-3.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_3.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">KASSIA卡希雅正品 9-10mm天然珍珠项链</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥1280.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥258.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/beauty-4.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_4.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">欧炫 最爱四叶草奥地利元素 水晶材质项</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥299.00<br></td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥68.00</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id="w145_210">
+              <div id="w123_123">
+              
+                <div id="img"><a href="#"><img src="img/beauty-5.jpg" width="120" height="120" border="0"></a></div>
+                <div id="div40"><img src="img/item_5.gif" width="40" height="40"></div>
+                
+              </div>
+              <div id="wenzi">
+                <table width="100%" border="0">
+                  <tr>
+                    <td class="ablue"><a href="#" class="bluea">凤凰涅磐项链 女 手链 天然水晶干青手串</a></td>
+                  </tr>
+                  <tr>
+                    <td class="a_huise">￥398.00</td>
+                  </tr>
+                  <tr>
+                    <td height="26" class="a_red">￥198.00<br></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div id="down"><table width="100%" border="0">
+  <tr>
+    <td align="center">Copyright (©) 当当网&nbsp; 2004-2013，ALL Rights Reserved <img src="img/validate.gif" width="40" height="48" alt=""/> 京ICP证041189号 出版物经营许可证&nbsp; 新出发京批字第直0673号</td>
+  </tr>
+  </table>
+</div>
+	</div>
+</body>
+</html>

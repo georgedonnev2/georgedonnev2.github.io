@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>信息填报系统</title>
+    <style>
+        body
+        {
+            text-align: center
+        }
+    </style>
+</head>
+
+<!--
+    <p>Welcome!</p>
+    <hr />
+-->
+
+<body>
+    <header>
+        <h1>Welcome to 信息申报信息</h1>
+        <hr />
+    </header>
+    
+    
+    <h1 style="text-align:center">信息填报系统</h1>
+    <div class="div">
+        <form id="form1" accept-charset="UTF-8" action="http://ipaddress:8000/posttable/" method="post"
+            target="myiframe" onsubmit="return checkin()">
+            姓名:
+            <input type="text" name="name" id="in1" value="" required="required" style="width:260px; height:30px;">
+            <br><br>
+            学号:
+            <input type="text" name="id" value="" required="required" style="width:260px; height:30px;" />
+            <br><br>
+            班级:
+            <input type="text" name="class" value="" required="required" style="width:260px; height:30px;" />
+            <br><br>
+            性别:
+            <input type="text" name="wm" list="cars" required="required" style="width:260px; height:30px;" />
+            <datalist id="cars">
+                <option value="男">
+                <option value="女">
+            </datalist>
+            <br><br>
+            电话:
+            <input type="text" name="phone" value="" required="required" style="width:260px; height:30px;" />
+            <br><br>
+            备注:
+            <input type="text" name="note" value="" style="width:260px; height:30px;" />
+            <br><br>
+            <button type="reset" class="button">重置</button>
+            <input type="submit" name="btn1" value="提交"
+                style="height:60px;width:180px;display:inline-block;background-color:gray">
+        </form>
+        <iframe id="myiframe" name="myiframe">it is a iframe</iframe>
+    </div>
+</body>
+
+</html>

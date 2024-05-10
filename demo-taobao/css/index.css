@@ -1,0 +1,301 @@
+/* 搞得高度塌陷的问题 */
+.clearfix::after,.clearfix::before
+{
+    content: '';
+    display: table;
+    width: 0;
+    height: 0;
+    clear:both;
+}
+/* 设置字体的大小 */
+body
+{
+    font-size: 16px;
+    background: linear-gradient(rgb(236,226,224),rgb(226,231,234));
+    height:1100px;
+    width: auto;
+}
+/* 设置超链接的下划线和颜色 */
+a
+{
+    text-decoration: none;
+    color: black;
+}
+/* 设置头部导航的样式 */
+.top-warper
+{
+    width:auto;
+    height: 45px;
+    background-color:rgb(245, 245, 245);
+}
+/* 设置中间内容的大小 */
+.top-cen
+{
+    width: 1490px;
+    height: 45px;
+    line-height: 45px;
+    margin: 0 auto;
+}
+/* 设置左边导航的样式 */
+.cityandlogin li
+{
+    float: left;
+    margin-left: 9px;
+}
+/*设置图标字体的边距*/
+.cityandlogin li i
+{
+    margin-left:6px;
+    margin-right: 12px;
+}
+.right-top,.right-top li
+{
+    float: right;
+}
+ .right-top li i
+{
+    margin-left:6px;
+    margin-right: 6px;
+} 
+.right-top li
+{
+    margin-right: 10px;
+}
+.right-top li span
+{
+   margin: 0 10px;
+   color: rgb(226,232,245);
+}
+.right-top li .shopping
+{
+    color: rgb(255,68,0);
+}
+.right-top li .star
+{
+    color: rgb(156, 156, 156);
+}
+.right-top li .star:hover,a:hover
+{
+    color: rgb(255,68,0);
+}
+
+.Search
+{
+    width: 1490px;
+    position: relative;
+    margin: 0 auto;
+}
+.taobao 
+{
+    width: 140px;
+    height:100%;
+    margin-left: 60px;
+    background-color: rgb(236,226,224);
+}
+.rad
+{
+    width: 800px;
+    height: 54px;
+    background-color:white;
+    position: absolute;
+    top: 40px;
+    left: 350px;
+    border: 1px solid rgb(255,68,0);
+    border-radius:100px;
+}
+.chance
+{
+    width: 1000px;
+    position: absolute;
+    top: 100px;
+    left: 350px;
+}
+.chance a
+{
+    margin-right: 3px;
+}
+.ser
+{
+    width: 596px;
+    height: 52px;
+    position: absolute;
+    top: 0px;
+    left: 90px;
+     border: none;
+    outline: none;
+}
+
+
+
+
+
+
+
+.soushuo
+{
+    width: 92px;
+    height: 45px;
+    border-radius: 100px;
+    position: absolute;
+    top: 4px;
+    right:4px;
+    background-color: rgb(255,68,0);
+    line-height:45px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.soushuo:hover
+{
+    color: white;
+}
+.content
+{
+    width: 1490px;
+    border-radius:50px;
+    margin: 0 auto;
+    position: relative;
+    background-color: white;
+}
+.opt li a
+{   
+    font-size: 20px;
+    line-height:45px;
+}
+.opt li i
+{
+    margin: 0 20px; 
+}
+.tianman
+{
+    height: auto;
+    width: auto;
+}
+.tianman h3
+{
+    margin-left: 65px;
+    margin-right: 100px;
+    color: rgb(255,68,0);
+    font-size: 20px;
+}
+.tianman li
+{
+    float: left;
+    margin:10px 20px;
+    font-size: 20px;
+}
+.tianmao,.juhuasuan
+{
+    color: red;
+}
+.supermarket
+{
+    color: green;
+}
+.img-list
+{
+    width:650px;
+    height: 315px;
+    border-radius: 50px;
+    background-color: green;
+    position: absolute;
+    top: 80px;
+    left: 300px;
+    overflow: hidden;
+}
+.img-list img
+{
+    width: 100%;
+}
+.img-list2
+{
+    width: 650px;
+    height: 225px;
+    position: absolute;
+    background-color: rgb(246, 246, 246);
+    border-radius: 50px;
+    bottom: 50px;
+    left: 300px;
+}
+.img-list2 li img
+{
+    width: 285px;
+    height: 215px;
+    border-radius: 50px;
+    margin: 5px 20px;
+    float: left;
+}
+.right-cont
+{
+    width: 434px;
+    position:absolute;
+    border-radius: 25px;
+    background-color: rgb(243,243,243);
+    right:50px;
+    top:80px;
+}
+.right-cont .touxiang
+{
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    margin-left: 190px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+.right-cont p
+{
+    text-align: center;
+}
+.three li
+{
+    width: 123px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(255,68,0);
+    float: left;
+    margin: 15px 10px;
+}
+.three li a
+{
+    color: white;
+}
+.right-cont .please
+{
+    width: 400px;
+    height: 150px;
+    border-radius: 25px;
+    margin-left: 16px;
+}
+.hotthing
+{
+    margin-left: 35px;
+    margin-top: 30px;
+}
+.hotthing h3
+{
+    margin-bottom: 20px;
+}
+.hotthing a
+{   
+    font-size: 16px;
+    line-height: 41px;
+}
+.fin
+{
+    width: 1480px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 25px;
+    background-color:white;
+}
+.fin li
+{
+    float: left;
+    margin-top: 25px;
+    line-height: 45px;
+    padding:0 10px;
+}

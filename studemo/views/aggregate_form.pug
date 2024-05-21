@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+  
+
+
+  //- id of canvas is myChart
+  canvas#myChart
+
+  script(src='https://cdn.jsdelivr.net/npm/chart.js')  
+  
+  
+  script.
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            //- labels: '#{course_summary}',
+            //- labels: #{hlabels},
+            labels: ['#{score_summary_labels[0]}','#{score_summary_labels[1]}','#{score_summary_labels[2]}','#{score_summary_labels[3]}','#{score_summary_labels[4]}'],
+            datasets: [{
+                label: '#{course_summary}',
+                data: [#{score_summary_data}],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });

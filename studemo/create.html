@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>学生宝--学生信息管理系统</title>
+</head>
+
+<body>
+    <header>
+        <h1>学生宝--新增学生</h1>
+    </header>
+
+    <main>
+        <form action="/student/newone" , method="post">
+            
+            <p>
+                <label for="jnuid">学号: </label>
+                <!--name of input will be the name of key in the json to be submitted to the server side.-->
+                <input id="jnuid" name="jnuid" type="text" placeholder="4位数字比如1234" required />
+            </p>
+            <p>
+                <label for="name">姓名: </label>
+                <input id="name" name="name" type="text" placeholder="学生姓名" required />
+            </p>
+            <p>
+                <label for="gender">性别: </label>
+                <input id="gender" name="gender" type="radio" value="男" required />男
+                <input id="gender" name="gender" type="radio" value="女" required />女
+            </p>
+            <p>
+                <label for="birthday">生日: </label>
+                <input id="birthday" name="birthday" type="datetime-local" placeholder="学生生日" />
+            </p>
+            <p>
+                <label for="cellphone">手机号码: </label>
+                <input id="cellphone" name="cellphone" type="tel" placeholder="9个数字，第1个数字是1" attern="[1]{1}[0-9]{8}" required/>
+            </p>
+            <p><input type="submit" value="新增" /></p>
+             
+        </form>
+    </main>
+</body>
+
+</html>

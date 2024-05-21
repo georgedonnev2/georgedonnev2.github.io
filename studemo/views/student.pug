@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  h1= title
+  
+
+  ul
+  each val in student_inf
+    li id: #{val.jnuid}
+    li name: #{val.name}
+    li gender: #{val.gender}
+    li birthday: #{val.birthday}
+    li cellphone: #{val.cellphone}
+    hr
+  else 
+    li 没有查询到！
+
+  hr
+  p
+    a(href='/student/delete') Delete
+  p
+    a(href='/student/update/' + student_inf[0].jnuid) Update 
+
+  canvas#myChart
+
+  script(src='https://cdn.jsdelivr.net/npm/chart.js')  
+  
+  script.
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', '红色'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3, #{student_inf[0].jnuid}],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });

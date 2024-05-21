@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>学生宝--学生信息管理系统</title>
+</head>
+
+<body>
+    <header>
+        <h1>学生宝--更新学生信息</h1>
+    </header>
+
+    <main>
+        <form action="/student/upget", method="get">
+            
+            <!-- search by jnuid -->
+            <p>
+                <!--name will be added after ? -->
+                <label for="id-jnuid">jnuid: </label>
+                <input id="id-jnuid" name="jnuid" type="text" placeholder="4位数字比如1234"/>
+            </p>
+            <p><input type="submit" value="获取学生信息" /></p>
+            </form>
+    </main>
+</body>

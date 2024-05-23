@@ -1,14 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Personal Website of George Donne</title>
-    </head>
-    <body>
-        <main>
-            <h1>某某管理系统Web界面开发指南</h1>
 
-        </main>
+<head>
+    <meta charset="utf-8">
 
-    </body>
+    <title>Personal Website of George Donne</title>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" />
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+    <link rel="stylesheet" href="jnstyle.css"> 
+
+</head>
+
+<body>
+    <main>
+        <h1>某某管理系统Web界面开发指南</h1>
+
+        <h2>前言</h2>
+        <p>
+            学生信息管理系统/图书馆信息管理系统/……等信息管理系统，是被广泛使用的、和数据库技术结合的信息管理系统。一个信息管理系统，需要有人机交互界面，供用户、系统管理员等使用，实现和提供信息的增删改查等核心能力和功能。人机交互界面有很多种形式，以及很多种技术实现方式。在当今互联网高速发展时代，在人们日常生活中出现较多的人机交互界面有手机App界面、微信等小程序界面、个人电脑/Pad等Web界面，等。
+        </p>
+        <p>
+            本指南选取日常生活中出现较多的Web界面，提供相关的开发指南建议，用于某某信息管理系统。Web界面通常在个人电脑、Pad上使用，在手机上也可以使用。
+        </p>
+        <p>
+            Web界面开发有很多方式。本指南选取基本的“三件套”方式，即 html + css + javascript。本指南适合于没有开发过 Web 界面的同学，将从零开始，一步步实现用于某某信息管理系统的 Web 界面。
+        </p>
+
+        <h2>初认Web页面/界面</h2>
+        <h3>Hello World -- html</h3>
+        <p>
+            按惯例，总是先写一个 Hello World! 程序，虽然 html 不是编程语言。
+        </p>
+
+
+        <pre><code class="language-html">
+&lt!DOCTYPE html&gt
+&lthtml&gt
+    &lthead&gt
+        &ltmeta charset="utf-8"&gt
+        &lttitle&gtPersonal Website of George Donne&lt/title&gt
+    &lt/head&gt
+    &ltbody&gt
+        &lth1&gtMy First Web Page&lt/h1&gt
+        &ltp&gtHello World!&lt/p&gt
+    &lt/body&gt
+&lt/html&gt        
+        </code></pre>
+
+
+        <h3>一个基本界面 -- html + css</h3>
+        <p>（待细化优化内容）</p>
+        <p>
+            对于某某信息管理系统，查询是使用很频繁的功能。仿照百度或Google首页，用html写一个基本界面。参考代码如下：
+        </p>
+        <em>（待补充参考代码）</em>
+        <p>
+            使用css调整和优化界面的显示，让界面看上去和百度/Google类似。参考代码如下：
+        </p>
+        <em>（待补充参考代码）</em>
+
+
+        <h3>显示查询得到信息的界面 -- html + css + javascript</h3>
+        <p>（待细化优化内容）</p>
+        <p>
+            比如根据学号查询学生信息。不同学生的信息都不同，比如姓名、性别、手机等。JavaScript是一门编程语言，初步实现设想是：
+        <ul>
+            <li>在界面上输入查询提交。比如要查询的学号。</li>
+        </ul>
+        </p>
+
+
+
+        <h2>试试数据库的增删改查CRUD</h2>
+
+
+        <h2>
+            附录--相关软件/软件包安装
+        </h2>
+        <h3>
+            编辑器--Visual Studio Code
+        </h3>
+        <p>
+            要编写程序（虽然 html 不是编程语言，只是标记语言）总需要一款适合自己的编辑器软件，比如能够高亮显示编程语言的保留字，比如可以排版 html 文件（就是全文按层级统一缩进4个空格之类的）。推荐安装 Visual
+            Studio Code 作为编辑器。其他编辑器也是可以的，只要适合自己就好。
+        </p>
+        <p>
+            <a href="https://code.visualstudio.com/Download">Visual Studio Code 官网下载地址</a>
+            说明：
+        <ul>
+            <li>安装过程不复杂，在此不赘述。</li>
+            <li>学院网络似乎不能访达该网址。可尝试切换其他网络，或从其他网站下载安装包。</li>
+        </ul>
+        </p>
+
+        <h3>JavaScript运行环境--Node.js</h3>
+        <p>
+            充当Web服务器。
+        </p>
+        <p>
+            <a href="https://nodejs.org/">Node.js 官网下载地址</a>
+            <br />
+            说明：
+        <ul>
+            <li>安装过程不复杂，在此不赘述。</li>
+            <li>安装完成后，可以尝试官网给出的 Create an HTTP Server 样例。</li>
+        </ul>
+        </p>
+
+        <h3>
+            其他软件包
+        </h3>
+        <p>
+            其他软件包基本都是基于 Node.js 的插件。将在构建Web界面过程中按需安装。
+        </p>
+    </main>
+
+</body>
+
 </html>

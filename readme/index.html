@@ -15,13 +15,16 @@
 
     <script>hljs.highlightAll();</script>
 
-    <link rel="stylesheet" href="jnstyle.css"> 
+    <link rel="stylesheet" href="jnstyle.css">
 
 </head>
 
 <body>
-    <main>
+    <header>
         <h1>某某管理系统Web界面开发指南</h1>
+    </header>
+
+    <main>
 
         <h2>前言</h2>
         <p>
@@ -41,8 +44,7 @@
         </p>
 
 
-        <pre><code class="language-html">
-&lt!DOCTYPE html&gt
+        <pre><code class="language-html">&lt!DOCTYPE html&gt
 &lthtml&gt
     &lthead&gt
         &ltmeta charset="utf-8"&gt
@@ -52,8 +54,7 @@
         &lth1&gtMy First Web Page&lt/h1&gt
         &ltp&gtHello World!&lt/p&gt
     &lt/body&gt
-&lt/html&gt        
-        </code></pre>
+&lt/html&gt</code></pre>
 
 
         <h3>一个基本界面 -- html + css</h3>
@@ -77,12 +78,90 @@
         </ul>
         </p>
 
+        <!---->
+        <h2>
+            Web界面架构设计和搭建
+        </h2>
+        <h3>界面交互流程设想</h3>
+        <ul>
+            <li>在浏览器地址栏输入网址并回车，浏览器显示网站首页，中间有个查询输入框，输入学号按查询按钮可以查询学生信息。</li>
+            <li>点击网站首页右上方导航栏中的新增，出现新增页面，输入相关信息后，点击提交按钮，可新增一个学生的相关信息。</li>
+            <li>更新、删除，也是类似。</li>
+        </ul>
+        感觉要写个web服务端程序，处理浏览器发来的增删改查等请求，并将处理结果一html网页形式返回给浏览器，浏览器显示给用户/管理员。只是写几个html页面，按一定逻辑顺序在这几个html页面之间调转，应无法实现某某信息管理系统的web界面。或者硬写业可能可以，但应该比较无趣。主要原因是部分html页面展示的内容不是固定的。
+
+        <h3>
+            <a href="#一些准备知识">
+                一些准备知识
+            </a>
+        </h3>
+        <p>有兴趣的同学可以快速浏览以下几篇文章，做到知晓就可以了。文章中的更多链接，可以今后再点击查看，先快速浏览文章本身内容。</p>
+        <ul>
+            <li>
+                <a
+                    href="https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/First_steps/Introduction">服务端编程介绍</a>
+            </li>
+            <li>
+                <a
+                    href="https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/First_steps/Client-Server_overview">客户端服务端交互概述</a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/First_steps/Web_frameworks">服务端
+                    web框架</a>
+            </li>
+        </ul>
+
+        <h3>
+            在Windows或macOS上安装 Node 和 NPM
+        </h3>
+
+        <p>
+            在 Windows 和 macOS 上安装 Node 和 NPM 非常简单明了，使用现成的安装包就行了：
+        </p>
+        <ul>
+            <li>下载安装包：</li>
+            <ul>
+                <li>访问 <a href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></li>
+                <li>左侧按钮上写着“推荐多数用户使用（LTS）”，点击下载。</li>
+            </ul>
+            <li>双击下载的安装包，按照提示即可安装。</li>
+        </ul>
+        <p>检查 Node 是否成功安装的最简单方法就是在终端（或命令行）中运行 "version" 命令，看是否返回版本号字符串。NPM 应该与 Node.js 一同成功安装，可以使用同样的方法来测试一下。以下是macOS
+            zsh为例：</p>
 
 
+        <pre><code class="language-sh">% node -v 
+v20.12.2
+% npm -v
+10.5.0</code></pre>
+
+        <h3>
+            创建Hello World网站
+        </h3>
+        <pre><code class="language-javascript">// 加载 HTTP 模块
+const http = require("http");
+const hostname = "127.0.0.1";
+const port = 3000;
+
+// 创建 HTTP 服务器
+const server = http.createServer((req, res) => {
+  // 用 HTTP 状态码和内容类型（Content-Type）设置 HTTP 响应头
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+
+  // 发送响应体
+  res.end("Hello World\n");
+});
+
+// 监听 3000 端口的请求，注册一个回调函数记录监听开始
+server.listen(port, hostname, () => {
+  console.log(`服务器运行于 http://${hostname}:${port}/`);
+});
+</code></pre>
         <h2>试试数据库的增删改查CRUD</h2>
 
 
-        <h2>
+        <h2 id="tosw">
             附录--相关软件/软件包安装
         </h2>
         <h3>
@@ -121,7 +200,15 @@
         <p>
             其他软件包基本都是基于 Node.js 的插件。将在构建Web界面过程中按需安装。
         </p>
+
+        <h2>
+            附录--参考资料
+        </h2>
     </main>
+
+    <footer>
+        &copy George Donne 2024-2025.
+    </footer>
 
 </body>
 

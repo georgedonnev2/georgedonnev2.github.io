@@ -1,0 +1,104 @@
+/**
+*** comment for css
+**/
+
+/*
+html {
+    font-size: 16px;
+    width: 80%;
+        margin: 0;
+    padding: 0;
+}
+*/
+
+body {
+
+    width: 80%;
+    margin: auto;
+
+    /* font-family is to be*/
+    font-family: Arial, Helvetica, "Microsoft YaHei", sans-serif, "宋体";
+
+    /*
+    margin-top: auto;
+    margin-right: 10%;
+    margin-bottom: auto;
+    margin-left: 10%;
+    */
+
+    /*text-indent: 2em;*/
+    /*text-align: left;*/
+    line-height: 2;
+    color: #333;
+
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0;
+}
+
+a {
+    color: #0563c1;
+    text-decoration: none;
+}
+
+:before {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-indent: 0;
+    text-align: center;
+}
+
+h2 {
+    text-indent: 0;
+    text-align: left;
+    color: #666;
+    font-size: 1.75rem;
+}
+
+h3, h3 a{
+    text-indent: 0;
+    text-align: left;
+    /*color: #9dc3e6;*/
+    color: #5b9bd5;
+    font-size: 1.25rem;
+}
+
+code {
+    font-size: 0.8rem;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    font-size: 0.8rem;
+  font-family: monospace, Arial, Helvetica, "Microsoft YaHei", sans-serif, "宋体";
+}
+
+
+
+
+header {
+    /*padding: 1rem;*/
+    color: #666;
+    background-color: #eee;
+}
+
+footer {
+    margin-top: auto;
+    padding: 1rem;
+
+    font-size: 0.75rem;
+    text-align: center;
+    color: #999;
+    background-color: #eee;
+
+}

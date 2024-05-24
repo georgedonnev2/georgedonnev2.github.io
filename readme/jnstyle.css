@@ -58,7 +58,7 @@ h1 {
     text-align: center;
 }
 
-h2 {
+h2, h2 a {
     text-indent: 0;
     text-align: left;
     color: #666;

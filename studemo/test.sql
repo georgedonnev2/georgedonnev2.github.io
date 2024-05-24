@@ -17,6 +17,11 @@ FROM score
 
 select score, (case when score>=90 then '优秀' when score>=80 then '良好' when score>=60 then '几个' else '其他' end) grade from score;
 
-select course, (case when score>=90 then '[90-100]' when score>=80 then '[80-90)' when score>=70 then '[70-80)'when score>=60 then '[60-70)' else '[0-60)' end) grade, count(*) from score group by course, grade order by grade;
+select course, (case when score>=90 then '[90-100]' when score>=80 then '[80-90)' when score>=70 then '[70-80)'when score>=60 then '[60-70)' else '[0-60)' end) grade, count(*) from score where course = '*' group by course, grade order by course, grade ;
+select course, (case when score>=90 then '[90-100]' when score>=80 then '[80-90)' when score>=70 then '[70-80)'when score>=60 then '[60-70)' else '[0-60)' end) grade, count(*) from score  group by course, grade order by course, grade ;
 
 select score, grade, count(*) from score group by (case when score<60 then '其他' when score>=60 then '及格' end) grade;
+
+
+
+select (case when score>=90 then "90及以上" when score>=80 then "[80-90)" when score>=70 then "[70-80)" when score>=60 then "[60-70)" else "[0-60)" end) grade, count(*) records from score  where course='编译原理' group by grade order by grade;

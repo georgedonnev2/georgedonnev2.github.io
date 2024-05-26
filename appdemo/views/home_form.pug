@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  header#homeheader 
+    h1= title
+  
+  nav 
+    ul 
+      li 
+        a(href="/") 首页
+      li 
+        a(href="/student/create") 新增
+      li 
+        a(href="/about") 关于
+    
+    //- form
+      input(type="search" name="q" placeholer="要搜索的内容")
+      input(type="submit" value="搜索")
+
+
+  main 
+    form#homeform(method='GET' action='/student/get')
+      //- label(for='jnuid') 学号1：
+      input#homekey(type='text' name='key' placeholder="输入4位数字学号" value=(undefined===student_list ? '' : student_list.jnuid))
+      input#homesubmit(type='submit' value='查询')
+ 
+    if errors
+      ul
+        for error in errors
+          li!= error.msg
+    
+    //- aside 
+      h2 相关链接
+      ul 
+        li 
+          a(href="#") 这是一个超链接
+
+  footer#homefooter 
+    p &copy George Donne 2024-2025.

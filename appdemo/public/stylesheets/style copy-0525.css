@@ -1,0 +1,188 @@
+/* 一般设置 */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+html {
+    font-size: 16px;
+    /* background-color: #a9a9a9;*/
+}
+
+body {
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    font-family: Arial, Helvetica, "Microsoft YaHei", sans-serif, "宋体";
+}
+
+/*
+  body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+*/
+
+/* 文字排版 */
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    /* color: white;
+    text-shadow: 2px 2px 10px black;*/
+}
+
+h2 {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+p,
+li {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+a {
+    color: #00B7FF;
+}
+
+/* 标题布局 */
+
+nav,
+article,
+aside,
+footer {
+    background-color: white;
+    padding: 1%;
+}
+
+nav {
+    height: 40px;
+    width: 50%;
+    background-color: #eee;
+    display: flex;
+    /*margin-bottom: 1rem;*/
+    margin-left: auto;
+
+}
+
+nav ul {
+    padding: 0;
+    list-style-type: none;
+    flex: 1;
+    display: flex;
+}
+
+nav li {
+    display: inline;
+    text-align: center;
+    flex: 1;
+}
+
+nav a {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    transition-duration: 200ms;
+}
+
+nav form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 2em;
+}
+
+nav a:hover {
+    color: #00B7FF;
+    text-shadow: 0 0 10px wheat;
+    transition-duration: 200ms;
+}
+
+nav input {
+    /*font-size: 1.6rem;*/
+    height: 20px;
+}
+
+nav input[type="search"] {
+    flex: 10;
+}
+
+nav input[type="submit"] {
+    flex: 1;
+    margin-left: 1rem;
+    background: #333;
+    border: 0;
+    color: white;
+}
+
+form#homeform {
+
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex: 6;
+}
+
+input#homejnuid {
+
+    height: 40px;
+    width: 50%;
+    flex: 8;
+
+}
+
+input#homesubmit {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    flex: 2;
+
+}
+
+/* 主体布局 */
+
+main {
+    display: flex;
+    min-height: 100%;
+}
+
+/*article {
+    flex: 1;
+}
+*/
+aside {
+    flex: 1;
+    margin-left: 10px;
+    background-color: #eee;
+}
+
+aside li {
+    padding-bottom: 10px;
+}
+
+footer {
+    /*position: absolute;
+    bottom: 0;*/
+    /*margin-top: auto;*/
+    /*padding: 1rem;*/
+    /*width: 100%;
+    margin: auto;*/
+
+    text-align: center;
+    color: #999;
+    background-color: #eee;
+}
+
+footer p {
+    font-size: 0.75rem;
+}

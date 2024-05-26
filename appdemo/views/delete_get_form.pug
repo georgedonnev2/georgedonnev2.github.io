@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+
+  ul
+  each val in student_inf
+    li id: #{val.jnuid}
+    li name: #{val.name}
+    li gender: #{val.gender}
+    li birthday: #{val.birthday}
+    li cellphone: #{val.cellphone}
+    hr
+  else 
+    li 没有查询到！
+
+  form(method='post' action='')
+    //- label(for='jnuid') 学号1：
+    //- input#jnuid(type='text',  name='jnuid' value=(undefined===student_list ? '' : student_list.jnuid))
+    input(type='submit' value='是的，删除')
+  form(method='get' action='/')
+    input(type='submit' value='取消，返回首页')
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

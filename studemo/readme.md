@@ -325,4 +325,5 @@ Your database is now in sync with your schema.
 240511：Nodejs 第四十章（prisma）;https://blog.csdn.net/qq1195566313/article/details/136272415
 // DEBUG=studemo:* npm run devstart
 // DEBUG=studemo:* npm start
+240524: node.js小项目 -- 学生信息管理系统；https://www.cnblogs.com/yyrecord/p/13454927.html
 -->

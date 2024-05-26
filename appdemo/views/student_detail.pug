@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  
+
+  ul
+  each val in student_inf
+    li id: #{val.jnuid}
+    li name: #{val.name}
+    li gender: #{val.gender}
+    li birthday: #{val.birthday}
+    li cellphone: #{val.cellphone}
+    hr
+  else 
+    li 没有查询到！
+
+  hr
+  p
+    a(href='/student/delete/' + student_inf[0].jnuid) 删除
+    
+  p
+    a(href='/student/update/' + student_inf[0].jnuid) 更新
+  p 
+    a(href="/") 返回首页

@@ -350,7 +350,7 @@ GET /stylesheets/style.css 200 5.110 ms - 111
 GET /favicon.ico 404 14.436 ms - 1202</code></pre>
 
             <p>打开浏览器并访问 <a href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a> 将看到 Express 的默认欢迎页面。</p>
-            <img src="img/express-welcome.png" width="40%" />
+            <img src="img/express-welcome.png" width="30%" />
 
         </section>
 
@@ -414,6 +414,213 @@ Run `npm audit` for details. </code></pre>
 [nodemon] starting `node ./bin/www`
   appdemo:server Listening on port 3000 +0ms</code></pre>
         </section>
+
+        <!--进一步细化确定Web页面交互流程-->
+        <section>
+            <h3 id="进一步细化确定Web页面交互流程">
+                <a href="#进一步细化确定Web页面交互流程">进一步细化确定Web页面交互流程</a>
+            </h3>
+
+            <p><strong><ins>查询信息</ins></strong>的主要交互流程：</p>
+            <ol>
+                <li>在浏览器输入 <a href="http://localhost:3000">http://localhost:3000</a>。</li>
+                <li>Web服务器收到请求后，返回某某信息管理系统的主页面。页面中有输入框，可以输入学号查询学生信息。</li>
+                <li>用户在输入框输入学号，点击查询按钮，发送 HTTP-GET 请求，URL是 http://localhost:3000/student/get?jnuid=1234。其中 jnuid=1234
+                    表示要查询学号是 1234 的同学的详细信息。 </li>
+                <li>Web后台服务器收到请求后，查询数据库，得到学号 1234 同学的详细信息，并将信息以 Web页面方式返回浏览器，展示给用户。</li>
+            </ol>
+            <p>关于学生的详细信息的Web页面，主要内容有：</p>
+            <ul>
+                <li>学号、性别、姓名、电话，等等。以及相关课程的成绩。</li>
+                <li>详细信息Web页面底部，有 Delete 链接。点击后，可从数据库中删除该学生的记录。</li>
+                <li>详细信息Web页面底部，有 Update 链接。点击后，可更新该学生在数据库中的信息。</li>
+            </ul>
+            <hr />
+            <p><strong><ins>新增学生</ins></strong>的主要交互流程：</p>
+            <ol>
+                <li>点击主页面导航栏的<ins>新增</ins>选项，向Web服务器发送 HTTP-GET请求，URL是 http://localhost:3000/student/create。</li>
+                <li>Web服务器收到请求后，返回新增信息的Web页面。用户输入相关信息后点击页面上的提交按钮，向Web服务器发送 HTTP-POST 请求，URL还是
+                    http://localhost:3000/student/create。</li>
+                <li>Web后台服务器收到POST请求后，将相关信息写入数据库，并返回学生详细信息（刚刚写入数据库的那个学生）页面给浏览器。</li>
+            </ol>
+
+            <p>关于新增学生的Web页面，主要内容有：</p>
+            <ul>
+                <li>有若干输入框，供输入学号、性别、姓名、电话，等等。</li>
+                <li>Web页面上有提交按钮。</li>
+            </ul>
+            <hr />
+            <p><strong><ins>删除学生</ins></strong>的主要交互流程：</p>
+            <ol>
+                <li>简化起见，仅提供从查询得到的学生详情页面底部的删除链接，进行删除操作。点击学生详情页面底部的删除链接，向Web服务器发送 HTTP-POST请求，删除该学号的学生信息，URL是
+                    http://localhost:3000/student/delete。</li>
+                <li>Web后台服务器收到POST请求后，从数据库中删除该学号的学生信息。操作完成后，返回删除成功等信息给浏览器。</li>
+            </ol>
+            <hr />
+            <p><strong><ins>更新学生</ins></strong>的主要交互流程：</p>
+            <ol>
+                <li>简化起见，仅提供从查询得到的学生详情页面底部的更新链接，进行更新操作。点击学生详情页面底部的更新链接，向Web服务器发送 HTTP-GET请求，要求更新该学号的学生信息，URL是
+                    http://localhost:3000/student/update。</li>
+                <li>Web服务器收到请求后，返回类似新增信息的Web页面，只是相关输入框已填充了该学号的学生的现有信息。用户更改相关信息后点击页面上的提交按钮，向Web服务器发送 HTTP-POST 请求，URL还是
+                    http://localhost:3000/student/update。</li>
+                <li>Web后台服务器收到POST请求后，将相关信息写入数据库，并返回学生详细信息（刚刚更新写入数据库的那个学生）页面给浏览器。</li>
+            </ol>
+        </section>
+
+        <!--Web服务框架简介--路由-->
+        <section>
+            <h3 id="Web服务框架简介_路由">
+                <a href="#Web服务框架简介_路由">Web服务框架简介--路由</a>
+            </h3>
+            <p>先了解下Web服务框架的内容，以便做相应修改完善。只简介要修改的部分。</p>
+            <p>以下是目录 appdemo 中相关文件：</p>
+            <pre><code class="lang-sh">app.js
+./bin
+./node_modules
+package-lock.json
+package.json
+./public
+./routes
+    index.js
+    users.js
+./views
+    error.pug
+    index.pug
+    layout.pug
+
+# 以下是前面测试使用的2个文件，最终Web服务器框架中不会使用到
+helloworld-express.js
+helloworld.js</code></pre>
+            <p>路由就是定义不同的URL该如何处理。在框架中是由 app.js 中路由相关代码，和 routes 目录中 js 文件共同定义的。</p>
+            <p>以下是 app.js 中和路由相关的代码片段：</p>
+            <pre><code class="lang-javascript">var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
+// some other codes...
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);</code></pre>
+
+            <p>以下是 ./routes/users.js 的代码。其中 / 路由是框架中现有的，/cool 路由是新增的，为了便于理解路由是怎么工作的。<br />
+                路由文档 /routes/users.js 如下所示。首先加载 express 模块 并获取 express.Router 对象（命名为router）。然后为 router 指定路由，最后导出
+                router（就可以导入 app.js 了）。<br />
+                该路由定义了一个回调，在检测到正确模式的 HTTP GET 请求时将调用该回调。正确模式即导入模块时指定的路由（'/users'）加该模块（'/'）中定义的任何内容。换句话说，在收到 /users/ URL
+                时使用此路由。</p>
+            <pre><code class="lang-javascript">var express = require('express');
+var router = express.Router();
+
+/* GET users listing. */
+router.get('/', function (req, res, next) {
+    res.send('respond with a resource');
+});
+
+// GET users/cool.
+router.get('/cool', function (req, rsp, next) {
+    rsp.send("I'm George, I'm cool!");
+});
+
+module.exports = router;</code></pre>
+
+            <p>以下是 ./routes/index.js 中和路由相关的代码片段。其中 / 路由是框架中现有的，/about 路由是新增的，为了便于理解路由是怎么工作的。</p>
+            <pre><code class="lang-javascript">/* GET home page. */
+router.get('/', function (req, res, next) {
+    res.render('index', { title: 'Express' });
+});
+
+// GET about page. 
+router.get('/about', function (req, rsp, next) {
+    rsp.send('This is about page.');
+});</code></pre>
+
+            <p>可以对路由做相关测试，以便加深了解。在浏览器中输入不同的 URL，将得到不同的结果，如下：</p>
+            <ul>
+                <li>输入 <a href="http://localhost:3000/">http://localhost:3000/</a>，得到结果：Express Welcome to
+                    Express。res.render('index', { title: 'Express' }) 使用到了页面模版，由第一个参数指定模版是 ./views/index.pug。将在下个章节做简介。
+                </li>
+                <li>输入 <a href="http://localhost:3000/about">http://localhost:3000/about</a>，得到结果：This is about page.
+                </li>
+                <li>输入 <a href="http://localhost:3000/users">http://localhost:3000/users</a>，得到结果：respond with a
+                    resource</li>
+                <li>输入 <a href="http://localhost:3000/users/cool">http://localhost:3000/users/cool</a>，得到结果：I'm George,
+                    I'm cool!
+                </li>
+            </ul>
+        </section>
+
+        <!--修改为真实的路由-->
+        <section>
+            <h3 id="修改为真实的路由">
+                <a href="#修改为真实的路由">修改为真实的路由</a>
+            </h3>
+
+            <p>定义路由之前应先使用单独的“控制器”模块创建回调的结构骨架。（文件/模块结构没有限制，但以下结构很适合当前项目的规模）。</p>
+            <p>说明：采用 MVC（Models + Views + Controllers）方式实现，代码结构比较清晰，也相对容易扩展。由于时间关系对 Models 理解不深，因而此处的 Controllers 实际上是
+                Controllers + Models 混在一起了。Views 就是对应页面模版。</p>
+            <p>新建目录 controllers，并在 controllers 目录下新建 studentController.js，定义路由的回调函数（即具体做的事情）。内容如下：</p>
+            <p>在 routes 目录下新建 student.js，创建 student 相关的完整路由。内容如下：</p>
+            <pre><code class="lang-javascript">const express = require("express");
+const router = express.Router();
+
+// 导入控制器模块
+const student_controller = require("../controllers/studentController");
+
+// GET 主页面
+router.get("/", student_controller.index);
+
+// GET 获取学生信息
+router.get("/get", student_controller.student_get);
+
+// 新增学生信息，先 GET 请求后获得填写信息的页面。信息填写好后按提交按钮，发送 POST 请求。
+router.get("/create", student_controller.student_create_get);
+router.post("/create", student_controller.student_create_post);
+
+// 删除学生信息，先 GET 请求后获得学生信息。按提交按钮，发送 POST 请求删除。
+router.get("/delete/:id", student_controller.student_delete_get);
+router.post("/delete/:id", student_controller.student_delete_post);
+
+// 更新学生信息，先 GET 请求后获得填写信息的页面。信息填写好后按提交按钮，发送 POST 请求。
+router.get("/update/:id", student_controller.student_update_get);
+router.post("/update/:id", student_controller.student_update_post);
+
+module.exports = router;</code></pre>
+
+            <p>在 app.js 增加如下 2 行 studentRouter 相关的，让 student.js 定义的路由起作用。</p>
+            <pre><code class="lang-javascript">var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var studentRouter = require('./routes/student'); // routes for student related request
+       
+// some other codes...
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/student', studentRouter); // realted url will be ip+port followed by /student. e.g. http://localhost:3000/student, http://localhost:3000/student/get, etc.</code></pre>
+
+
+            <p>index.js 也微调如下。当输入 URL 为 localhost:3000 或 localhost:3000/index.html，会当做 localhost:3000/student
+                处理的。即被重定向（redirect）到 /student。</p>
+            <pre><code class="lang-javascript">/* GET home page. */
+router.get('/', function (req, res, next) {
+    //res.render('index', { title: 'Express' });
+    res.redirect("/student"); // redirect to ip+port/student if get request by ip+port.
+});
+    
+router.get('/index.html', function (req, res, next) {
+    res.redirect("/student"); // redirect to ip+port/student if get request by ip+port/index.html.
+});</code></pre>
+<p>至此，真实路由已定义好了。小结如下：<br/><em>（ip和端口号，以 localhost:3000为例）</em></p>
+<ul>
+    <li><a href="http://localhost:3000/student">http://localhost:3000/student</a>，发送 GET 请求，获取主页面。</li>
+    <li><a href="http://localhost:3000/student/get">http://localhost:3000/student/get</a>，发送 GET 请求，查询学生信息。</li>
+    <li><a href="http://localhost:3000/student/create">http://localhost:3000/student/create</a>，发送 GET 请求，新建学生信息。Web服务器收到请求后将返回页面用于填写信息。</li>
+    <li><a href="http://localhost:3000/student/create">http://localhost:3000/student/create</a>，发送 POST 请求，新建学生信息。Web服务器收取请求后将把新增学生的信息写入数据库。</li>
+    <li><a href="http://localhost:3000/student/delete/1234">http://localhost:3000/student/delete/1234</a>，发送 GET 请求，删除学生信息。Web服务器收到请求后，将返回页面要求确认是否删除。/delete/:id 是指在 URL 中delete后面跟随学号，此处以学号 1234 为例。下同。</li>
+    <li><a href="http://localhost:3000/student/delete/1234">http://localhost:3000/student/delete/1234</a>，发送 POST 请求，删除学生信息。Web服务器收到请求后，将会从数据库中删除学生的信息。</li>
+    <li><a href="http://localhost:3000/student/update/1234">http://localhost:3000/student/update/1234</a>，发送 GET 请求，更新学生信息。Web服务器收到请求后，将返回页面用于编辑学生信息。/update/:id 是指在 URL 中 update 后面跟随学号，此处以学号 1234 为例。下同。</li>
+    <li><a href="http://localhost:3000/student/update/1234">http://localhost:3000/student/update/1234</a>，发送 POST 请求，更新学生信息。Web服务器收到请求后，将把更新的学生信息写入数据库。</li>
+</ul>
+        </section>
+
+
 
         <h2>试试数据库的增删改查CRUD</h2>
 

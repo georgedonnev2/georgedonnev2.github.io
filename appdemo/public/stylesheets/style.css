@@ -1,0 +1,45 @@
+/* 一般设置 */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    color: #333;
+    font-size: 16px;
+
+}
+
+body {
+    width: 90%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, "Microsoft YaHei", sans-serif, "宋体";
+}
+
+/* 文字排版 */
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+p,
+li {
+    line-height: 1.5;
+}
+
+/* 主页面体布局 */
+input#homekey {
+    width: 90%;
+}
+
+header#homeheader,
+footer#homefooter {
+    text-align: center;
+    color: #999;
+    background-color: #eee;
+}

@@ -27,12 +27,14 @@
         src=" https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
     <header>
-        <h1>某某管理系统Web界面开发指南</h1>
+        <h1>用于某某信息管理系统的 Web 界面开发指南</h1>
     </header>
 
     <main>
 
-        <h2>前言</h2>
+        <h2 id="前言">
+            <a href="#前言">前言</a>
+        </h2>
         <p>
             学生信息管理系统/图书馆信息管理系统/……等信息管理系统，是被广泛使用的、和数据库技术结合的信息管理系统。一个信息管理系统，需要有人机交互界面，供用户、系统管理员等使用，实现和提供信息的增删改查等核心能力和功能。人机交互界面有很多种形式，以及很多种技术实现方式。在当今互联网高速发展时代，在人们日常生活中出现较多的人机交互界面有手机App界面、微信等小程序界面、个人电脑/Pad等Web界面，等。
         </p>
@@ -43,8 +45,12 @@
             Web界面开发有很多方式。本指南选取基本的“三件套”方式，即 html + css + javascript。本指南适合于没有开发过 Web 界面的同学，将从零开始，一步步实现用于某某信息管理系统的 Web 界面。
         </p>
 
-        <h2>初认Web页面/界面</h2>
-        <h3>Hello World -- html</h3>
+        <h2 id="初识Web页面_界面">
+            <a href="#初识Web页面_界面">初识Web页面/界面</a>
+        </h2>
+        <h3>
+            Hello World -- html
+        </h3>
         <p>
             按惯例，总是先写一个 Hello World! 程序，虽然 html 不是编程语言。
         </p>
@@ -553,10 +559,7 @@ router.get('/about', function (req, rsp, next) {
                 <a href="#修改为真实的路由">修改为真实的路由</a>
             </h3>
 
-            <p>定义路由之前应先使用单独的“控制器”模块创建回调的结构骨架。（文件/模块结构没有限制，但以下结构很适合当前项目的规模）。</p>
-            <p>说明：采用 MVC（Models + Views + Controllers）方式实现，代码结构比较清晰，也相对容易扩展。由于时间关系对 Models 理解不深，因而此处的 Controllers 实际上是
-                Controllers + Models 混在一起了。Views 就是对应页面模版。</p>
-            <p>新建目录 controllers，并在 controllers 目录下新建 studentController.js，定义路由的回调函数（即具体做的事情）。内容如下：</p>
+
             <p>在 routes 目录下新建 student.js，创建 student 相关的完整路由。内容如下：</p>
             <pre><code class="lang-javascript">const express = require("express");
 const router = express.Router();
@@ -607,21 +610,402 @@ router.get('/', function (req, res, next) {
 router.get('/index.html', function (req, res, next) {
     res.redirect("/student"); // redirect to ip+port/student if get request by ip+port/index.html.
 });</code></pre>
-<p>至此，真实路由已定义好了。小结如下：<br/><em>（ip和端口号，以 localhost:3000为例）</em></p>
-<ul>
-    <li><a href="http://localhost:3000/student">http://localhost:3000/student</a>，发送 GET 请求，获取主页面。</li>
-    <li><a href="http://localhost:3000/student/get">http://localhost:3000/student/get</a>，发送 GET 请求，查询学生信息。</li>
-    <li><a href="http://localhost:3000/student/create">http://localhost:3000/student/create</a>，发送 GET 请求，新建学生信息。Web服务器收到请求后将返回页面用于填写信息。</li>
-    <li><a href="http://localhost:3000/student/create">http://localhost:3000/student/create</a>，发送 POST 请求，新建学生信息。Web服务器收取请求后将把新增学生的信息写入数据库。</li>
-    <li><a href="http://localhost:3000/student/delete/1234">http://localhost:3000/student/delete/1234</a>，发送 GET 请求，删除学生信息。Web服务器收到请求后，将返回页面要求确认是否删除。/delete/:id 是指在 URL 中delete后面跟随学号，此处以学号 1234 为例。下同。</li>
-    <li><a href="http://localhost:3000/student/delete/1234">http://localhost:3000/student/delete/1234</a>，发送 POST 请求，删除学生信息。Web服务器收到请求后，将会从数据库中删除学生的信息。</li>
-    <li><a href="http://localhost:3000/student/update/1234">http://localhost:3000/student/update/1234</a>，发送 GET 请求，更新学生信息。Web服务器收到请求后，将返回页面用于编辑学生信息。/update/:id 是指在 URL 中 update 后面跟随学号，此处以学号 1234 为例。下同。</li>
-    <li><a href="http://localhost:3000/student/update/1234">http://localhost:3000/student/update/1234</a>，发送 POST 请求，更新学生信息。Web服务器收到请求后，将把更新的学生信息写入数据库。</li>
-</ul>
+            <p>至此，真实路由已定义好了。小结如下：<br /><em>（ip和端口号，以 localhost:3000为例）</em></p>
+            <ul>
+                <li><a href="http://localhost:3000/student">http://localhost:3000/student</a>，发送 GET 请求，获取主页面。</li>
+                <li><a href="http://localhost:3000/student/get">http://localhost:3000/student/get</a>，发送 GET 请求，查询学生信息。
+                </li>
+                <li><a href="http://localhost:3000/student/create">http://localhost:3000/student/create</a>，发送 GET
+                    请求，新建学生信息。Web服务器收到请求后将返回页面用于填写信息。</li>
+                <li><a href="http://localhost:3000/student/create">http://localhost:3000/student/create</a>，发送 POST
+                    请求，新建学生信息。Web服务器收取请求后将把新增学生的信息写入数据库。</li>
+                <li><a href="http://localhost:3000/student/delete/1234">http://localhost:3000/student/delete/1234</a>，发送
+                    GET 请求，删除学生信息。Web服务器收到请求后，将返回页面要求确认是否删除。/delete/:id 是指在 URL 中delete后面跟随学号，此处以学号 1234 为例。下同。</li>
+                <li><a href="http://localhost:3000/student/delete/1234">http://localhost:3000/student/delete/1234</a>，发送
+                    POST 请求，删除学生信息。Web服务器收到请求后，将会从数据库中删除学生的信息。</li>
+                <li><a href="http://localhost:3000/student/update/1234">http://localhost:3000/student/update/1234</a>，发送
+                    GET 请求，更新学生信息。Web服务器收到请求后，将返回页面用于编辑学生信息。/update/:id 是指在 URL 中 update 后面跟随学号，此处以学号 1234 为例。下同。</li>
+                <li><a href="http://localhost:3000/student/update/1234">http://localhost:3000/student/update/1234</a>，发送
+                    POST 请求，更新学生信息。Web服务器收到请求后，将把更新的学生信息写入数据库。</li>
+                <br />
+                <li><a href="http://localhost:3000">http://localhost:3000</a>，发送 GET 请求，将被当做
+                    http://localhost:3000/student处理，即被重定向到 /student。</li>
+                <li><a href="http://localhost:3000/index.html">http://localhost:3000/index.html</a>，发送 GET 请求，将被当做
+                    http://localhost:3000/student处理，即被重定向到 /student。</li>
+
+            </ul>
         </section>
 
+        <!-- 编写Web后台服务器处理函数 -->
+        <section>
+            <h3 id="编写Web后台服务器处理函数">
+                <a href="#编写Web后台服务器处理函数">编写Web后台服务器处理函数</a>
+            </h3>
+
+            <p>新建目录 controllers，并在 controllers 目录下新建 studentController.js，定义路由的回调函数（即具体做的事情）。内容如下：</p>
+            <p>说明：拟采用 MVC（Models + Views + Controllers）方式实现，代码结构比较清晰，也相对容易扩展。由于时间关系对 Models 理解不深，因而此处的 Controllers 实际上是
+                Controllers + Models 混在一起了。Views 就是对应页面模版。</p>
+            <pre><code class="lang-javascript">/// Home Page
+/**
+ * 1. to respond GET request by URL: localhost:3000 or localhost:3000/index.html or localhost:3000/student. localhost:3000 is an example of ip:port.
+ * 2. to return HOME page (rendered with home.pug) to browser. 
+ */
+exports.index = async function (req, rsp, next) {
+    try {
+        rsp.render(
+            'home',
+            {
+                title: '学生宝--学生信息管理信息',
+            }
+        );
+    } catch (e) {
+        console.error(e);
+        rsp.send(e);
+    }
+};
+
+/// Get student information
+/**
+ * 1. to respond GET request by URL: localhost:3000/student/get.
+ * 2. to return student detail page (rendered with student_detail.pug) to browser. 
+ */
+exports.student_get = async function (req, rsp, next) {
+    try {
+
+        const studentInf = [
+            { "jnuid": 1234, "name": "George", "gender": "男" },
+        ]
+
+        rsp.render(
+            'student_detail',
+            {
+                title: '学生详情',
+                student_inf: studentInf,
+            }
+        );
+    } catch (e) {
+        console.error(e);
+        // await prisma.$disconnect();
+        rsp.send(e);
+    }
+};
+
+/// Create new student
+/**
+ * 1. to respond GET request by URL: localhost:3000/student/create.
+ * 2. to return input page (rendered with create.pug) to browser. 
+ */
+exports.student_create_get = async function (req, rsp, next) {
+    try {
+        rsp.render(
+            'create',
+            {
+                title: '新增学生',
+            }
+        );
+
+    } catch (e) {
+        console.error(e);
+        rsp.send(e);
+    }
+};
+
+/// Create new student
+/**
+ * 1. to respond POST request by URL: localhost:3000/student/create.
+ * 2. to return student detail page to browser if operation is done. 
+ */
+exports.student_create_post = async function (req, rsp, next) {
+    try {
+        // insert student information into database.
+
+        rsp.redirect("/student/get?jnuid=" + req.body.jnuid);
+    
+    } catch (e) {
+        console.error(e);
+        rsp.send(e);
+    }
+};
+
+/// Delete a student
+/**
+ * 1. to respond GET request by URL: localhost:3000/student/delete/:id. e.g., delete/1234.
+ * 2. to return confirm page (rendered with delete_get.pug) to browser. 
+ */
+exports.student_delete_get = async function (req, rsp, next) {
+    try {
+        const studentInf = [
+            { "jnuid": 1235, "name": "Alice", "gender": "女" },
+        ]
+
+        rsp.render(
+            'delete_get',
+            {
+                title: '学生详情--即将删除',
+                student_inf: studentInf,
+            }
+        );
+
+    } catch (e) {
+        console.error(e);
+        rsp.send(e);
+    }
+};
+
+/// Delete a student
+/**
+ * 1. to respond POST request by URL: localhost:3000/student/delete/:id. e.g., delete/1234.
+ * 2. to return notification page (rendered with delete_post.pug) to browser. 
+ */
+exports.student_delete_post = async function (req, rsp, next) {
+    try {
+
+        // operation to added to delete student information from database.
+
+        rsp.render(
+            'delete_post',
+            {
+                title: '学生信息已删除',
+                stuid: req.params.id,
+            }
+        );
+    } catch (e) {
+        console.error(e);
+        rsp.send(e);
+    }
+};
+
+/// Update a student
+/**
+ * 1. to respond GET request by URL: localhost:3000/student/update/:id. e.g., update/1234.
+ * 2. to return update information page (rendered with update.pug) to browser. 
+ */
+exports.student_update_get = async function (req, rsp, next) {
+    try {
+
+        const studentInf = [
+            { "jnuid": 1234, "name": "George", "gender": "女", "birthday": "1981-11-12", "cellphone": 13951033222 },
+        ]
+
+        rsp.render(
+            'update',
+            {
+                title: '更新学生',
+                student_inf: studentInf,
+            }
+        );
+
+    } catch (e) {
+        console.error(e);
+        // await prisma.$disconnect();
+        rsp.send(e);
+    }
+};
+
+/// Update a student
+/**
+ * 1. to respond POST request by URL: localhost:3000/student/update/:id. e.g., update/1234.
+ * 2. to return student detail page to browser if operation is done. 
+ */
+exports.student_update_post = async function (req, rsp, next) {
+    try {
+        rsp.redirect("/student/get?jnuid=" + req.body.jnuid);
+    } catch (e) {
+        console.error(e);
+        rsp.send(e);
+    }
+};</pre></code>
+
+            <p>相关的 web页面/html页面的模版如下。</p>
+            <p><strong>home.pug：</strong>在函数 index 中被使用。</p>
+            <pre><code class="lang-pug">extends layout
+block content
+  header#homeheader 
+    h1= title
+  
+  nav 
+    ul 
+      li 
+        a(href="/") 首页
+      li 
+        a(href="/student/create") 新增
+      li 
+        a(href="/about") 关于
+
+  main 
+    form#homeform(method='GET' action='/student/get')
+      input#homekey(type='text' name='key' placeholder="输入4位数字学号")
+      input#homesubmit(type='submit' value='查询')
+ 
+    if errors
+      ul
+        for error in errors
+          li!= error.msg
+
+  footer#homefooter 
+    p &ampcopy George Donne 2024-2025.</code></pre>
+
+            <p><strong>student_detail.pug：</strong>在 student_get 函数中使用。</p>
+            <pre><code class="lang-pug">extends layout
+block content
+  h1= title
+  
+  ul
+  each val in student_inf
+    li id: #{val.jnuid}
+    li name: #{val.name}
+    li gender: #{val.gender}
+    li birthday: #{val.birthday}
+    li cellphone: #{val.cellphone}
+    hr
+  else 
+    li 没有查询到！
+
+  hr
+  p
+    a(href='/student/delete/' + student_inf[0].jnuid) 删除
+    
+  p
+    a(href='/student/update/' + student_inf[0].jnuid) 更新
+  p 
+    a(href="/") 返回首页</code></pre>
+
+            <p><strong>create.pug：</strong>在 student_create_get 函数中使用。</p>
+            <pre><code class="lang-pug">extends layout
+block content
+  h1= title
+
+  form(method='post' action='')
+    
+    label(for='jnuid') 学号：
+    input#jnuid(type='number' name='jnuid' min="1000" max="9999" placeholder='输入4位数字' )
+    br
+
+    label(for='name') 姓名：
+    input#name(type='text' name='name' placeholder='输入姓名' )
+    br
+
+    label(for='gender') 性别：
+      input#gender(type='radio' name='gender'  value='女') 
+      label 女
+      input#gender(type='radio'  name='gender'  value='男') 
+      label 男
+    br
+
+    label(for='birthday') 生日：
+    input#birthday(type='date', name='birthday' )
+    br
+
+    label(for='cellphone') 手机：
+    input#cellphone(type='tel', name='cellphone' )
+    br
+
+    input(type='submit' value='新增')
+    
+  form(method='get' action='/')
+    input(type='submit' value='取消，返回首页')
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg</pre></code>
+
+            <p><strong>update.pug：</strong>在 student_update_get 函数中使用。</p>
+            <pre><code class="lang-pug">extends layout
+block content
+  h1= title
+
+  form(method='post' action='')
+    
+    label(for='jnuid') 学号：
+    input#jnuid(type='number' name='jnuid' min="1000" max="9999" placeholder='输入4位数字' value=student_inf[0].jnuid)
+    br
+
+    label(for='name') 姓名：
+    input#name(type='text' name='name' placeholder='输入姓名' value=student_inf[0].name)
+    br
+
+    label(for='gender') 性别：
+    if student_inf[0].gender == '女'
+      input#gender(type='radio' name='gender' value='女' checked) 
+      label 女
+      input#gender(type='radio' name='gender' value='男') 
+      label 男
+    else if student_inf[0].gender == '男'
+      input#gender(type='radio' name='gender' value='女' ) 
+      label 女
+      input#gender(type='radio' name='gender' value='男' checked) 
+      label 男
+    br
+
+    label(for='birthday') 生日：
+    input#birthday(type='date', name='birthday' value=student_inf[0].birthday)
+    br
+
+    label(for='cellphone') 手机：
+    input#cellphone(type='tel', name='cellphone' value=student_inf[0].cellphone)
+    br
+
+    input(type='submit' value='更新')
+    
+  form(method='get' action='/')
+    input(type='submit' value='取消，返回首页')
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg</code></pre>
+
+            <p><strong>查询学生信息</strong>的相关界面：</p>
+            <ul>
+                <li>访问<a href="http://localhost:3000">http://localhost:3000</a>，得到某某信息管理系统主页面/主界面，如下左图所示。</li>
+                <li>在主页面上输入要查询的学号，比如1234，再点击查询按钮，得到学生详情页面，如下右图所示。可以看到URL是 http://localhost:3000/student/get?key=1234。
+                </li>
+            </ul>
+
+            <section class="imgblock">
+                <img src="img/nodb-home.png" />
+                <img src="img/nodb-student-detail.png" />
+            </section>
+
+            <p><strong>新增学生信息</strong>的相关界面：</p>
+            <ul>
+                <li>点击主页面/主界面的导航栏的新增，相当于访问<a
+                        href="http://localhost:3000/student/create">http://localhost:3000/student/create</a>，web后台返回输入学生信息的界面，如下左图所示。
+                </li>
+                <li>在输入学生信息的界面上输入相关信息，再点击新增按钮，得到学生详情页面，如下右图所示。可以看到URL是
+                    http://localhost:3000/student/get?key=3333，其中3333就是刚新增的学生的学号。</li>
+            </ul>
+
+            <section class="imgblock">
+                <img src="img/nodb-create.png" />
+                <img src="img/nodb-create-post.png" />
+            </section>
+
+            <p><strong>删除学生信息</strong>的相关界面：</p>
 
 
+            <section class="imgblock">
+                <img src="img/nodb-delete-get.png" />
+                <img src="img/nodb-delete-post.png" />
+            </section>
+
+            <p><strong>更新学生信息</strong>的相关界面：</p>
+
+
+            <section class="imgblock">
+                <img src="img/nodb-update-get.png" />
+                <img src="img/nodb-update-input.png" />
+                <img src="img/nodb-update-post.png" />
+            </section>
+        </section>
+
+        <p>
+            结合代码、模版（html页面的模版，.pug文件）、界面截图，尝试理解处理机制，并修改为更适合自己的代码或模版。
+        </p>
+        <p>
+            接下来章节描述如何加入数据库操作。
+        </p>
         <h2>试试数据库的增删改查CRUD</h2>
 
 

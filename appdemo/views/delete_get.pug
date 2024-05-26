@@ -5,18 +5,16 @@ block content
 
   ul
   each val in student_inf
-    li id: #{val.jnuid}
-    li name: #{val.name}
-    li gender: #{val.gender}
-    li birthday: #{val.birthday}
-    li cellphone: #{val.cellphone}
+    li 学号： #{val.jnuid}
+    li 姓名: #{val.name}
+    li 性别: #{val.gender}
+    li 出生年月: #{val.birthday}
+    li 手机: #{val.cellphone}
     hr
   else 
     li 没有查询到！
 
   form(method='post' action='')
-    //- label(for='jnuid') 学号1：
-    //- input#jnuid(type='text',  name='jnuid' value=(undefined===student_list ? '' : student_list.jnuid))
     input(type='submit' value='是的，删除')
   form(method='get' action='/')
     input(type='submit' value='取消，返回首页')

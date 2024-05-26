@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  h1= title
+
+
+
+  form(method='post' action='')
+    
+    label(for='jnuid') 学号：
+    input#jnuid(type='number' name='jnuid' min="1000" max="9999" placeholder='输入4位数字' value=student_inf[0].jnuid)
+    br
+
+    label(for='name') 姓名：
+    input#name(type='text' name='name' placeholder='输入姓名' value=student_inf[0].name)
+    br
+
+    label(for='gender') 性别：
+    if student_inf[0].gender == '女'
+      input#gender(type='radio' name='gender' value='女' checked) 
+      label 女
+      input#gender(type='radio' name='gender' value='男') 
+      label 男
+    else if student_inf[0].gender == '男'
+      input#gender(type='radio' name='gender' value='女' ) 
+      label 女
+      input#gender(type='radio' name='gender' value='男' checked) 
+      label 男
+    br
+
+    label(for='birthday') 生日：
+    input#birthday(type='date', name='birthday' value=student_inf[0].birthday)
+    br
+
+    label(for='cellphone') 手机：
+    input#cellphone(type='tel', name='cellphone' value=student_inf[0].cellphone)
+    br
+
+    input(type='submit' value='更新')
+    
+  form(method='get' action='/')
+    input(type='submit' value='取消，返回首页')
+
+  if errors
+    ul
+      for error in errors
+        li!= error.msg

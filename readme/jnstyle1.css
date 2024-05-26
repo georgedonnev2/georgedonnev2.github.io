@@ -83,7 +83,10 @@ pre[class*="language-"] {
   font-family: monospace, Arial, Helvetica, "Microsoft YaHei", sans-serif, "宋体";
 }
 
-
+section.imgblock img {
+    width: 30%;
+    /*float: left;*/
+}
 
 
 header {

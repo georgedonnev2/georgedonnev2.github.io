@@ -1,4 +1,8 @@
 
+// import prisma client
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
+
 /// Home Page
 /**
  * 1. to respond GET request by URL: localhost:3000 or localhost:3000/index.html or localhost:3000/student. localhost:3000 is an example of ip:port.
@@ -26,9 +30,15 @@ exports.index = async function (req, rsp, next) {
 exports.student_get = async function (req, rsp, next) {
     try {
 
-        const studentInf = [
-            { "jnuid": 1234, "name": "George", "gender": "男" },
-        ]
+        // students of prisma.students.findMany is the table name in db.
+        const studentInf = await prisma.students.findMany({
+            where: {
+                //key of req.querey.key is the value of key in url localhost:3000/student/get?key=1101, i.e., 1101
+                jnuid: Number(req.query.key)
+            }
+        })
+
+        console.log("studentInf: ", studentInf)
 
         rsp.render(
             'student_detail',
@@ -39,7 +49,7 @@ exports.student_get = async function (req, rsp, next) {
         );
     } catch (e) {
         console.error(e);
-        // await prisma.$disconnect();
+        await prisma.$disconnect();
         rsp.send(e);
     }
 };
@@ -60,6 +70,7 @@ exports.student_create_get = async function (req, rsp, next) {
 
     } catch (e) {
         console.error(e);
+        await prisma.$disconnect();
         rsp.send(e);
     }
 };
@@ -72,11 +83,22 @@ exports.student_create_get = async function (req, rsp, next) {
 exports.student_create_post = async function (req, rsp, next) {
     try {
         // insert student information into database.
+        const studentInf = await prisma.students.create({
+            data: {
+                jnuid: Number(req.body.jnuid),
+                name: req.body.name,
+                gender: req.body.gender,
+                //birthday: req.body.birthday,
+                //Invalid value for argument `birthday`: premature end of input. Expected ISO-8601 DateTime.
+                birthday: '1997-11-11T12:10:10.000Z',
+                cellphone: req.body.cellphone,
+            },
+        })
+        rsp.redirect("/student/get?key=" + req.body.jnuid);
 
-        rsp.redirect("/student/get?jnuid=" + req.body.jnuid);
-    
     } catch (e) {
         console.error(e);
+        await prisma.$disconnect();
         rsp.send(e);
     }
 };
@@ -88,9 +110,11 @@ exports.student_create_post = async function (req, rsp, next) {
  */
 exports.student_delete_get = async function (req, rsp, next) {
     try {
-        const studentInf = [
-            { "jnuid": 1235, "name": "Alice", "gender": "女" },
-        ]
+        const studentInf = await prisma.students.findMany({
+            where: {
+                jnuid: Number(req.params.id)
+            }
+        })
 
         rsp.render(
             'delete_get',
@@ -102,6 +126,7 @@ exports.student_delete_get = async function (req, rsp, next) {
 
     } catch (e) {
         console.error(e);
+        await prisma.$disconnect();
         rsp.send(e);
     }
 };
@@ -114,7 +139,13 @@ exports.student_delete_get = async function (req, rsp, next) {
 exports.student_delete_post = async function (req, rsp, next) {
     try {
 
-        // operation to added to delete student information from database.
+        const studentInf = await prisma.students.delete({
+            where: {
+                jnuid: Number(req.params.id)
+            }
+        })
+
+        // console.log("studentInf: ", studentInf);
 
         rsp.render(
             'delete_post',
@@ -125,6 +156,7 @@ exports.student_delete_post = async function (req, rsp, next) {
         );
     } catch (e) {
         console.error(e);
+        await prisma.$disconnect();
         rsp.send(e);
     }
 };
@@ -137,9 +169,11 @@ exports.student_delete_post = async function (req, rsp, next) {
 exports.student_update_get = async function (req, rsp, next) {
     try {
 
-        const studentInf = [
-            { "jnuid": 1234, "name": "George", "gender": "女", "birthday": "1981-11-12", "cellphone": 13951033222 },
-        ]
+        const studentInf = await prisma.students.findMany({
+            where: {
+                jnuid: Number(req.params.id)
+            }
+        })
 
         rsp.render(
             'update',
@@ -151,7 +185,7 @@ exports.student_update_get = async function (req, rsp, next) {
 
     } catch (e) {
         console.error(e);
-        // await prisma.$disconnect();
+        await prisma.$disconnect();
         rsp.send(e);
     }
 };
@@ -163,9 +197,27 @@ exports.student_update_get = async function (req, rsp, next) {
  */
 exports.student_update_post = async function (req, rsp, next) {
     try {
-        rsp.redirect("/student/get?jnuid=" + req.body.jnuid);
+        const studentInf = await prisma.students.update({
+            where: {
+                jnuid: Number(req.body.jnuid),
+            },
+            data: {
+                jnuid: Number(req.body.jnuid),
+                name: req.body.name,
+                gender: req.body.gender,
+                //birthday: req.body.birthday,
+                //Invalid value for argument `birthday`: premature end of input. Expected ISO-8601 DateTime.
+                birthday: '1997-11-11T12:10:10.000Z',
+                cellphone: req.body.cellphone,
+            },
+        })
+
+        console.log("studentInf: ", studentInf);
+
+        rsp.redirect("/student/get?key=" + req.body.jnuid);
     } catch (e) {
         console.error(e);
+        await prisma.$disconnect();
         rsp.send(e);
     }
 };

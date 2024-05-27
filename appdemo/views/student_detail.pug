@@ -3,6 +3,8 @@ extends layout
 block content
   h1= title
   
+  //- ul 
+    li #{student_inf.length}
 
   ul
   each val in student_inf
@@ -17,9 +19,13 @@ block content
 
   hr
   p
-    a(href='/student/delete/' + student_inf[0].jnuid) 删除
+    //- 查询到了
+    if student_inf.length > 0 
+      a(href='/student/delete/' + student_inf[0].jnuid) 删除
     
   p
-    a(href='/student/update/' + student_inf[0].jnuid) 更新
+    //- 查询到了
+    if student_inf.length > 0 
+      a(href='/student/update/' + student_inf[0].jnuid) 更新
   p 
     a(href="/") 返回首页

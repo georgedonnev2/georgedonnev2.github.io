@@ -1006,11 +1006,348 @@ block content
         <p>
             接下来章节描述如何加入数据库操作。
         </p>
-        <h2>试试数据库的增删改查CRUD</h2>
+
+        <!--加入数据库增删改查CRUD-->
+        <h2 id="加入数据库增删改查CRUD">
+            <a href="#加入数据库增删改查CRUD">加入数据库增删改查CRUD</a>
+        </h2>
+
+        <h3 id="安装和设置Prisma">
+            <a href="#安装和设置Prisma">安装和设置Prisma</a>
+        </h3>
+
+        <p>执行命令 npx prisma 安装 prisma。</p>
+        <pre><code class="lang-sh">~/appdemo % npx prisma</code></pre>
+
+        <p>执行命令 npx prisma init 初始化 prisma。</p>
+        <pre><code class="lang-sh">~/appdemo %  npx prisma init
+
+✔ Your Prisma schema was created at prisma/schema.prisma
+  You can now open it in your favorite editor.
+
+Next steps:
+1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started
+2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.
+3. Run npx prisma db pull to turn your database schema into a Prisma schema.
+4. Run npx prisma generate to generate the Prisma Client. You can then start querying your database.
+
+More information in our documentation:
+https://pris.ly/d/getting-started
+
+┌────────────────────────────────────────────────────────────────┐
+│  Developing real-time features?                                │
+│  Prisma Pulse lets you respond instantly to database changes.  │
+│  https://pris.ly/cli/pulse                                     │
+└────────────────────────────────────────────────────────────────┘
+</code></pre>
+
+        <p>参考 npx prisma init 命令执行结果的提示 -- step1，修改 .env 文件的 DATABASE_URL。</p>
+        <pre><code class="lang-sh"># Environment variables declared in this file are automatically made available to Prisma.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
+
+# DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+DATABASE_URL="mysql://root:Lily093897@localhost:3306/gdtest?schema=public"</code></pre>
+
+        <p>参考 npx prisma init 命令执行结果的提示 -- step2，修改 prisma/schema.prisma 文件的 provider 为 mysql。</p>
+
+        <pre><code class="lang-javascript">// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // provider = "postgresql"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}</code></pre>
+
+        <p>参考 npx prisma init 命令执行结果的提示 -- step3，执行 npx prisma db pull。</p>
+
+        <pre><code class="lang-javascript">~/appdemo % npx prisma db pull
+Prisma schema loaded from prisma/schema.prisma
+Environment variables loaded from .env
+Datasource "db": MySQL database "gdtest" at "localhost:3306"
+
+✔ Introspected 2 models and wrote them into prisma/schema.prisma in 92ms
+      
+Run npx prisma generate to generate Prisma Client.</code></pre>
+
+        <p>参考 npx prisma init 命令执行结果的提示 -- step4，执行 npx prisma generate。</p>
+
+        <pre><code class="lang-javascript">
+~/0gdh/gdv2web/appdemo % npx prisma generate
+Environment variables loaded from .env
+Prisma schema loaded from prisma/schema.prisma
+
+✔ Generated Prisma Client (v5.14.0) to ./node_modules/@prisma/client in 120ms
+
+Start using Prisma Client in Node.js (See: https://pris.ly/d/client)
+```
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+```
+or start using Prisma Client at the edge (See: https://pris.ly/d/accelerate)
+```
+import { PrismaClient } from '@prisma/client/edge'
+const prisma = new PrismaClient()
+```
+
+See other ways of importing Prisma Client: http://pris.ly/d/importing-client
+
+┌─────────────────────────────────────────────────────────────┐
+│  Deploying your app to serverless or edge functions?        │
+│  Try Prisma Accelerate for connection pooling and caching.  │
+│  https://pris.ly/cli/--accelerate                           │
+└─────────────────────────────────────────────────────────────┘</code></pre>
+
+        <p>执行 npm install @prisma/client，安装 prisma 客户端。</p>
+
+        <pre><code class="lang-javascript">~/appdemo % npm install @prisma/client
+
+added 2 packages, and audited 163 packages in 15s
+
+17 packages are looking for funding
+  run `npm fund` for details
+
+7 vulnerabilities (2 low, 5 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.</code></pre>
+
+        <p>在 studentCtroller.js 顶部引入 prisma client。</p>
+        <pre><code class="lang-javascript">// import prisma client
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()</code></pre>
+
+        <h3 id="从数据库中查询学生信息">
+            <a href="#从数据库中查询学生信息">从数据库中查询学生信息</a>
+        </h3>
+        <p>修改 student_get 函数，调用prisma 的 findMay() API。代码如下所示：
+
+        </p>
 
 
-        <h2 id="tosw">
-            附录--相关软件/软件包安装
+
+        <pre><code class="lang-javascript">/// Get student information
+/**
+ * 1. to respond GET request by URL: localhost:3000/student/get.
+ * 2. to return student detail page (rendered with student_detail.pug) to browser. 
+ */
+exports.student_get = async function (req, rsp, next) {
+    try {
+
+        // students of prisma.students.findMany is the table name in db.
+        const studentInf = await prisma.students.findMany({
+            where: {
+                //key of req.querey.key is the value of key in url localhost:3000/student/get?key=1101, i.e., 1101
+                jnuid: Number(req.query.key)
+            }
+        })
+
+        console.log("studentInf: ", studentInf)
+
+        rsp.render(
+            'student_detail',
+            {
+                title: '学生详情',
+                student_inf: studentInf,
+            }
+        );
+    } catch (e) {
+        console.error(e);
+        await prisma.$disconnect();
+        rsp.send(e);
+    }
+};</code></pre>
+        <p>查询结果如下：</p>
+        <section class="imgblock">
+            <img src="img/db-get.png" />
+        </section>
+        <p>后台打印结果如下：</p>
+        <pre><code class="lang-javascript">
+studentInf:  [
+  {
+    jnuid: 1109,
+    name: '观音姐姐',
+    gender: '女',
+    birthday: 1971-11-11T00:00:00.000Z,
+    cellphone: '391234567',
+    address: '蠡湖大道1800号',
+    photo: null
+  }
+]
+GET /student/get?key=1109 200 29.938 ms - 471
+GET /stylesheets/style.css 304 3.514 ms - -
+</code></pre>
+        <p>至此，某某信息管理系统的 Web 界面和数据库的“真实”数据已对接！</p>
+
+        <h3 id="新增学生信息到数据库">
+            <a href="#新增学生信息到数据库">新增学生信息到数据库</a>
+        </h3>
+        <p>修改 student_create_post() 函数为如下样例代码：</p>
+        <pre><code class="lang-javascript">exports.student_create_post = async function (req, rsp, next) {
+    try {
+        // insert student information into database.
+        const studentInf = await prisma.students.create({
+            data: {
+                jnuid: Number(req.body.jnuid),
+                name: req.body.name,
+                gender: req.body.gender,
+                //birthday: req.body.birthday,
+                //Invalid value for argument `birthday`: premature end of input. Expected ISO-8601 DateTime.
+                birthday: '1997-11-11T12:10:10.000Z',
+                cellphone: req.body.cellphone,
+            },
+        })
+        rsp.redirect("/student/get?key=" + req.body.jnuid);
+
+    } catch (e) {
+        console.error(e);
+        await prisma.$disconnect();
+        rsp.send(e);
+    }
+};</code></pre>
+
+        <p>测试新增功能，相关截图如下：</p>
+        <section class="imgblock">
+            <img src="img/db-create-get.png" />
+            <img src="img/db-create-post.png" />
+        </section>
+        <p>至此，通过某某信息管理系统的 Web 界面，可以新增学生信息到数据库了！</p>
+        <p>birthday 还无法插入到数据库中，留待后续解决。相关报错：Invalid value for argument `birthday`: premature end of input. Expected
+            ISO-8601 DateTime</p>
+
+        <h3 id="从数据库中删除学生信息">
+            <a href="#从数据库中删除学生信息">从数据库中删除学生信息</a>
+        </h3>
+
+        <p>修改 student_delete_get()、student_delete_post() 函数为如下样例代码：</p>
+        <pre><code class="lang-javascript">
+exports.student_delete_get = async function (req, rsp, next) {
+    try {
+        const studentInf = await prisma.students.findMany({
+            where: {
+                jnuid: Number(req.params.id)
+            }
+        })
+
+        rsp.render(
+            'delete_get',
+            {
+                title: '学生详情--即将删除',
+                student_inf: studentInf,
+            }
+        );
+
+    } catch (e) {
+        console.error(e);
+        await prisma.$disconnect();
+        rsp.send(e);
+    }
+};
+                        
+exports.student_delete_post = async function (req, rsp, next) {
+    try {
+
+        const studentInf = await prisma.students.delete({
+            where: {
+                jnuid: Number(req.params.id)
+            }
+        })
+        
+        // console.log("studentInf: ", studentInf);
+
+        rsp.render(
+            'delete_post',
+            {
+                title: '学生信息已删除',
+                stuid: req.params.id,
+            }
+        );
+    } catch (e) {
+        console.error(e);
+        await prisma.$disconnect();
+        rsp.send(e);
+    }
+};</code></pre>
+
+<h3 id="更新学生信息到数据库中">
+    <a href="#更新学生信息到数据库中">更新学生信息到数据库中</a>
+</h3>
+
+<p>修改 student_update_get()、student_update_post() 函数为如下样例代码：</p>
+<pre><code class="lang-javascript">
+exports.student_update_get = async function (req, rsp, next) {
+    try {
+
+        const studentInf = await prisma.students.findMany({
+            where: {
+                jnuid: Number(req.params.id)
+            }
+        })
+
+        rsp.render(
+            'update',
+            {
+                title: '更新学生',
+                student_inf: studentInf,
+            }
+        );
+
+    } catch (e) {
+        console.error(e);
+        await prisma.$disconnect();
+        rsp.send(e);
+    }
+};
+
+/// Update a student
+/**
+ * 1. to respond POST request by URL: localhost:3000/student/update/:id. e.g., update/1234.
+ * 2. to return student detail page to browser if operation is done. 
+ */
+exports.student_update_post = async function (req, rsp, next) {
+    try {
+        const studentInf = await prisma.students.update({
+            where: {
+                jnuid: Number(req.body.jnuid),
+            },
+            data: {
+                jnuid: Number(req.body.jnuid),
+                name: req.body.name,
+                gender: req.body.gender,
+                //birthday: req.body.birthday,
+                //Invalid value for argument `birthday`: premature end of input. Expected ISO-8601 DateTime.
+                birthday: '1997-11-11T12:10:10.000Z',
+                cellphone: req.body.cellphone,
+            },
+        })
+
+        console.log("studentInf: ", studentInf);
+
+        rsp.redirect("/student/get?key=" + req.body.jnuid);
+    } catch (e) {
+        console.error(e);
+        await prisma.$disconnect();
+        rsp.send(e);
+    }
+};</code></pre>
+
+        <h2 id="附录_相关软件安装">
+            <a href="#附录_相关软件安装">附录--相关软件/软件包安装</a>
         </h2>
 
 

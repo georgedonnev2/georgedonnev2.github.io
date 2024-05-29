@@ -1,45 +1,250 @@
-/* 一般设置 */
-
-html,
-body {
-    margin: 0;
-    padding: 0;
+:root {
+    --font-size: 16px
 }
+
+/**
+* 设置文字大小 
+*/
 
 html {
-    color: #333;
-    font-size: 16px;
-
+    font-size: var(--font-size);
 }
 
-body {
-    width: 90%;
-    margin: 0 auto;
-    font-family: Arial, Helvetica, "Microsoft YaHei", sans-serif, "宋体";
-}
-
-/* 文字排版 */
 h1 {
-    text-align: center;
+    font-size: 1.5rem;
 }
 
 h2 {
-    text-align: center;
+    font-size: 1.25rem;
 }
 
-p,
-li {
-    line-height: 1.5;
+p {
+    font-size: 1rem;
 }
 
-/* 主页面体布局 */
+nav li {
+    font-size: 0.75rem;
+}
+
+footer p{
+    font-size: 0.75rem;
+}
+
+/**
+* 设置布局layout
+*/
+
+body {
+    /*可视区域90%，margin设置为auto后可居中显示*/
+    width: 90vw;
+    height: 100vh;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3rem 2rem 1fr 2rem;
+    gap: 1%;
+
+    grid-template-areas:
+        "head head head head head head head head head head head head"
+        "navb navb navb navb navb navb navb navb navi navi navi navi"
+        "main main main main main main main main main main main main"
+        ". . foot foot foot foot foot foot foot foot . .";
+}
+
+header {
+    grid-area: head;
+    justify-self: center;
+    align-self: center;
+}
+
+main {
+    grid-area: main;
+    justify-self: center;
+    align-self: center;
+}
+
+nav {
+    grid-area: navi;
+    justify-self: center;
+    align-self: center;
+}
+
+#navbar {
+    grid-area: navb;
+
+}
+
+footer {
+    grid-area: foot;
+    justify-self: center;
+    align-self: center;
+}
+
+/*设置导航栏*/
+nav {
+    display: inherit;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: inherit;
+    /*grid-template-areas:
+        "home create about";*/
+    background-color: #eee;
+}
+
+nav a {
+    display: inline-block;
+    font-size: 0.75rem;
+
+    align-self: center;
+    justify-self: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    transition-duration: 200ms;
+}
+
+#navbar {
+    background-color: #eee;
+}
+
+
+/*设置main区域*/
+main {
+    display: inherit;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: inherit;
+    grid-template-rows: 1fr 1fr;
+    gap: inherit;
+
+}
+
+form#homeform {
+
+    grid-column: 1/13;
+    grid-row: 1/1;
+    align-self: center;
+
+    display: inherit;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: inherit;
+    /*grid-template-rows: 2fr 1fr;*/
+    gap: inherit;
+}
+
 input#homekey {
-    width: 90%;
+
+    grid-row: 1/1;
+    grid-column: 4/8;
+    align-self: center;
+    font-size: 1.25rem;
 }
 
-header#homeheader,
-footer#homefooter {
-    text-align: center;
-    color: #999;
+input#homeget {
+    grid-row: 1/1;
+    grid-column: 8/10;
+    align-self: center;
+    font-size: 1.25rem;
+}
+
+section.student-detail {
+    grid-row: 1/2;
+    grid-column: 3/10;
+    align-self: center;
+    font-size: 1rem;
+
+    margin: 0;
+
+    display: inherit;
+    width: 100%;
+    /*height: 100%;*/
+    grid-template-columns: inherit;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: inherit;
+}
+
+
+h2.student-detail {
+    grid-row: 1;
+    grid-column: 1/13;
+    align-self: center;
+    justify-self: center;
+}
+p.student-name {
+    grid-row: 2;
+    grid-column: 7/13;
+    align-self: auto;
+
+    font-size: 1.25rem;
+
+}
+p.student-id {
+    grid-row: 3;
+    grid-column: 7/13;
+    align-self: auto;
+}
+p.student-gender {
+    grid-row: 4;
+    grid-column: 7/13;
+    align-self: auto;
+}
+p.student-birthday {
+    grid-row: 5;
+    grid-column: 7/13;
+    align-self: auto;
+}
+img.student-photo {
+    grid-row: 2/6;
+    grid-column: 1/6;
+    align-self:center;
+    justify-self: center;
+    max-width: 200px;
+}
+
+
+p.student-cellphone {
+    grid-row: 6;
+    grid-column: 7/13;
+    align-self: auto;
+}
+p.student-address {
+    grid-row: 7;
+    grid-column: 7/13;
+    align-self: auto;
+}
+p.student-nf404 {
+    grid-row: 2;
+    grid-column: 1/13;
+    align-self: auto;
+    justify-self: center;
+    font-size: 1.25rem;
+}
+
+a.student-delete {
+    grid-row: 8;
+    grid-column: 5/6;
+    align-self: center; 
+    justify-self: center;
+    font-size: 1.25rem;
+}
+
+a.student-update {
+    grid-row: 8;
+    grid-column: 8/9;
+    align-self: center; 
+    justify-self: center;
+    font-size: 1.25rem;
+}
+
+section.about {
+    grid-row: 1;
+    grid-column: 2/12;
+}
+
+footer {
     background-color: #eee;
 }

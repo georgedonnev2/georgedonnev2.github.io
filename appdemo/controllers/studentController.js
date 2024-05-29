@@ -221,3 +221,26 @@ exports.student_update_post = async function (req, rsp, next) {
         rsp.send(e);
     }
 };
+
+///
+exports.student_aggregate = async function (req, rsp, next) {
+    try {
+        const courseSummary = '编译原理';
+
+        const scoreSummary = await prisma.$queryRaw`select sum(case when score between 0 and 59 then 1 else 0 end) as "[0-59]",sum(case when score between 60 and 69 then 1 else 0 end) as "[60-69]",sum(case when score between 70 and 79 then 1 else 0 end) as "[70-79]",sum(case when score between 80 and 89 then 1 else 0 end) as "[80-89]",sum(case when score>=90 then 1 else 0 end) as "90及以上" from score where course=${courseSummary}`;
+
+        rsp.render(
+            "aggregate",
+            {
+                title: "统计--" + courseSummary,
+                score_summary_labels: Object.keys(scoreSummary[0]),
+                score_summary_data: Object.values(scoreSummary[0]),
+                course_summary: courseSummary,
+            });
+
+    } catch (e) {
+        console.error(e);
+        await prisma.$disconnect();
+        rsp.send(e);
+    }
+};

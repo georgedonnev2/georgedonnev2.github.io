@@ -15,6 +15,10 @@
     <script>hljs.highlightAll();</script>
 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+        rel="stylesheet" />
 
     <link rel="stylesheet" href="jnstyle1.css">
 
@@ -22,6 +26,13 @@
 
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/show-language/prism-show-language.min.js"></script>
 
     <script
         src=" https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
@@ -56,7 +67,7 @@
         </p>
 
 
-        <pre><code class="language-html">&lt!DOCTYPE html&gt
+        <pre><code class="language-html line-numbers " >&lt!DOCTYPE html&gt
 &lthtml&gt
     &lthead&gt
         &ltmeta charset="utf-8"&gt
@@ -297,7 +308,7 @@ app.listen(8000, () => {
             <p>Express 应用生成器工具（express-generator）可以生成一个 Express 应用的“框架”。然后在该框架上做修改，就可以快速完成某某信息管理系统的Web界面。</p>
 
             <p>执行 npx express-generator --view=pug，安装express应用生成器工具，并指定模板引擎是pug。</p>
-            <pre><code class="lang-sh">~/appdemo % npx express-generator --view=pug
+            <pre><code class="lang-sh line-numbers">~/appdemo % npx express-generator --view=pug
 destination is not empty, continue? [y/N] y
 
    create : public/
@@ -1284,12 +1295,12 @@ exports.student_delete_post = async function (req, rsp, next) {
     }
 };</code></pre>
 
-<h3 id="更新学生信息到数据库中">
-    <a href="#更新学生信息到数据库中">更新学生信息到数据库中</a>
-</h3>
+        <h3 id="更新学生信息到数据库中">
+            <a href="#更新学生信息到数据库中">更新学生信息到数据库中</a>
+        </h3>
 
-<p>修改 student_update_get()、student_update_post() 函数为如下样例代码：</p>
-<pre><code class="lang-javascript">
+        <p>修改 student_update_get()、student_update_post() 函数为如下样例代码：</p>
+        <pre><code class="language-javascript line-numbers toolbar" data-prismjs-copy="Copy">
 exports.student_update_get = async function (req, rsp, next) {
     try {
 
@@ -1345,6 +1356,290 @@ exports.student_update_post = async function (req, rsp, next) {
         rsp.send(e);
     }
 };</code></pre>
+
+        <h2 id="优化页面布局Layout">
+            <a href="#优化页面布局Layout">优化页面布局Layout</a>
+        </h2>
+        <p>采用 CSS 网格布局（Grid Layout）优化页面布局。</p>
+        <p>使用网格布局，先要定义网格，即水平方向有多少列、垂直方向有多少行，行列交叉形成网格形状。
+            如下左图是主界面的布局，相关CSS代码片段如下1-43所示。简要说明如下：</p>
+        <ul>
+            <li>
+                line 8：按 grid 布局显示。
+            </li>
+            <li>
+line 10：定义水平方向有12列。写了12个1fr，fr是 fraction 的意思，1fr理解为1个等分，因此有12个基本等宽的列。截图中顶部显示1fr大致是91px。改变浏览器的宽度时，1fr会随之增大或缩小。
+            </li>
+            <li>
+                line 11：定义垂直方向有4行。rem是一种单位，全称是Font size of the root element（根元素的字体大小），当前设置了整个网页根元素的字体大小是 16px，因此1、2、4行都是固定高度，分别是48px、32px、32px。截图左边也是显示了这样的数字。第3行高度是1fr，参考line 10相关说明，在此不再赘述。
+            </li>
+            <li>
+                line 12：定义列与列之间，以及行与行之间的间隔。否则，就都连在一起。
+            </li>
+            <li>
+                line 14-18：定义网格的区域名字。12列、4行，共48个区域，每个区域都给了名字。结合line 21-43，就把相关内容排放到了指定的位置上。
+            </li>
+        </ul>
+        <p>网格布局可以一层层嵌套，类似俄罗斯套娃。查询结果的页面中，学生详情信息也是一个子网格的布局，如下右图所示。简要说明如下：</p>
+        <ul>
+            <li>
+                line 47-48：定义学生详情子网格，在父网格中的位置。垂直方向在第1行。水平方向在第3线到第10线，就是第3列到第9列，因为12列共有13个竖线（加上头尾）。
+
+            </li>
+        </ul>
+
+        <section class="imgblock">
+            <a href="img/layout-grid.png"><img src="img/layout-grid.png" /></a>
+            <a href="img/layout-detail.png"><img src="img/layout-detail.png" /></a>
+        </section>
+<p>CSS 代码片段如下：</p>
+        <pre><code class="language-css line-numbers toolbar">/*定义主界面的布局（代码片段）*/
+body {
+    /*可视区域90%，margin设置为auto后可居中显示*/
+    width: 90vw;
+    height: 100vh;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3rem 2rem 1fr 2rem;
+    gap: 1%;
+
+    grid-template-areas:
+        "head head head head head head head head head head head head"
+        "navb navb navb navb navb navb navb navb navi navi navi navi"
+        "main main main main main main main main main main main main"
+        ". . foot foot foot foot foot foot foot foot . .";
+}
+
+header {
+    grid-area: head;
+    justify-self: center;
+    align-self: center;
+}
+
+main {
+    grid-area: main;
+    justify-self: center;
+    align-self: center;
+}
+
+nav {
+    grid-area: navi;
+    justify-self: center;
+    align-self: center;
+}
+
+footer {
+    grid-area: foot;
+    justify-self: center;
+    align-self: center;
+}
+
+/* 定义学生详情界面的布局 */
+section.student-detail {
+    grid-row: 1;
+    grid-column: 3/10;
+    align-self: center;
+    font-size: 1rem;
+
+    margin: 0;
+
+    display: inherit;
+    width: 100%;
+    /*height: 100%;*/
+    grid-template-columns: inherit;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: inherit;
+}
+
+
+h2.student-detail {
+    grid-row: 1;
+    grid-column: 1/13;
+    align-self: center;
+    justify-self: center;
+}
+
+p.student-name {
+    grid-row: 2;
+    grid-column: 7/13;
+    align-self: auto;
+
+    font-size: 1.25rem;
+
+}
+
+p.student-id {
+    grid-row: 3;
+    grid-column: 7/13;
+    align-self: auto;
+}
+
+p.student-gender {
+    grid-row: 4;
+    grid-column: 7/13;
+    align-self: auto;
+}
+
+p.student-birthday {
+    grid-row: 5;
+    grid-column: 7/13;
+    align-self: auto;
+}
+
+p.student-cellphone {
+    grid-row: 6;
+    grid-column: 7/13;
+    align-self: auto;
+}
+
+p.student-address {
+    grid-row: 7;
+    grid-column: 7/13;
+    align-self: auto;
+}
+
+img.student-photo {
+    grid-row: 2/6;
+    grid-column: 1/6;
+    align-self:center;
+    justify-self: center;
+    max-width: 200px;
+}
+
+a.student-delete {
+    grid-row: 8;
+    grid-column: 5/6;
+    align-self: center; 
+    justify-self: center;
+    font-size: 1.25rem;
+}
+
+a.student-update {
+    grid-row: 8;
+    grid-column: 8/9;
+    align-self: center; 
+    justify-self: center;
+    font-size: 1.25rem;
+}</code></pre>
+<p>网格布局相对容易预知布局效果，是非常灵活且可控的。在上述基础上，再进一步优化美化，就可以得到相对高大上的界面了。比如：</p>
+<ul>
+    <li>调整相关内容的字体、大小、颜色。</li>
+    <li>主页面下半部加些元素。比如三个不同颜色的圆圈，显示学生数、课程数、成绩数，等。如何配色，可参考网上相关配色网站。</li>
+    <li>或者主界面左1/3放好看的背景图，右2/3维持现状。</li>
+</ul>
+做出相对高大上的界面，可通过不断参考优质界面而快速入门。
+
+<h2 id="统计">
+    <a href="#统计">统计信息并显示柱状图</a>
+</h2>
+<p>信息管理系统通常还需要统计功能，并将统计结果显示为图表（比如柱状图）。以下以统计成绩段为例，比如60分以下、60-70分、70-80分、80-90分、90-100分的成绩有多少，并显示为柱状图。</p>
+<h3 id="安装chartjs">
+    <a href="#安装chartjs">安装Chart.js</a>
+</h3>
+<p>执行 npm install chart.js 安装 Chart.js。</p>
+<pre><code class="lang-sh line-numbers toolbar">~/appdemo % npm install chart.js
+
+added 2 packages, and audited 165 packages in 4s
+
+17 packages are looking for funding
+  run `npm fund` for details
+
+7 vulnerabilities (2 low, 5 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues, run:
+  npm audit fix --force
+
+Run `npm audit` for details.</code></pre>
+<p>统计结果样例如下图所示：</p>
+<section class="imgblock">
+    <a href="img/aggregate.png"><img src="img/aggregate.png" /></a>
+
+</section>
+
+<p> ./controllers/studentController.js 增加以下代码：</p>
+<pre><code class="lang-javascript line-numbers">/// 统计成绩分段数量
+exports.student_aggregate = async function (req, rsp, next) {
+    try {
+        const courseSummary = '编译原理';
+
+        const scoreSummary = await prisma.$queryRaw`select sum(case when score between 0 and 59 then 1 else 0 end) as "[0-59]",sum(case when score between 60 and 69 then 1 else 0 end) as "[60-69]",sum(case when score between 70 and 79 then 1 else 0 end) as "[70-79]",sum(case when score between 80 and 89 then 1 else 0 end) as "[80-89]",sum(case when score>=90 then 1 else 0 end) as "90及以上" from score where course=${courseSummary}`;
+
+        rsp.render(
+            "aggregate",
+            {
+                title: "统计--" + courseSummary,
+                score_summary_labels: Object.keys(scoreSummary[0]),
+                score_summary_data: Object.values(scoreSummary[0]),
+                course_summary: courseSummary,
+            });
+
+    } catch (e) {
+        console.error(e);
+        await prisma.$disconnect();
+        rsp.send(e);
+    }
+};
+</code></pre>
+
+<p>./routes/student.js 增加如下代码：</p>
+<pre><code class="lang-javascript line-numbers">// 统计成绩
+router.get("/aggregate", student_controller.student_aggregate);</code></pre>
+
+<p>在 ./view 目录中新增 aggregate.pug，内容如下：</p>
+<pre><code class="lang-pug line-numbers">extends layout
+
+block content
+  header
+    h1 学生宝--学生信息管理系统
+  
+  nav 
+    a(href="/") 首页
+    a(href="/student/create") 新增
+    a(href="/student/aggregate") 统计
+    a(href="/about") 关于
+  
+  //- ul 
+    li #{student_inf.length}
+  main 
+
+    //- id of canvas is myChart
+    canvas#myChart
+    
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')  
+    
+    
+    script.
+      const ctx = document.getElementById('myChart');
+      new Chart(ctx, {
+          type: 'bar',
+          data: {
+              //- labels: '#{course_summary}',
+              //- labels: #{hlabels},
+              labels: ['#{score_summary_labels[0]}','#{score_summary_labels[1]}','#{score_summary_labels[2]}','#{score_summary_labels[3]}','#{score_summary_labels[4]}'],
+              datasets: [{
+                  label: '#{course_summary}',
+                  data: [#{score_summary_data}],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
+
+  footer#homefooter 
+    p &copy George Donne 2024-2025.</code></pre>
+
 
         <h2 id="附录_相关软件安装">
             <a href="#附录_相关软件安装">附录--相关软件/软件包安装</a>

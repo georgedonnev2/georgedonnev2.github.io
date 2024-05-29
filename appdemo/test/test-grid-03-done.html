@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid 顶部固定高度底部自适应</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-rows: 50px auto 50px;
+            /* 顶部固定50px, 底部自适应 */
+            height: 100%;
+        }
+
+        .header {
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        .footer {
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="header">Header</div>
+        <div class="content">
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+            Content goes here...<br/>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+
+</html>

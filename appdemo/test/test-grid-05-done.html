@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 80vw;
+            min-height: 100vh;
+            margin: auto;
+
+
+            display: flex;
+            font-family: "Exo", Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background-color: #f1c2c6;
+        }
+
+        .brand {
+            background-color: #dac2f1;
+        }
+
+        aside {
+            background-color: #ccf1c2;
+        }
+
+        main {
+            background-color: #c2e9f1;
+        }
+
+        .sidebar {
+            background-color: #f1ebc2;
+        }
+
+        footer {
+            background-color: #09f;
+        }
+
+        .container>* {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 1px 1px 1px rgb(0 0 0 / 0.35);
+        }
+
+        .container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 80px 3rem auto 3rem;
+            grid-template-areas:
+                "header header header header header header header header header header header header"
+                ". . . bd bd bd bd . . . . ."
+                "aside aside aside main main main main main main sidebar sidebar sidebar"
+                "footer footer footer footer footer footer footer footer footer footer footer footer";
+        }
+
+        header {
+            grid-area: header;
+        }
+
+        .brand {
+            grid-area: bd;
+        }
+
+        aside {
+            grid-area: aside;
+        }
+
+        main {
+            grid-area: main;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+        }
+
+        footer {
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>Header Section</header>
+        <div class="brand">Brand Section</div>
+        <aside>Aside Section</aside>
+        <main>Main Section</main>
+        <div class="sidebar">Sidebar Section</div>
+        <footer>Footer Section</footer>
+    </div>
+</body>
+
+</html>

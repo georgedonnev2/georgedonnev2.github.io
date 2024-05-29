@@ -1,0 +1,76 @@
+/* EXAMPLE 1 */
+/**
+* Define the space for each [grid item](https://www.w3.org/TR/css3-grid-layout/#grid-item) by declaring the grid
+* on the [grid container](https://www.w3.org/TR/css3-grid-layout/#grid-container)
+*/
+#grid {
+    /**
+   * Two columns:
+   *  1. the first sized to content,
+   *  2. the second receives the remaining space
+   *     (but is never smaller than the minimum size of the board
+   *     or the game controls, which occupy this column [Figure 4])
+   *
+   * Three rows:
+   *  3. the first sized to content,
+   *  4. the middle row receives the remaining space
+   *     (but is never smaller than the minimum height
+   *      of the board or stats areas)
+   *  5. the last sized to content.
+   */
+    display: grid;
+    grid-template-columns:
+        /* 1 */
+        auto
+        /* 2 */
+        1fr;
+    grid-template-rows:
+        /* 3 */
+        auto
+        /* 4 */
+        1fr
+        /* 5 */
+        auto;
+    
+    height:100%;
+
+}
+
+/* Specify the position of each [grid item](https://www.w3.org/TR/css3-grid-layout/#grid-item) using coordinates on
+   * the 'grid-row' and 'grid-column' properties of each [grid item](https://www.w3.org/TR/css3-grid-layout/#grid-item).
+   */
+#title {
+    grid-column: 1;
+    grid-row: 1;
+    background-color: cyan;
+}
+
+#score {
+    grid-column: 1;
+    grid-row: 3;
+    background-color: aquamarine;
+}
+
+#stats {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    background-color: blueviolet;
+}
+
+#board {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    background-color: brown;
+}
+
+#controls {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: center;
+    background-color: blanchedalmond;
+}
+
+div {
+    background-color: gray;
+}

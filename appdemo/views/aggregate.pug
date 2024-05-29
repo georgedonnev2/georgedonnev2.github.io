@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  header
+    h1 学生宝--学生信息管理系统
+  
+  nav 
+    a(href="/") 首页
+    a(href="/student/create") 新增
+    a(href="/student/aggregate") 统计
+    a(href="/about") 关于
+  
+  //- ul 
+    li #{student_inf.length}
+  main 
+
+    //- id of canvas is myChart
+    canvas#myChart
+    
+    script(src='https://cdn.jsdelivr.net/npm/chart.js')  
+    
+    
+    script.
+      const ctx = document.getElementById('myChart');
+      new Chart(ctx, {
+          type: 'bar',
+          data: {
+              //- labels: '#{course_summary}',
+              //- labels: #{hlabels},
+              labels: ['#{score_summary_labels[0]}','#{score_summary_labels[1]}','#{score_summary_labels[2]}','#{score_summary_labels[3]}','#{score_summary_labels[4]}'],
+              datasets: [{
+                  label: '#{course_summary}',
+                  data: [#{score_summary_data}],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
+
+  footer#homefooter 
+    p &copy George Donne 2024-2025.
+

@@ -1,0 +1,186 @@
+<html>
+
+<head>
+
+    <style>
+        :root {
+            --font-size: 16px
+        }
+
+        /*设置文字大小*/
+        html {
+            font-size: var(--font-size);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        nav li {
+            font-size: 0.75rem;
+        }
+
+        footer {
+            font-size: 0.75rem;
+        }
+
+        /*设置布局layout*/
+        body {
+
+            width: 90vw;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 3rem 2rem 1fr 2rem;
+            gap: 1%;
+
+            grid-template-areas:
+                "head head head head head head head head head head head head"
+                "navb navb navb navb navb navb navb navb navi navi navi navi"
+                "main main main main main main main main main main main main"
+                ". . foot foot foot foot foot foot foot foot . .";
+        }
+
+        header {
+            grid-area: head;
+            justify-self: center;
+            align-self: center;
+        }
+
+        main {
+            grid-area: main;
+            justify-self: center;
+            align-self: center;
+        }
+
+        nav {
+            grid-area: navi;
+            justify-self: center;
+            align-self: center;
+        }
+
+        .navbar {
+            grid-area: navb;
+
+        }
+
+        footer {
+            grid-area: foot;
+            justify-self: center;
+            align-self: center;
+        }
+
+        /*设置导航栏*/
+        nav {
+            display: inherit;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: inherit;
+            /*grid-template-areas:
+                "home create about";*/
+            background-color: #eee;
+        }
+
+        nav a {
+            display: inline-block;
+            font-size: 0.75rem;
+
+            align-self: center;
+            justify-self: center;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: black;
+            transition-duration: 200ms;
+        }
+
+        .navbar {
+            background-color: #eee;
+        }
+
+        
+        /*设置main区域*/
+        main {
+            display: inherit;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: inherit;
+            grid-template-rows: 2fr 1fr;
+            gap: inherit;
+
+        }
+
+        form#hmget {
+
+            grid-column: 1/13;
+            grid-row: 1/1;
+            align-self: center;
+
+            display: inherit;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: inherit;
+            /*grid-template-rows: 2fr 1fr;*/
+            gap: inherit;
+        }
+
+        input#hmsid {
+
+            grid-row: 1/1;
+            grid-column: 4/8;
+            align-self: center;
+            font-size: 1.25rem;
+        }
+
+        input#hmsub {
+            grid-row: 1/1;
+            grid-column: 8/10;
+            align-self: center;
+            font-size: 1.25rem;
+        }
+
+        footer {
+            background-color: #eee;
+        }
+
+        /*form {
+        grid-area: hsid;
+       }*/
+    </style>
+</head>
+
+<body>
+
+    <script src="../public/javascripts/appdemo.js"></script>
+
+    <header>
+        <h1>学生宝--学生信息管理系统</h1>
+    </header>
+    <nav>
+        <a href="#">首页</a>
+        <a href="#">新增</a>
+        <a href="#">关于</a>
+    </nav>
+    <div class="navbar"></div>
+    <main>
+        <form id="hmget" method='GET' action='/student/get'>
+            <input id="hmsid" type="text" name="key" placeholder="输入4位数字的学号">
+            <input id="hmsub" type="submit" value="查询">
+        </form>
+    </main>
+    <footer>
+        @copy George Donne 2024-2025.
+    </footer>
+</body>
+
+</html>

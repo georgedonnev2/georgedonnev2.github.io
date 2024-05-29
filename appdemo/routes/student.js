@@ -22,4 +22,7 @@ router.post("/delete/:id", student_controller.student_delete_post);
 router.get("/update/:id", student_controller.student_update_get);
 router.post("/update/:id", student_controller.student_update_post);
 
+// 统计成绩
+router.get("/aggregate", student_controller.student_aggregate);
+
 module.exports = router;

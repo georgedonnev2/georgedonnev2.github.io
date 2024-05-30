@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>某某信息管理系统</title>
+</head>
+
+<body>
+    <header>
+        <h1>某某信息管理系统</h1>
+    </header>
+    <nav>
+        <!-- 导航栏有3个链接，点击后分别跳转到相应页面。比如点击 [新增] 后，跳转到 /student/get 页面。此处 # 表示跳转到本页面，仅供演示用。 -->
+        <a href="#">新增</a>
+        <a href="#">统计</a>
+        <a href="#">关于</a>
+    </nav>
+    <main>
+        <!-- form之action填写实际访问的网址，比如 /student/get。此处#仅供演示。-->
+        <form method="GET" action="#">
+            <input type="text" name="key" placeholder="输入4位数字的学号" />
+            <input type="submit" value="查询" />
+        </form>
+    </main>
+    <footer>
+        <p>&copy George Donne 2024-2025.</p>
+        <p>support:
+            <a href="mailto:georgedonnev2@outlook.com">georgedonnev2@outlook.com</a>
+        </p>
+    </footer>
+</body>
+
+</html>

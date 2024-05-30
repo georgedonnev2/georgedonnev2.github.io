@@ -222,7 +222,7 @@ exports.student_update_post = async function (req, rsp, next) {
     }
 };
 
-///
+/// 统计成绩分段数量
 exports.student_aggregate = async function (req, rsp, next) {
     try {
         const courseSummary = '编译原理';

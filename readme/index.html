@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Personal Website of George Donne</title>
+    <title>用于某某信息管理系统的 Web 界面开发指南</title>
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" />
     -->
     <!--
@@ -56,14 +56,68 @@
             Web界面开发有很多方式。本指南选取基本的“三件套”方式，即 html + css + javascript。本指南适合于没有开发过 Web 界面的同学，将从零开始，一步步实现用于某某信息管理系统的 Web 界面。
         </p>
 
+        <h3 id="几点说明">
+            <a href="#几点说明">几点说明</a>
+        </h3>
+        <ol>
+            <li><strong>自愿加入和退出。</strong>开发 Web 界面用于某某信息管理系统，只是界面开发的一个选项，可以用其他方法比如 Python 开发界面。因此，可随时加入，也可随时退出。</li>
+            <li><strong>并不是完整的 Web 界面开发教程。</strong>只是协助同学完成用于某某信息管理系统的 Web 界面的开发。重点还是在数据库。</li>
+            <li><strong>适合：想做 Web 界面用于某某信息管理系统，但尚未接触 Web 界面开发的同学。</strong></li>
+            <li><strong>提前告知需要协助的事项。</strong>比如希望通过 Web 界面对数据库做某某操作，是否可以；比如，Web
+                界面想做成这个样子，是否可行；等等。希望提前告知留些余量，因为需要花点时间做尝试。</li>
+        </ol>
+
+
+        <h3 id="预期收获">
+            <a href="#预期收获">预期收获</a>
+        </h3>
+        <ol>
+            <li>
+                <strong> Web 界面开发的一次成功实践。</strong> 因为有原型可供参考，所以能成功。
+            </li>
+            <li>
+                <strong>在投入可控的前提下，做出一个相对高大上的 Web 界面。</strong>因为有原型可供参考，所以有大概率能做出来相对高大上的界面。如果数据库设计实现也很出色，则有几率获得更高评价。
+            </li>
+            <li>
+                <strong>再次加深要关注工程化能力的意识。</strong>不仅要实现正确的功能，还要多多思考、并尽可能多的实践如何做一个可商业化交付的应用。以下各项将尽可能多的涉及/提及：
+                <ul>
+                    <li>
+                        <strong>关注编程规范</strong>
+                    </li>
+                    <li>
+                        <strong>关注数据库设计和实现规范</strong>
+                    </li>
+                    <li>
+                        <strong>关注界面设计和实现规范。</strong>即，如何做一个高大上的界面。
+                    </li>
+                    <li>
+                        <strong>关注用户体验。</strong>交互过程/流程符合用户的通常习惯，而不是程序员的习惯。
+                    </li>
+                    <li>
+                        <strong>关注安全性。</strong>比如不能在配置文件中写用户名和口令明文。比如提供找回密码的系统通常安全性待增强。
+                    </li>
+                    <li>
+                        <strong>关注隐私保护。</strong>比如隐私保护需要保护哪些信息，如何安全的保存用户的手机号码等信息，等等。
+                    </li>
+                    <strong>关于版权保护。</strong>视频、图片，甚至字体，都是有版权保护的。如何确保不侵权，等等。
+                    <li>
+                        ……。
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>践行终生学习。</strong>在今后的科研和工作中，总会遇到需要使用的但尚未掌握的知识或技能。如何快速学会并应用到科研和工作中，希望通过此次 Web 界面开发实践得到启发。
+            </li>
+        </ol>
+
         <h2 id="初识Web页面_界面">
             <a href="#初识Web页面_界面">初识Web页面/界面</a>
         </h2>
-        <h3>
-            Hello World -- html
+        <h3 id="Hello_World_html">
+            <a href="#Hello_World_html">Hello World -- html</a>
         </h3>
         <p>
-            按惯例，总是先写一个 Hello World! 程序，虽然 html 不是编程语言。
+            按惯例，总是先写一个 Hello World! 程序，虽然 html 不是编程语言。新建 hello-world.html，内容如下：
         </p>
 
 
@@ -79,31 +133,144 @@
     &lt/body&gt
 &lt/html&gt</code></pre>
 
-
-        <h3>一个基本界面 -- html + css</h3>
-        <p>（待细化优化内容）</p>
-        <p>
-            对于某某信息管理系统，查询是使用很频繁的功能。仿照百度或Google首页，用html写一个基本界面。参考代码如下：
-        </p>
-        <em>（待补充参考代码）</em>
-        <p>
-            使用css调整和优化界面的显示，让界面看上去和百度/Google类似。参考代码如下：
-        </p>
-        <em>（待补充参考代码）</em>
+        <p>点击样例：<a href="hello-world.html" target="_blank">Hello World -- html</a></p>
 
 
-        <h3>显示查询得到信息的界面 -- html + css + javascript</h3>
-        <p>（待细化优化内容）</p>
+        <h3 id="一个基本界面_html_css">
+            <a href="#一个基本界面_html_css">一个基本界面 -- html + css</a>
+        </h3>
+
         <p>
-            比如根据学号查询学生信息。不同学生的信息都不同，比如姓名、性别、手机等。JavaScript是一门编程语言，初步实现设想是：
-        <ul>
-            <li>在界面上输入查询提交。比如要查询的学号。</li>
-        </ul>
+            对于某某信息管理系统，查询是使用很频繁的功能。仿照百度等首页，用html写一个基本界面。参考代码如下：
         </p>
+        <pre><code class="lang-html line-numbers">&lt!DOCTYPE html&gt
+&lthtml&gt
+
+&lthead&gt
+    &lttitle&gt某某信息管理系统&lt/title&gt
+&lt/head&gt
+
+&ltbody&gt
+    &ltheader&gt
+        &lth1&gt某某信息管理系统&lt/h1&gt
+    &lt/header&gt
+    &ltnav&gt
+        &lt!-- 导航栏有3个链接，点击后分别跳转到相应页面。比如点击 [新增] 后，跳转到 /student/get 页面。此处 # 表示跳转到本页面，仅供演示用。 --&gt
+        &lta href="#"&gt新增&lt/a&gt
+        &lta href="#"&gt统计&lt/a&gt
+        &lta href="#"&gt关于&lt/a&gt
+    &lt/nav&gt
+    &ltmain&gt
+        &lt!-- form之action填写实际访问的网址，比如 /student/get。此处#仅供演示。--&gt
+        &ltform method="GET" action="#"&gt
+            &ltinput type="text" name="key" placeholder="输入4位数字的学号" /&gt
+            &ltinput type="submit" value="查询" /&gt
+        &lt/form&gt
+    &lt/main&gt
+    &ltfooter&gt
+        &ltp&gt&ampcopy George Donne 2024-2025.&lt/p&gt
+        &ltp&gtsupport:
+            &lta href="mailto:georgedonnev2@outlook.com"&gtgeorgedonnev2@outlook.com&lt/a&gt
+        &lt/p&gt
+    &lt/footer&gt
+&lt/body&gt
+
+&lt/html&gt</code></pre>
+
+
+        <p>点击样例：<a href="homepage-html.html" target="_blank">一个基本界面 -- html</a></p>
+        <p>
+            使用css调整和优化界面的显示，让界面看上去和百度等类似。在 &lthead&gt&lt/head&gt 中增加以下参考代码：
+        </p>
+        <pre><code class="lang-css line-numbers">&ltstyle&gt
+    /*         
+    1、简化起见将 css 写在 html 里面，仅用于演示。
+    2、通常单独 css 文件并在html中引用，比如：<link rel="stylesheet" href="jnstyle1.css">
+    */
+    
+    /* 把所有填充padding、边距margin 设为0，以方便调整样式 style。*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    /* 默认字号设置 */
+    html {
+        font-size: 16px;
+    }
+    body {
+        /* 90%宽度；顶部空一些*/
+        max-width: 90vw;
+        margin: auto;
+        padding-top: 1rem;
+        /* 设置字体，采用 vscode 推荐值。*/
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    /* 针对“莫某信息管理系统”
+    *  1、字号2倍大，
+    *  2、颜色灰，背景浅灰
+    *  3、文字居中
+    *  4、文字和浅灰背景框空点距离
+    */
+    h1 {
+        font-size: 2rem;
+        color: #666;
+        background-color: #eee;
+        text-align: center;
+        padding: 0.5rem;
+    }
+    /* 导航栏设置：3个链接平均分布*/
+    nav {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        min-height: 2rem;
+    }
+    nav a {
+        font-size: 0.75rem;
+        margin: auto;
+    }
+    /* 查询框设置
+    ** 1、所在区域最小高度 500 px
+    ** 2、居中对齐
+    ** 3、字号1.25倍即 20 px
+    ** 4、查询框和按钮的最小高度是字号的2倍即32 px
+    */
+    main {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        min-height: 500px;
+    }
+    form {
+        margin: auto;
+    }
+    input {
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        min-height: 2rem;
+    }
+    /* 底部设置
+    ** 字号0.75倍即 12px；颜色灰，背景浅灰。
+    */
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        font-size: 0.75rem;
+        color: #999;
+        background-color: #eee;
+        padding: 0.5rem;
+    }
+&lt/style&gt</code></pre>
+        <p>点击样例：<a href="homepage.html" target="_blank">一个基本界面 -- html+css</a></p>
+
+
+
 
         <!---->
-        <h2>
-            Web界面架构设计和搭建
+        <h2 id="Web界面架构设计和搭建">
+            <a href="#Web界面架构设计和搭建">Web界面架构设计和搭建</a>
         </h2>
 
         <h3>界面交互流程设想</h3>
@@ -112,7 +279,7 @@
             <li>点击网站首页右上方导航栏中的新增，出现新增页面，输入相关信息后，点击提交按钮，可新增一个学生的相关信息。</li>
             <li>更新、删除，也是类似。</li>
         </ul>
-        感觉要写个web服务端程序，处理浏览器发来的增删改查等请求，并将处理结果一html网页形式返回给浏览器，浏览器显示给用户/管理员。只是写几个html页面，按一定逻辑顺序在这几个html页面之间调转，应无法实现某某信息管理系统的web界面。或者硬写业可能可以，但应该比较无趣。主要原因是部分html页面展示的内容不是固定的。
+        感觉要写个web服务端程序，处理浏览器发来的增删改查等请求，并将处理结果一html网页形式返回给浏览器，浏览器显示给用户/管理员。只是写几个html页面，按一定逻辑顺序在这几个html页面之间调转，应无法实现某某信息管理系统的web界面。或者硬写也可能可以，但应该比较无趣。主要原因是部分html页面展示的内容不是固定的。
 
         <h3 id="一些预备知识">
             <a href="#一些预备知识">
@@ -135,8 +302,8 @@
             </li>
         </ul>
 
-        <h3>
-            在Windows或macOS上安装 Node 和 NPM
+        <h3 id="在Windows或macOS上安装Node和NPM">
+            <a href="#在Windows或macOS上安装Node和NPM">在Windows或macOS上安装 Node 和 NPM</a>
         </h3>
 
         <p>
@@ -256,6 +423,18 @@ Is this OK? (yes) y</code></pre>
     "license": "ISC"
 }</code></pre>
 
+            <p>
+                Node 本身并不支持其他常见的 web 开发任务。如果需要进行一些具体的处理，比如运行其他 HTTP 动词（比如 GET、POST、DELETE 等）、分别处理不同 URL
+                路径的请求（“路由”）、托管静态文件，或用模板来动态创建响应，那么可能就要自己编写代码了，亦或使用 web 框架，以避免重新发明轮子。
+            </p>
+            <p>
+                Express 是最流行的 Node 框架，是许多其他流行 Node 框架 的底层库。它提供了以下机制：</p>
+            <ul>
+                <li>为不同 URL 路径中使用不同 HTTP 动词的请求（路由）编写处理程序。</li>
+                <li>集成了“视图”渲染引擎，以便通过将数据插入模板来生成响应。</li>
+                <li>设置常见 web 应用设置，比如用于连接的端口，以及渲染响应模板的位置。</li>
+                <li>在请求处理管道的任何位置添加额外的请求处理“中间件”。</li>
+            </ul>
             <p>执行 npm install express --save，在当前目录（appdemo）下安装 Express。</p>
 
             <pre><code class="lang-sh">~/appdemo % npm install express --save
@@ -336,7 +515,7 @@ destination is not empty, continue? [y/N] y
 
             <p>根据 npx express-generator --view=pug 命令执行结果中的提示，执行 npm install 安装依赖（install dependencies）。</p>
 
-            <pre><code class="lang-sh">/appdemo % npm install
+            <pre><code class="lang-sh">~/appdemo % npm install
 npm WARN deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due tothe number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause aslowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgradeyour dependencies to the actual version of core-js.
 
 added 71 packages, removed 4 packages, changed 20 packages, and audited 132 packages in 16s
@@ -367,7 +546,7 @@ GET /stylesheets/style.css 200 5.110 ms - 111
 GET /favicon.ico 404 14.436 ms - 1202</code></pre>
 
             <p>打开浏览器并访问 <a href="http://127.0.0.1:3000/">http://127.0.0.1:3000/</a> 将看到 Express 的默认欢迎页面。</p>
-            <img src="img/express-welcome.png" width="30%" />
+            <a href="img/express-welcome.png" target="_blank"><img src="img/express-welcome.png" width="30%" /></a>
 
         </section>
 
@@ -396,7 +575,7 @@ GET /favicon.ico 404 14.436 ms - 1202</code></pre>
 
             <p>接下来会频繁修改完善框架。只有重启服务器才能看到 Express 网站所做的改动。每次改动后手动启停服务器实在太烦人了，有必要花点时间让这项工作自动化。nodemon 是最简便的自动化工具之一。执行 npm
                 install --save-dev nodemon 安装nodemon。</p>
-            <pre><code class="lang-sh">/appdemo % npm install --save-dev nodemon
+            <pre><code class="lang-sh">~/appdemo % npm install --save-dev nodemon
 
 added 29 packages, and audited 161 packages in 8s
 
@@ -442,7 +621,7 @@ Run `npm audit` for details. </code></pre>
             <ol>
                 <li>在浏览器输入 <a href="http://localhost:3000">http://localhost:3000</a>。</li>
                 <li>Web服务器收到请求后，返回某某信息管理系统的主页面。页面中有输入框，可以输入学号查询学生信息。</li>
-                <li>用户在输入框输入学号，点击查询按钮，发送 HTTP-GET 请求，URL是 http://localhost:3000/student/get?jnuid=1234。其中 jnuid=1234
+                <li>用户在输入框输入学号，点击查询按钮，发送 HTTP-GET 请求，URL是 http://localhost:3000/student/get?key=1234。其中 key=1234
                     表示要查询学号是 1234 的同学的详细信息。 </li>
                 <li>Web后台服务器收到请求后，查询数据库，得到学号 1234 同学的详细信息，并将信息以 Web页面方式返回浏览器，展示给用户。</li>
             </ol>
@@ -519,7 +698,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);</code></pre>
 
             <p>以下是 ./routes/users.js 的代码。其中 / 路由是框架中现有的，/cool 路由是新增的，为了便于理解路由是怎么工作的。<br />
-                路由文档 /routes/users.js 如下所示。首先加载 express 模块 并获取 express.Router 对象（命名为router）。然后为 router 指定路由，最后导出
+                路由文档 /routes/users.js 如下所示。首先加载 express 模块并获取 express.Router 对象（命名为router）。然后为 router 指定路由，最后导出
                 router（就可以导入 app.js 了）。<br />
                 该路由定义了一个回调，在检测到正确模式的 HTTP GET 请求时将调用该回调。正确模式即导入模块时指定的路由（'/users'）加该模块（'/'）中定义的任何内容。换句话说，在收到 /users/ URL
                 时使用此路由。</p>
@@ -975,8 +1154,8 @@ block content
             </ul>
 
             <section class="imgblock">
-                <img src="img/nodb-home.png" />
-                <img src="img/nodb-student-detail.png" />
+                <a href="img/nodb-home.png" target="_blank"><img src="img/nodb-home.png" /></a>
+                <a href="img/nodb-student-detail.png" target="_blank"><img src="img/nodb-student-detail.png" /></a>
             </section>
 
             <p><strong>新增学生信息</strong>的相关界面：</p>
@@ -989,25 +1168,28 @@ block content
             </ul>
 
             <section class="imgblock">
-                <img src="img/nodb-create.png" />
-                <img src="img/nodb-create-post.png" />
+                <a href="img/nodb-create.png" target="_blank"><img src="img/nodb-create.png" /></a>
+                <a href="img/nodb-create-post.png" target="_blank"><img src="img/nodb-create-post.png" /></a>
+
             </section>
 
             <p><strong>删除学生信息</strong>的相关界面：</p>
 
 
             <section class="imgblock">
-                <img src="img/nodb-delete-get.png" />
-                <img src="img/nodb-delete-post.png" />
+                <a href="img/nodb-delete-get.png" target="_blank"><img src="img/nodb-delete-get.png" /></a>
+                <a href="img/nodb-delete-post.png" target="_blank"><img src="img/nodb-delete-post.png" /></a>
+
             </section>
 
             <p><strong>更新学生信息</strong>的相关界面：</p>
 
 
             <section class="imgblock">
-                <img src="img/nodb-update-get.png" />
-                <img src="img/nodb-update-input.png" />
-                <img src="img/nodb-update-post.png" />
+                <a href="img/nodb-update-get.png" target="_blank"><img src="img/nodb-update-get.png" /></a>
+                <a href="img/nodb-update-input.png" target="_blank"><img src="img/nodb-update-input.png" /></a>
+                <a href="img/nodb-update-post.png" target="_blank"><img src="img/nodb-update-post.png" /></a>
+
             </section>
         </section>
 
@@ -1185,7 +1367,8 @@ exports.student_get = async function (req, rsp, next) {
 };</code></pre>
         <p>查询结果如下：</p>
         <section class="imgblock">
-            <img src="img/db-get.png" />
+
+            <a href="img/db-get.png" target="_blank"><img src="img/db-get.png" /></a>
         </section>
         <p>后台打印结果如下：</p>
         <pre><code class="lang-javascript">
@@ -1234,8 +1417,9 @@ GET /stylesheets/style.css 304 3.514 ms - -
 
         <p>测试新增功能，相关截图如下：</p>
         <section class="imgblock">
-            <img src="img/db-create-get.png" />
-            <img src="img/db-create-post.png" />
+            <a href="img/db-create-get.png" target="_blank"><img src="img/db-create-get.png" /></a>
+            <a href="img/db-create-post.png" target="_blank"><img src="img/db-create-post.png" /></a>
+
         </section>
         <p>至此，通过某某信息管理系统的 Web 界面，可以新增学生信息到数据库了！</p>
         <p>birthday 还无法插入到数据库中，留待后续解决。相关报错：Invalid value for argument `birthday`: premature end of input. Expected
@@ -1361,17 +1545,19 @@ exports.student_update_post = async function (req, rsp, next) {
             <a href="#优化页面布局Layout">优化页面布局Layout</a>
         </h2>
         <p>采用 CSS 网格布局（Grid Layout）优化页面布局。</p>
-        <p>使用网格布局，先要定义网格，即水平方向有多少列、垂直方向有多少行，行列交叉形成网格形状。
+        <p>使用网格布局（也叫栅格），先要定义网格，即水平方向有多少列、垂直方向有多少行，行列交叉形成网格形状。
             如下左图是主界面的布局，相关CSS代码片段如下1-43所示。简要说明如下：</p>
         <ul>
             <li>
                 line 8：按 grid 布局显示。
             </li>
             <li>
-line 10：定义水平方向有12列。写了12个1fr，fr是 fraction 的意思，1fr理解为1个等分，因此有12个基本等宽的列。截图中顶部显示1fr大致是91px。改变浏览器的宽度时，1fr会随之增大或缩小。
+                line 10：定义水平方向有12列。写了12个1fr，fr是 fraction
+                的意思，1fr理解为1个等分，因此有12个基本等宽的列。截图中顶部显示1fr大致是91px。改变浏览器的宽度时，1fr会随之增大或缩小。
             </li>
             <li>
-                line 11：定义垂直方向有4行。rem是一种单位，全称是Font size of the root element（根元素的字体大小），当前设置了整个网页根元素的字体大小是 16px，因此1、2、4行都是固定高度，分别是48px、32px、32px。截图左边也是显示了这样的数字。第3行高度是1fr，参考line 10相关说明，在此不再赘述。
+                line 11：定义垂直方向有4行。rem是一种单位，全称是Font size of the root element（根元素的字体大小），当前设置了整个网页根元素的字体大小是
+                16px，因此1、2、4行都是固定高度，分别是48px、32px、32px。截图左边也是显示了这样的数字。第3行高度是1fr，参考line 10相关说明，在此不再赘述。
             </li>
             <li>
                 line 12：定义列与列之间，以及行与行之间的间隔。否则，就都连在一起。
@@ -1389,10 +1575,10 @@ line 10：定义水平方向有12列。写了12个1fr，fr是 fraction 的意思
         </ul>
 
         <section class="imgblock">
-            <a href="img/layout-grid.png"><img src="img/layout-grid.png" /></a>
-            <a href="img/layout-detail.png"><img src="img/layout-detail.png" /></a>
+            <a href="img/layout-grid.png" target="_blank"><img src="img/layout-grid.png" /></a>
+            <a href="img/layout-detail.png" target="_blank"><img src="img/layout-detail.png" /></a>
         </section>
-<p>CSS 代码片段如下：</p>
+        <p>CSS 代码片段如下：</p>
         <pre><code class="language-css line-numbers toolbar">/*定义主界面的布局（代码片段）*/
 body {
     /*可视区域90%，margin设置为auto后可居中显示*/
@@ -1524,23 +1710,23 @@ a.student-update {
     justify-self: center;
     font-size: 1.25rem;
 }</code></pre>
-<p>网格布局相对容易预知布局效果，是非常灵活且可控的。在上述基础上，再进一步优化美化，就可以得到相对高大上的界面了。比如：</p>
-<ul>
-    <li>调整相关内容的字体、大小、颜色。</li>
-    <li>主页面下半部加些元素。比如三个不同颜色的圆圈，显示学生数、课程数、成绩数，等。如何配色，可参考网上相关配色网站。</li>
-    <li>或者主界面左1/3放好看的背景图，右2/3维持现状。</li>
-</ul>
-做出相对高大上的界面，可通过不断参考优质界面而快速入门。
+        <p>网格布局相对容易预知布局效果，是非常灵活且可控的。在上述基础上，再进一步优化美化，就可以得到相对高大上的界面了。比如：</p>
+        <ul>
+            <li>调整相关内容的字体、大小、颜色。</li>
+            <li>主页面下半部加些元素。比如三个不同颜色的圆圈，显示学生数、课程数、成绩数，等。如何配色，可参考网上相关配色网站。</li>
+            <li>或者主界面左1/3放好看的背景图，右2/3维持现状。</li>
+        </ul>
+        做出相对高大上的界面，可通过不断参考优质界面而快速入门。
 
-<h2 id="统计">
-    <a href="#统计">统计信息并显示柱状图</a>
-</h2>
-<p>信息管理系统通常还需要统计功能，并将统计结果显示为图表（比如柱状图）。以下以统计成绩段为例，比如60分以下、60-70分、70-80分、80-90分、90-100分的成绩有多少，并显示为柱状图。</p>
-<h3 id="安装chartjs">
-    <a href="#安装chartjs">安装Chart.js</a>
-</h3>
-<p>执行 npm install chart.js 安装 Chart.js。</p>
-<pre><code class="lang-sh line-numbers toolbar">~/appdemo % npm install chart.js
+        <h2 id="统计">
+            <a href="#统计">统计信息并显示柱状图</a>
+        </h2>
+        <p>信息管理系统通常还需要统计功能，并将统计结果显示为图表（比如柱状图）。以下以统计成绩段为例，比如60分以下、60-70分、70-80分、80-90分、90-100分的成绩有多少，并显示为柱状图。</p>
+        <h3 id="安装chartjs">
+            <a href="#安装chartjs">安装Chart.js</a>
+        </h3>
+        <p>执行 npm install chart.js 安装 Chart.js。</p>
+        <pre><code class="lang-sh line-numbers toolbar">~/appdemo % npm install chart.js
 
 added 2 packages, and audited 165 packages in 4s
 
@@ -1556,14 +1742,14 @@ To address all issues, run:
   npm audit fix --force
 
 Run `npm audit` for details.</code></pre>
-<p>统计结果样例如下图所示：</p>
-<section class="imgblock">
-    <a href="img/aggregate.png"><img src="img/aggregate.png" /></a>
+        <p>统计结果样例如下图所示：</p>
+        <section class="imgblock">
+            <a href="img/aggregate.png" target="_blank"><img src="img/aggregate.png" /></a>
 
-</section>
+        </section>
 
-<p> ./controllers/studentController.js 增加以下代码：</p>
-<pre><code class="lang-javascript line-numbers">/// 统计成绩分段数量
+        <p> ./controllers/studentController.js 增加以下代码：</p>
+        <pre><code class="lang-javascript line-numbers">/// 统计成绩分段数量
 exports.student_aggregate = async function (req, rsp, next) {
     try {
         const courseSummary = '编译原理';
@@ -1587,12 +1773,12 @@ exports.student_aggregate = async function (req, rsp, next) {
 };
 </code></pre>
 
-<p>./routes/student.js 增加如下代码：</p>
-<pre><code class="lang-javascript line-numbers">// 统计成绩
+        <p>./routes/student.js 增加如下代码：</p>
+        <pre><code class="lang-javascript line-numbers">// 统计成绩
 router.get("/aggregate", student_controller.student_aggregate);</code></pre>
 
-<p>在 ./view 目录中新增 aggregate.pug，内容如下：</p>
-<pre><code class="lang-pug line-numbers">extends layout
+        <p>在 ./view 目录中新增 aggregate.pug，内容如下：</p>
+        <pre><code class="lang-pug line-numbers">extends layout
 
 block content
   header

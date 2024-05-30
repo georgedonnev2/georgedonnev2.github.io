@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>某某信息管理系统</title>
+
+    <!-- 
+        1、简化起见将 css 写在 html 里面，仅用于演示。
+        2、通常单独 css 文件并在html中引用，比如：<link rel="stylesheet" href="jnstyle1.css">
+    -->
+    <style>
+        
+        /* 把所有填充padding、边距margin 设为0，以方便调整样式 style。*/
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 默认字号设置 */
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            /* 90%宽度；顶部空一些*/
+            max-width: 90vw;
+            margin: auto;
+            padding-top: 1rem;
+
+            /* 设置字体，采用 vscode 推荐值。*/
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        /* 针对“莫某信息管理系统”
+        *  1、字号2倍大，
+        *  2、颜色灰，背景浅灰
+        *  3、文字居中
+        *  4、文字和浅灰背景框空点距离
+        */
+        h1 {
+            font-size: 2rem;
+            color: #666;
+            background-color: #eee;
+            text-align: center;
+
+            padding: 0.5rem;
+        }
+
+        /* 导航栏设置：3个链接平均分布*/
+        nav {
+            display: flex;
+            align-items: center;
+            justify-items: center;
+
+            min-height: 2rem;
+        }
+
+        nav a {
+            font-size: 0.75rem;
+            margin: auto;
+        }
+
+        /* 查询框设置
+        ** 1、所在区域最小高度 500 px
+        ** 2、居中对齐
+        ** 3、字号1.25倍即 20 px
+        ** 4、查询框和按钮的最小高度是字号的2倍即32 px
+        */
+        main {
+            display: flex;
+            align-items: center;
+            justify-items: center;
+
+            min-height: 500px;
+        }
+
+        form {
+            margin: auto;
+        }
+
+        input {
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            min-height: 2rem;
+        }
+
+        /* 底部设置
+        ** 字号0.75倍即 12px；颜色灰，背景浅灰。
+        */
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-items: center;
+            font-size: 0.75rem;
+
+            color: #999;
+            background-color: #eee;
+
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>某某信息管理系统</h1>
+    </header>
+    <nav>
+        <!-- 导航栏有3个链接，点击后分别跳转到相应页面。比如点击 [新增] 后，跳转到 /student/get 页面。此处 # 表示跳转到本页面，仅供演示用。 -->
+        <a href="#">新增</a>
+        <a href="#">统计</a>
+        <a href="#">关于</a>
+    </nav>
+    <main>
+        <!-- form之action填写实际访问的网址，比如 /student/get。此处#仅供演示。-->
+        <form method="GET" action="#">
+            <input type="text" name="key" placeholder="输入4位数字的学号" />
+            <input type="submit" value="查询" />
+        </form>
+    </main>
+    <footer>
+        <p>&copy George Donne 2024-2025.</p>
+        <p>support:
+            <a href="mailto:georgedonnev2@outlook.com">georgedonnev2@outlook.com</a>
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!--
+    链接：https://fedev.cn/css/grid-layout-part-15.html
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>example--subgrid</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            min-height: 100vh;
+            font-family: "Exo", Arial, sans-serif;
+            background-color: #557;
+            padding: 4rem 0;
+            color: #f5f5f5;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: minmax(7em, 12em) max-content max-content max-content 1fr;
+            row-gap: 2em;
+
+            padding: 1em;
+        }
+
+        .subgrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-template-rows: min-content max-content min-content;
+            column-gap: 1em;
+
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0 0 #222;
+            padding: 1.5em;
+        }
+
+        h2 {
+            grid-column: 1 / -1;
+
+            margin-bottom: 1em;
+        }
+
+        p {
+            grid-column: 2 / -1;
+
+            line-height: 1.4;
+            margin-bottom: 1em;
+        }
+
+        img {
+            grid-row: 2 / -1;
+            align-self: center;
+
+            border-radius: 50%;
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .warning {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            background-color: #fed7d7;
+            border-top: 1px solid #f56565;
+            padding: 10px;
+            color: #f56565;
+        }
+
+        @supports (grid-template-rows: subgrid) {
+            .warning {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <div class="subgrid">
+            <h2>Awesome speaker</h2>
+            <img src="https://picsum.photos/200/200?random=1" alt="" />
+            <p>Chocolate bar gummies powder bear claw cake dragée oat cake cake. Chupa chups marzipan ice cream
+                croissant topping liquorice toffee chupa chups chocolate. Pie pie gummies sweet chocolate.</p>
+            <span>🌐 https://websi.te</span>
+            <span>🐦 @twitter_handle</span>
+            <span>💻 github_username</span>
+        </div>
+        <div class="subgrid">
+            <h2>Incredible speaker</h2>
+            <img src="https://picsum.photos/200/200?random=2" alt="" />
+            <p>Chocolate bar gummies powder bear claw cake dragée Lemon drops I love tootsie roll dragée gingerbread
+                tart danish halvah cake. Caramels dragée jelly beans tiramisu gummi bears I love danish. Cupcake dessert
+                chocolate cake sesame snaps marzipan chocolate bar muffin sweet. Pudding biscuit topping I love cotton
+                candy soufflé. Dragée pastry gummi bears. Cookie jelly beans liquorice. Sugar plum I love sugar plum pie
+                I love. Chupa chups sesame snaps dessert chupa chups.</p>
+            <span>🌐 https://longer.website.url</span>
+            <span>🐦 @twt</span>
+            <span>💻 github_name</span>
+        </div>
+        <div class="subgrid">
+            <h2>Amazing speaker</h2>
+            <img src="https://picsum.photos/200/200?random=3" alt="" />
+            <p>Pie dragée marzipan lemon drops sugar plum wafer I love. Topping tiramisu sweet roll apple pie gummi
+                bears. Toffee ice cream powder. Muffin sesame snaps I love marshmallow. Lemon drops cotton candy
+                macaroon marzipan carrot cake bonbon candy canes powder. Sesame snaps lemon drops fruitcake jujubes
+                topping jujubes cupcake jujubes. Cookie cupcake I love.</p>
+            <span>🌐 https://shrt.url</span>
+            <span>🐦 @but_super_long_twitter</span>
+            <span>💻 github_lover</span>
+        </div>
+    </div>
+
+    <div class="warning">
+        <p>Subgrid support required to get the most out of this pen</p>
+    </div>
+</body>
+
+</html>

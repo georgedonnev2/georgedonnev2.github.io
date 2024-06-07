@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap");
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            min-height: 100vh;
+            font-family: "Exo", Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5vw;
+            gap: 10px;
+
+        }
+
+        @property --milliseconds {
+            inherits: false;
+            initial-value: 0;
+            syntax: '<integer>';
+        }
+
+        .counter {
+            position: relative;
+            counter-reset: ms var(--milliseconds);
+            animation: count 100s steps(100) infinite;
+        }
+
+        .counter:after {
+            content: counter(ms);
+            color: hsl(0, 0%, 100%);
+            font-weight: bold;
+        }
+
+        @keyframes count {
+            to {
+                --milliseconds: 100;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="counter"></div>
+</body>
+
+</html>

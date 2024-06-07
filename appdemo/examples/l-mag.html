@@ -1,0 +1,268 @@
+<!-- 
+    用grid布局实现杂志式布局
+    链接：图解CSS: Grid布局（Part11）；https://fedev.cn/css/grid-layout-part-11.html
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        body {
+            width: 100vw;
+            min-height: 100vh;
+            /*font-family: "Exo", Arial, sans-serif;*/
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .magazine {
+            width: 95vw;
+            display: grid;
+            grid-template-rows: 130px 2fr 1fr;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+        }
+
+        .green {
+            grid-row: 1;
+            grid-column: 1 / 3;
+            z-index: 1;
+            background: #f4d434;
+            color: black;
+            justify-content: start;
+            align-items: end;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: calc(10px + 2.6vw);
+            padding-left: 20px;
+            display: grid;
+        }
+
+        .subtitle {
+            font-size: calc(10px + 0.6vw);
+        }
+
+        .green h1 {
+            margin: 0 0 0.5vw;
+            font-size: inherit;
+        }
+
+        .blue {
+            grid-row: 2 / 4;
+            grid-column: 1 / 2;
+            overflow: hidden;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .blue h2 {
+            font-size: calc(10px + 0.8vw);
+            magin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .blue p {
+            font-size: 14px;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .submit {
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .purple {
+            grid-row: 3 / 4;
+            grid-column: 2 / 4;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 30px;
+            align-items: start;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .purple p {
+            font-size: 14px;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .black {
+            grid-row: 2;
+            grid-column: 4;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            align-self: end;
+            justify-self: start;
+            position: relative;
+            color: #e5d54f;
+            border-left: 10px solid #e5d54f;
+            padding: 10px;
+            /*right: 125px;*/
+            bottom: 6%;
+            text-transform: uppercase;
+            font-size: calc(12px + 1.1vw);
+        }
+
+        .meired {
+            grid-row: 1 / 3;
+            grid-column: 2 / 5;
+        }
+
+        .orange {
+            grid-row: 3;
+            background: #f4d434;
+            width: 70%;
+            height: 70%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
+            padding: 5px;
+            font-size: calc(12px + 2.6vw);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .orange h4 {
+            font-size: calc(10px + 2.6vw);
+            margin-bottom: 1.5rem;
+        }
+
+        .orange ul {
+            list-style: none outside none;
+            font-size: calc(10px + 0.6vw);
+        }
+
+        .orange li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .orange li:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        .orange li::before {
+            content: "";
+            display: block;
+            width: 20px;
+            aspect-ratio: 16 / 9;
+            background-color: currentColor;
+            margin-left: -15px;
+        }
+
+        figure {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        figure img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="magazine">
+        <!-- 区域1 -->
+        <div class="item green">
+            <div class="subtitle">featured article</div>
+            <h1>Divinity: Original Sin 2</h1>
+        </div>
+        <!-- 区域2 -->
+        <div class="item blue">
+            <h2>the best table top minus the table</h2>
+            <div class="submit">by fraser brown</div>
+            <p>
+                Bacon ipsum dolor amet cupim buffalo shankle, ham fatback turducken drumstick sirloin. Jowl buffalo
+                venison shank pork belly alcatra, tenderloin bacon ribeye picanha spare ribs fatback ham hock. Sirloin
+                pork pancetta, landjaeger ham hock biltong meatloaf
+                brisket shoulder. Filet mignon ground round chuck turkey rump capicola.
+            </p>
+            <p>
+                Flank fatback bacon jerky picanha brisket ball tip cupim. Jerky fatback shankle andouille picanha cupim
+                pancetta pork chop tongue corned beef pork loin ham hock rump tri-tip t-bone. Meatball turducken
+                burgdoggen cupim salami bresaola. Boudin turkey bresaola,
+                short ribs ribeye short loin meatloaf corned beef picanha t-bone. Fatback beef cupim pork chop.
+            </p>
+            <p>
+                Tail short loin tenderloin turducken. Pancetta bacon beef ribs turducken leberkas. Biltong kevin buffalo
+                porchetta, chicken meatloaf doner chuck sirloin shankle swine. Boudin bacon chicken, cupim filet mignon
+                salami venison chuck tongue ham tenderloin
+                cow.
+                Chuck doner ham, chicken burgdoggen jerky short ribs picanha rump tenderloin ground round boudin cow
+                shoulder beef.
+            </p>
+            <p>
+                Doner ribeye flank shankle bacon. Alcatra shoulder buffalo cow short loin shankle. Chicken chuck beef
+                rump pork chop pork belly pork loin leberkas filet mignon kielbasa meatloaf andouille meatball.
+                Burgdoggen sausage hamburger, drumstick prosciutto meatball
+                buffalo pork belly ground round shoulder. Brisket filet mignon meatloaf, shankle salami jerky flank pig
+                kevin porchetta sirloin. Brisket meatloaf andouille burgdoggen sirloin pancetta. Burgdoggen capicola
+                leberkas picanha tail.
+            </p>
+        </div>
+        <!-- 区域3 -->
+        <div class="item purple">
+            <p>
+                Bacon ipsum dolor amet cupim buffalo shankle, ham fatback turducken drumstick sirloin. Jowl buffalo
+                venison shank pork belly alcatra, tenderloin bacon ribeye picanha spare ribs fatback ham hock. Sirloin
+                pork pancetta, landjaeger ham hock biltong meatloaf
+                brisket shoulder. Filet mignon ground round chuck turkey rump capicola.
+            </p>
+            <p>
+                Flank fatback bacon jerky picanha brisket ball tip cupim. Jerky fatback shankle andouille picanha cupim
+                pancetta pork chop tongue corned beef pork loin ham hock rump tri-tip t-bone. Meatball turducken
+                burgdoggen cupim salami bresaola. Boudin turkey bresaola,
+                short ribs ribeye short loin meatloaf corned beef picanha t-bone. Fatback beef cupim pork chop.
+            </p>
+        </div>
+        <!-- 区域4 -->
+        <div class="item orange">
+            <h4>score: 92</h4>
+            <ul>
+                <li>compelling story</li>
+                <li>entertaining co-op</li>
+                <li>innovative 'gm mode'</li>
+            </ul>
+        </div>
+        <!-- 区域5 -->
+        <div class="item meired">
+            <figure>
+                <img src="https://picsum.photos/1386/1013?random=1" alt="">
+            </figure>
+        </div>
+        <!-- 区域6 -->
+        <div class="item black">
+            <p>We both died. Twice. But I still felt really good about my decision.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -20,14 +20,53 @@
     </blockquote>
 
 
-    
-    为了实现语义化标记，HTML 提供了明确这些区段的专用标签，例如：
 
-<header>：页眉。
-<nav>：导航栏。
-<main>：主内容。主内容中还可以有各种子内容区段，可用<article>、<section> 和 <div> 等元素表示。
-<aside>：侧边栏，经常嵌套在 <main> 中。
-<footer>：页脚。
+    为了实现语义化标记，HTML 提供了明确这些区段的专用标签，例如：
+    <pre><code>
+    <header>：页眉。
+        <nav>：导航栏。
+            <main>：主内容。主内容中还可以有各种子内容区段，可用<article>、<section> 和 <div> 等元素表示。
+                            <aside>：侧边栏，经常嵌套在 <main> 中。
+                                    <footer>：页脚。
+
+                                    </code></pre>
+    <article>
+        body {
+            width: 100vw;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #291642;
+            font-family: "Gochi Hand", sans-serif;
+            font-size: 100%;
+            letter-spacing: 0.1rem;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+    </article>
+
+
+    <p>CSS中百分比单位计算方式;https://fedev.cn/css/a-percentage-unit-in-css.html</p>
+    <p>当font-size的值为%值时，它的计算是相对于父元素的font-size来计算，如果父元素（以及它的祖先元素）未显式设置font-size值的话，将会以浏览器的默认值16px为基准。</p>
+    <p>line-height中的%
+        CSS中的line-height取值为%时，它的计算方式是基于元素自身的font-size的值来计算。如果元素自身未显式设置font-size，则会基于元素继承过来的font-size的值计算。</p>
+
+
+240602：
+part-2
+从这些值类型也能发现，grid-template-columns 和 grid-template-rows 属性取值的类型是多么的灵活，这也从侧面也告诉大家，grid-template-columns 和 grid-template-rows 因为过于灵活，也造成理解成本更大，也过于复杂。不过，我们可以将其简化一下，掌握下面这些值的使用规则就可以掌握好这两个属性的使用：
+
+part3：各种尺寸
+
+https://fedev.cn/css/grid-layout-part-7.html
+有个表单的布局例子
+
+
+
+- 图解CSS：Grid布局；https://fedev.cn/css/grid-layout-part-1.html；240602
+- 我写 CSS 的常用套路;https://mp.weixin.qq.com/s/8iemPdwmashlxAhegCBFnQ;240602
+- 我写 CSS 的常用套路续集;https://mp.weixin.qq.com/s/p6yQYfuJBrxMqdEM_hqWwA;240602
 
 </body>
 

@@ -1,0 +1,220 @@
+<!-- student detail page for some demo of information management system -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <title>学生信息管理系统-demo</title>
+
+
+    <link href="./mystyle.css" rel="stylesheet" type="text/css" />
+    <!--
+    <style>
+        body {
+            display: grid;
+
+            grid-template-rows: auto minmax(100px, 1fr) auto;
+            grid-template-columns: repeat(12, 1fr);
+        }
+        gdbox {
+            grid-row: 3;
+            grid-column: 1 / -1;
+            display: grid;
+
+            grid-template-columns: 300px 500px;
+
+        }
+    </style>
+    -->
+</head>
+
+<body>
+
+
+    <header>
+        <p class="brand">
+            学生宝<br />
+            <span class="name">学生信息管理系统 &nbsp&nbsp|&nbsp&nbsp</span>
+            <span class="slogan">拓印有趣灵魂的青春足迹</span>
+        </p>
+    </header>
+
+    <nav>
+        <!-- # is this page and to be updated with real URL. e.g. add a student via /student/create -->
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">新增</a></li>
+            <li><a href="#">更新</a></li>
+            <li><a href="#">删除</a></li>
+            <li><a href="#">统计</a></li>
+        </ul>
+        <!--
+    <a href="/student/create">新增</a>
+    <a href="/student/update">更新</a>
+    <a href="/student/delete">删除</a>
+    <a href="/student/aggregate">统计</a>
+    -->
+    </nav>
+
+    <aside>
+
+    </aside>
+    <main>
+
+        <section class="student-detail">1</section>
+        <section class="student-detail">2</section>
+        <section class="student-detail">3</section>
+        <section class="student-detail">4</section>
+        <section class="student-detail">5</section>
+        <section class="student-detail">6</section>
+        <section class="student-detail">7</section>
+        <section class="student-detail">8</section>
+        <section class="student-detail">9</section>
+        <section class="student-detail">10</section>
+        <!--
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三1</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三2</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三1</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        -->
+    </main>
+
+
+    <footer>
+        <p> &copy George Donne 2024-2025. &nbsp&nbsp|&nbsp&nbsp <a href="#">关于</a> </p>
+        <p> Support:
+            <a href="mailto:georgedonnev2@outlook.com">georgedonnev2@outlook.com</a>
+        </p>
+
+        <!--
+            <a href="/about">关于</a>
+        -->
+    </footer>
+
+    <!--
+    <gdbox>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三1</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三2</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+        <section class="student-detail">
+            <img src="../public/images/male.webp" width=100% />
+            <h2>张三3</h2>
+            <p>性别：男</p>
+            <p>生日：1999-11-11</p>
+            <p>手机：13912345678</p>
+            <p>籍贯：江苏</p>
+        </section>
+    </gdbox>
+    -->
+</body>
+
+</html>

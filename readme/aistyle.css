@@ -1,0 +1,109 @@
+:root {
+    --font-size: 16px;
+}
+
+* {
+    /*padding: 0;
+    margin: 0;*/
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size, 16px);
+}
+
+body {
+    width: 90vw;
+    min-width: 960px;
+    margin: auto;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333;
+}
+
+p {
+    line-height: 1.5rem;
+}
+
+li {
+    line-height: 1.5rem;
+}
+
+
+code[class*="lang-"],
+pre[class*="lang-"],
+code[class*="language-"],
+pre[class*="language-"] {
+    font-size: 0.8rem !important;
+    font-family: monospace !important;
+}
+
+pre {
+    font-size: 20px;
+    font-family: monospace, Arial, Helvetica, "Microsoft YaHei", sans-serif, "宋体";
+}
+
+header {
+    text-align: center;
+}
+
+header p {
+    display: inline;
+}
+
+h2 a {
+    text-decoration: none;
+    color: steelblue;
+}
+
+footer {
+    /*margin: auto;
+    justify-items: center;*/
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    line-height: 1.5em;
+
+    a:link,
+    a:visited {
+        color: var(--text-primary);
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+        text-decoration: underline;
+    }
+
+    a:active {
+        background-color: transparent;
+    }
+
+    a[href^="#"] {
+        &::before {
+            color: var(--text-inactive, #999);
+            content: "#";
+            display: inline-block;
+            font-size: 0.7em;
+            line-height: 1;
+            margin-left: -0.8em;
+            text-decoration: none;
+            visibility: hidden;
+            width: 0.8em;
+        }
+
+        &:hover {
+            &::before {
+                visibility: visible;
+            }
+        }
+
+    }
+}

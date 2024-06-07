@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /**
+         * Flex布局 -- sticky footer
+         */
+        /*
+       @import url("https://fonts.googleapis.com/css?family=Gochi+Hand");
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100vw;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #291642;
+            font-family: "Gochi Hand", sans-serif;
+            font-size: 100%;
+            letter-spacing: 0.1rem;
+            color: #fff;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        header,
+        main,
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            background-color: #2196f3;
+            min-height: 15vh;
+        }
+
+        main {
+            background-color: #f4f4f4;
+            color: #444;
+            overflow: hidden;
+            resize: vertical;
+        }
+
+        footer {
+            min-height: 24vh;
+            background-color: #222;
+        }
+        */
+
+        /*main {
+    flex-grow: 1; //容器有剩余空间时，main区域会扩展
+    flex-shrink: 0; // 容器有不足空间时，main区域不会收缩
+    flex-basis: auto; //main区域高度的基准值为main内容自动高度*/
+        }
+
+        /**
+         * grid布局-- sticky footer
+         *  
+         */
+        /*在CSS Grid布局中我们可以借助1fr让<main>区域根据Grid容器剩余空间来做计算。*/
+        @import url("https://fonts.googleapis.com/css?family=Gochi+Hand");
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 90vw;
+            min-height: 100vh;
+            margin: auto;
+            padding: 1rem;
+            
+            background-color: #291642;
+            font-family: "Gochi Hand", sans-serif;
+            font-size: 100%;
+            letter-spacing: 0.1rem;
+            color: #fff;
+
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        header,
+        main,
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            background-color: #2196f3;
+            min-height: 15vh;
+        }
+
+        main {
+            background-color: #f4f4f4;
+            color: #444;
+            overflow: hidden;
+            resize: vertical;
+
+            flex-direction: column;
+        }
+
+        footer {
+            min-height: 1rem;
+           
+            background-color: #222;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Header</h2>
+    </header>
+
+    <main>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+        <h2>Main Content</h2>
+    </main>
+
+    <footer>
+        <h2>Footer</h2>
+    </footer>
+</body>
+
+</html>

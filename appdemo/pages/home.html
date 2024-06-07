@@ -1,0 +1,63 @@
+<!-- home page for some demo of information management system -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <title>学生信息管理系统-demo</title>
+
+    <link href="./mystyle.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <p class="brand">学生宝</p>
+        <p class="name">学生信息管理系统</p>
+        <p class="slogan">拓印有趣灵魂的青春足迹</p>
+
+
+    </header>
+
+    <nav>
+        <!-- # is this page and to be updated with real URL. e.g. add a student via /student/create -->
+        <a href="#">新增</a>
+        <a href="#">更新</a>
+        <a href="#">删除</a>
+        <a href="#">统计</a>
+
+        <!--
+    <a href="/student/create">新增</a>
+    <a href="/student/update">更新</a>
+    <a href="/student/delete">删除</a>
+    <a href="/student/aggregate">统计</a>
+    -->
+    </nav>
+
+    <aside>
+        <div class="counter">1</div>
+    </aside>
+    <main>
+        <form method="GET" action="">
+            <input type="text" name="key" placeholder="输入4位数字的学号"/>
+            <input type="submit" value="查询" />
+        </form>
+
+        <!--<div class="box"></div>-->
+
+
+    </main>
+
+    <footer>
+        <p> &copy George Donne 2024-2025. &nbsp&nbsp|&nbsp&nbsp <a href="#">关于</a> </p>
+        <p> Support:
+            <a href="mailto:georgedonnev2@outlook.com">georgedonnev2@outlook.com</a>
+        </p>
+
+        <!--
+            <a href="/about">关于</a>
+        -->
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!--
+CSS3制作价格表;https://fedev.cn/demo/724.html
+-->
+<html>
+
+<head>
+    <title>CSS3制作价格表</title>
+
+    <style>
+        /*使用gradient和background-size制作斑点背景图*/
+        body {
+            background: #cbd4da;
+            font-size: 12px;
+            font-family: Verdana;
+            -webkit-text-size-adjust: none;
+            background-color: #dfdcd8;
+            background-image: -*-radial-gradient(#c8c8c8 15%, transparent 16%), -*-radial-gradient(#c8c8c8 15%, transparent 16%), -*-radial-gradient(rgba(200, 200, 200, 0.1) 15%, transparent 20%), -*-radial-gradient(rgba(200, 200, 200, 0.1) 15%, transparent 20%);
+            background-position: 0 0px, 8px 8px, 0 1px, 8px 9px;
+            background-size: 16px 16px;
+        }
+
+        /*整个表格居中显示*/
+        .tableWrap {
+            width: 960px;
+            margin: 0 auto;
+            padding: 50px 0;
+            overflow: hidden;
+        }
+
+        /*表格的基本样式*/
+        .table {
+            width: 280px;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 12px;
+            background: #fff;
+            float: left;
+            position: relative;
+        }
+
+        /*使用":after"制作表格右边阴影效果*/
+        .table:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 5%;
+            width: 51%;
+            height: 90%;
+            box-shadow: 8px 0 10px rgba(0, 0, 0, 0.2);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        /*表格定位*/
+        .table:first-child {
+            right: -30px;
+            top: 136px;
+            z-index: 10;
+            border-color: #f8b22c;
+        }
+
+        .table:nth-child(2) {
+            right: -20px;
+            top: 68px;
+            z-index: 5;
+            border-color: #e54e4b;
+        }
+
+        .table:last-child {
+            z-index: 1;
+            border-color: #ff7a0e;
+        }
+
+        /*制作价格区域*/
+        .table>span {
+            display: inline-block;
+            border: solid 2px #f8b22c;
+            border-radius: 50%;
+            width: 92px;
+            height: 92px;
+            background: #fff;
+            font-weight: bold;
+            position: absolute;
+            left: -30px;
+            top: -30px;
+        }
+
+        .table:nth-child(2)>span {
+            border-color: #e54e4b;
+        }
+
+        .table:last-child>span {
+            border-color: #ff7a0e;
+        }
+
+        .table>span:before {
+            display: inline-block;
+            content: "$49";
+            font-size: 32px;
+            padding-top: 15px;
+            font-family: Arial;
+            position: absolute;
+            z-index: 10;
+            left: 15px;
+            top: -2px;
+            color: #f8b22c;
+        }
+
+        .table>span:after {
+            display: inline-block;
+            content: "PER MONTH";
+            font-size: 10px;
+            color: #666;
+            text-shadow: 0 0 1px #a5a090;
+            position: absolute;
+            z-index: 10;
+            top: 50px;
+            left: 12px;
+        }
+
+        .table:nth-child(2)>span:before {
+            content: "$79";
+            color: #e54e4b;
+        }
+
+        .table:last-child>span:before {
+            content: "$99";
+            color: #ff7a0e;
+        }
+
+        /*制作标题区域*/
+        .table h2 {
+            text-align: center;
+            font-size: 28px;
+            border-bottom: solid 1px #f8b22c;
+            padding: 25px 0;
+            margin: 0;
+            background: #fff;
+            border-radius: 0 12px 0 0;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            color: #f8b22c;
+        }
+
+        .table:nth-child(2) h2 {
+            color: #e54e4b;
+            border-bottom-color: #e54e4b;
+        }
+
+        .table:last-child h2 {
+            color: #ff7a0e;
+            border-bottom-color: #ff7a0e;
+        }
+
+        .table h2:after {
+            display: block;
+            content: "";
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .table:first-child h2:after {
+            content: "DESIGNERS & PHOTEGRAPHERS";
+            text-shadow: 0 0 1px #a5a090;
+        }
+
+        .table:nth-child(2) h2:after {
+            content: "DEVELOPERS & DESIGNERS";
+        }
+
+        .table:last-child h2:after {
+            content: "STARTUP & CORPORATES";
+        }
+
+        /*制作表格列表*/
+        .table ul {
+            list-style: none;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            background: #fff;
+        }
+
+        .table li {
+            height: 50px;
+            line-height: 50px;
+            border-top: 1px solid #fff;
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 0 0 1px #a5a090;
+        }
+
+        .table li:nth-child(2n+1) {
+            background: #fbf4df;
+        }
+
+        .table li:nth-child(2n) {
+            background: #f7edca;
+        }
+
+        /*制作按钮*/
+        .btnbox {
+            display: block;
+            padding: 25px 0;
+            border: none;
+            border-radius: 0 0 12px 12px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .btnbox input {
+            background: #a6d154;
+            border: none;
+            border-radius: 25px;
+            padding: 15px;
+            color: #fff;
+            font-weight: bold;
+            font-family: Arial;
+            cursor: pointer;
+        }
+
+        .btnbox input:hover {
+            background: #f60;
+            box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="tableWrap">
+            <div class="table table-personal">
+                <span></span>
+                <h2>PERSONAL</h2>
+                <ul>
+                    <li>20 THEMES/PSD</li>
+                    <li>GRAPHIC DESIGNER SUPPORT</li>
+                    <li>LAYERD PHOTOSHOP FILE</li>
+                    <li>NEWSLETTER TEMPLATES</li>
+                </ul>
+                <div class="btnbox"><input type="button" value="SIGN UP-TODAY" /></div>
+            </div>
+            <div class="table table-bussniss">
+                <span></span>
+                <h2>BUSSNISS</h2>
+                <ul>
+                    <li>30 THEMES/PSD</li>
+                    <li>GRAPHIC DESIGNER SUPPORT</li>
+                    <li>LAYERD PHOTOSHOP FILE</li>
+                    <li>NEWSLETTER TEMPLATES</li>
+                    <li>FREE UPDATES</li>
+                    <li>UNLIMITED CUSTOMIZATION</li>
+                </ul>
+                <div class="btnbox"><input type="button" value="SIGN UP-TODAY" /></div>
+            </div>
+            <div class="table table-permium">
+                <span></span>
+                <h2>PERMIUM</h2>
+                <ul>
+                    <li>50 THEMES/PSD</li>
+                    <li>GRAPHIC DESIGNER SUPPORT</li>
+                    <li>LAYERD PHOTOSHOP FILE</li>
+                    <li>NEWSLETTER TEMPLATES</li>
+                    <li>FREE UPDATES</li>
+                    <li>UNLIMITED CUSTOMIZATION</li>
+                    <li>MULTI-LICENSE</li>
+                    <li>EMAIL SUPPORT</li>
+                </ul>
+                <div class="btnbox"><input type="button" value="SIGN UP-TODAY" /></div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

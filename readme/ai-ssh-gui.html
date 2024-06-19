@@ -40,7 +40,7 @@
         </h1>
         <p>by George Donne</p>
         <p>&nbsp&nbsp|&nbsp&nbsp</p>
-        <p>Last update on 2024-06-07</p>
+        <p>Last update on 2024-06-19</p>
         <p>&nbsp&nbsp|&nbsp&nbsp</p>
         <p>Released on 2024-06-07</p>
         <br /><a href="./ai-home.html">返回AI-HOME</a>
@@ -104,6 +104,40 @@ gdv2@davinci-mini:~$ </code></pre>
             Xserver，所以 hostA 是 server。因此在登陆到 hostB 前，需要在 hostA 上运行 xhost + 来使其它用户能够访问 hostA 的 Xserver。
         </p>
 
+
+        <h2 id="其他">
+            <a href="#其他">其他</a>
+        </h2>
+
+        <h3 id="远程终端打开服务器的USB摄像头">
+            <a href="#远程终端打开服务器的USB摄像头">远程终端打开服务器的USB摄像头</a>
+        </h3>
+
+        <p>现象：</p>
+        <ul>
+            <li>
+                开发套件连接显示器启动，并在显示器上登录后，远程终端可打开服务器的USB摄像头。未在显示器上登录，则远程终端打开USB摄像头不成功。
+            </li>
+            <li>
+                开发套件不连接显示启动，则远程终端打开USB摄像头不成功。
+            </li>
+        </ul>
+
+        <p>解决方案：参考网上指南，用 root 用户执行 chmod 777 /dev/video0 后解决。应该是普通用户打开摄像头的摄像头的权限不同。</p>
+        <p>遗留：为啥开发套件连接显示器登录后，远程终端就可以打开USB摄像头了。</p>
+        
+
+<section>
+    <h2 id="更新历史">
+        <a href="#更新历史">更新历史</a>
+    </h2>
+
+    <ul>
+        <li>
+            24/06/19：增加 <a href="#远程终端打开服务器的USB摄像头">远程终端打开服务器的USB摄像头</a>。
+        </li>
+    </ul>
+</section>
 
         <h2>
             <a href="#主要参考资料">主要参考资料</a>

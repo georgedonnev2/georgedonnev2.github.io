@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<!-- grid 布局 学习-->
+<html>
+
+<head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Exo:wght@600&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            font-family: "Exo", Arial, sans-serif;
+            background-color: #f7f7f7;
+
+            padding: 20px;
+        }
+
+        section {
+            max-width: 80vw;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+
+        .grid__container {
+            border: 1px dashed #f36;
+            box-shadow: 0 0 0 6px rgb(0 0 0 / 13%);
+            border-radius: 1px;
+        }
+
+        .grid__item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: #f7f7f7;
+            counter-increment: item;
+        }
+
+        .grid__item::before {
+            content: counter(item);
+            color: #fff;
+            font-size: 3rem;
+            text-shadow: 1px 1px 0 rgba(0 0 0 / 0.25);
+        }
+
+        .grid__item:nth-child(1) {
+            background-color: #f1c2c6;
+        }
+
+        .grid__item:nth-child(2) {
+            background-color: #dac2f1;
+        }
+
+        .grid__item:nth-child(3) {
+            background-color: #ccf1c2;
+        }
+
+        .grid__item:nth-child(4) {
+            background-color: #c2e9f1;
+        }
+
+        .grid__item:nth-child(5) {
+            background-color: #f1ebc2;
+        }
+
+        .grid__item:nth-child(6) {
+            background-color: #3f51b5;
+        }
+
+        .grid__item:nth-child(7) {
+            background-color: #810d16;
+        }
+
+        .grid__item:nth-child(8) {
+            background-color: #4d0d81;
+        }
+
+        .grid__item:nth-child(9) {
+            background-color: #0d4e81;
+        }
+
+        .grid__item:nth-child(10) {
+            background-color: #0d815f;
+        }
+
+        .grid__item:nth-child(11) {
+            background-color: #2196f3;
+        }
+
+        .grid__item:nth-child(12) {
+            background-color: #ff5722;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
+            gap: 10px;
+        }
+
+        form label {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        :root {
+            --display: grid;
+        }
+
+        .grid__container {
+            display: var(--display);
+            gap: 10px;
+        }
+
+        .grid__container:nth-child(1) {
+            grid-template-columns: 150px 1fr;
+            grid-template-rows: 100px 1fr 80px;
+        }
+
+        .grid__container:nth-child(1) .grid__item:nth-child(3) {
+            grid-column: 2;
+            grid-row-start: 1;
+            grid-row-end: 4;
+        }
+
+        .grid__container:nth-child(2) {
+            grid-template-columns: 150px [item1-start] 1fr [item1-end];
+            grid-template-rows: [item1-start] 100px 1fr 80px [item1-end];
+        }
+
+        .grid__container:nth-child(2) .grid__item:nth-child(3) {
+            grid-column: item1-start / item1-end;
+            grid-row: item1-start / item1-end;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <div class="grid__container">
+            <div class="grid__item">1</div>
+            <div class="grid__item">2</div>
+            <div class="grid__item">3</div>
+            <div class="grid__item">4</div>
+            <div class="grid__item">5</div>
+            <div class="grid__item">6</div>
+        </div>
+
+        <div class="grid__container">
+            <div class="grid__item">7</div>
+            <div class="grid__item">8</div>
+            <div class="grid__item">9</div>
+            <div class="grid__item">10</div>
+            <div class="grid__item">11</div>
+            <div class="grid__item">12</div>
+        </div>
+    </section>
+
+    <form action="">
+        <span>display:</span>
+        <label for="grid">
+            <input type="radio" name="display" id="grid" checked />
+            grid
+        </label>
+        <label for="inline-grid">
+            <input type="radio" name="display" id="inline-grid" />
+            inline-grid
+        </label>
+    </form>
+
+</body>
+
+</html>

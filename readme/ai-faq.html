@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>华为Atalas开发者套件相关FAQ</title>
+
+
+    <link rel="stylesheet" href="./css/jnstyle.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js">
+    </script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js">
+        </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/show-language/prism-show-language.min.js">
+    </script>
+
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js">
+    </script>
+
+    <header>
+        <h1>华为Atalas开发者套件相关FAQ</h1>
+        <p>by George Donne</p>
+        <p>&nbsp&nbsp|&nbsp&nbsp</p>
+        <p>Last update on 2024-06-28</p>
+        <p>&nbsp&nbsp|&nbsp&nbsp</p>
+        <p>Released on 2024-06-28</p>
+        <br /><a href="./ai-home.html">返回AI-HOME</a>
+    </header>
+
+    <main>
+        <section>
+            <h2 id="开发者套件连接的显示器不显示">
+                <a href="#开发者套件连接的显示器不显示">开发者套件连接的显示器不显示</a>
+            </h2>
+
+            <p>问题现象：</p>
+            <ul>
+                <li>
+                    开发者套件启动后，通过HDMI接口连接的显示器不亮。
+                </li>
+                <li>
+                    该显示器连接到 Windows 台式机，是可以正常显示的。
+                </li>
+            </ul>
+
+            <p>解决方案：</p>
+            <ul>
+                <li>
+                    参考昇腾论坛帖子（<a href="https://www.hiascend.com/forum/thread-0286152887295065001-1-1.html" target="_blank">本机显示模式时，HDMI0接显示器无桌面输出 </a>），远程 ssh 登录开发者套件后，运行 /usr/local/bin/toggle_graphical_desktop.sh 即可。
+                </li>
+                <li>
+                    不常用开发者套件连接的显示器，先暂不将上述 toggle_graphical_desktop.sh 加到 ~/.bashrc 中。
+                </li>
+            </ul>
+
+            <hr />
+        </section>
+    </main>
+
+</body>
+
+</html>

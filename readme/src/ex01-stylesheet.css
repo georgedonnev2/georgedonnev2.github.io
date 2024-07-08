@@ -1,0 +1,707 @@
+/**-------------------------------------------------------------------------------------------------------------------- 
+ * 一些定义和预设
+----------------------------------------------------------------------------------------------------------------------*/
+
+/*一些变量定义，后续用var()引用。比如 font-size: var(--font-size); */
+:root {
+    --font-size: 16px;
+    /*字体大小*/
+    --body-bg-color: whitesmoke;
+    /*网页背景色*/
+
+    /*从某网站取得的几种配色*/
+    --jn-color-red: #F291A3;
+    --jn-color-darkgreen: #026873;
+    --jn-color-green: #04D98B;
+    --jn-color-lightgreen: #B6F2BA;
+    --jn-color-yellow: #F2B56B;
+
+}
+
+/**
+ * 如想理解以下设置，可参考：图解CSS： CSS 盒模型；https://fedev.cn/css/web-layout-box-module.html
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/**-------------------------------------------------------------------------------------------------------------------- 
+ * 通用/共用设置
+----------------------------------------------------------------------------------------------------------------------*/
+
+html {
+    font-size: var(--font-size);
+}
+
+body {
+    width: 100vw;
+    /*宽度 = 浏览器窗口的100%宽度大小*/
+    min-width: 480px;
+    min-height: 100vh;
+    /* 最小高度 = 浏览器窗口的100%高度大小，用于将页脚放在底部*/
+    margin: auto;
+    /*用于水平居中*/
+    padding: 0.5rem 0;
+    /*和边边空开一点，填充8个像素。rem是 root element，就是根元素的字体大小，即 --font-size的大小。此处 rem= --font-size = 16px，因此 0.5rem = 0.5 x 16px = 8px。注意：0.5和rem不能有空格。*/
+
+    display: grid;
+    /*采用网格grid做布局。水平方向有若干列，垂直方向有若干行，可精确指定什么内容放在哪列哪行，以方便排版。*/
+    grid-template-columns: repeat(16, 1fr);
+    /*经典的12列，每列是可见区域的1/12大小。主要内容放在中间的12列，左右各2列空着。但页面页脚（的背景）会填满16列*/
+    grid-template-rows: auto minmax(100px, 1fr) auto;
+    /*3行。第1行放页眉+导航（header + nav），最后1行放页脚footer，中间放main。*/
+    gap: 0.5rem;
+    /*列与列之间，行与行之间，都空开一点。*/
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    /*background-color: var(--body-bg-color);*/
+    color: #000;
+}
+
+/**
+ * 页眉header 
+ */
+
+header {
+    grid-row: 1;
+    /*第1行*/
+    grid-column: 1 / span 8;
+    /*第1列开始，跨8列*/
+
+    display: grid;
+    grid-template-columns: subgrid;
+    /*子网格，继承列*/
+    gap: inherit;
+
+    background: var(--jn-color-darkgreen);
+    padding: 0.5rem;
+}
+
+/* logo */
+header img {
+    grid-column: 3;
+    justify-self: center;
+    /*自己水平居中对齐*/
+    align-self: center;
+    /*自己水平居中对齐*/
+
+    max-width: 2.5rem;
+    object-fit: cover;
+}
+
+header h1 {
+    grid-column: 4 / span 5;
+    align-self: center;
+    justify-self: start;
+
+    font-size: 2rem;
+    color: whitesmoke;
+}
+
+
+/**
+ * 导航nav 
+ */
+
+nav {
+    grid-row: 1;
+    grid-column: 9 / span 8;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: inherit;
+
+    justify-items: center;
+    align-items: center;
+
+    background-color: #ccc;
+}
+
+nav a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+nav a:hover {
+    border-bottom: 2px solid whitesmoke;
+    color: var(--jn-color-darkgreen);
+}
+
+
+/**
+ * 页脚footer
+ */
+footer {
+    grid-row: 3;
+    grid-column: 1 /span 16;
+
+
+    text-align: center;
+    padding: 0.5rem;
+
+    font-size: 0.75rem;
+    color: whitesmoke;
+
+    background: var(--jn-color-darkgreen);
+}
+
+footer a {
+    color: whitesmoke;
+}
+
+/*number类型的input，去掉尾部的上下箭头*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input::placeholder {
+    color: #999;
+
+}
+
+/**-------------------------------------------------------------------------------------------------------------------- 
+ * HOME页面的main设置
+----------------------------------------------------------------------------------------------------------------------*/
+
+#main-home {
+    grid-row: 2;
+    grid-column: 3 / span 12;
+
+    display: grid;
+    grid-template-rows: 1fr 2fr auto;
+    grid-template-columns: subgrid;
+    gap: inherit;
+
+    justify-items: center;
+}
+
+/*几个logo装饰用*/
+#logo-group {
+    grid-column: 1 / span 12;
+    align-self: end;
+
+    width: 50%;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    img {
+        margin-left: 2%;
+        margin-right: 2%;
+
+        &:nth-child(1),
+        &:nth-child(7) {
+            width: 1rem;
+        }
+
+        &:nth-child(2),
+        &:nth-child(6) {
+            width: 1.5rem;
+        }
+
+        &:nth-child(3),
+        &:nth-child(5) {
+            width: 2rem;
+        }
+
+        &:nth-child(4) {
+            width: 2.5rem;
+        }
+    }
+
+}
+
+/*查询表单*/
+#main-home form {
+    grid-column: 1 / span 12;
+    padding-top: 4%;
+
+    display: grid;
+    grid-template-columns: subgrid;
+
+    input[type="number"] {
+        grid-column: 3 /span 6;
+
+        font-size: 1rem;
+        height: 3rem;
+
+        border-radius: 8px;
+        border: 2px solid #999;
+
+    }
+
+    input[type="submit"] {
+        grid-column: 9 /span 2;
+
+        font-size: 1.5rem;
+        height: 3rem;
+
+        color: whitesmoke;
+        background-color: var(--jn-color-darkgreen);
+        border: none;
+    }
+}
+
+/*数据库记录条数*/
+#main-home #db-records {
+    grid-column: 1 / span 12;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-home #db-records p {
+    border: 2px solid var(--jn-color-darkgreen);
+    border-radius: 50%;
+
+    padding: 1rem;
+    text-align: center;
+    margin: 4% 10%;
+    margin-bottom: 20%;
+
+    color: #666;
+
+    .rec-value {
+        font-size: 2rem;
+        color: var(--jn-color-darkgreen);
+    }
+}
+
+/**-------------------------------------------------------------------------------------------------------------------- 
+ * 新增记录 create 页面的main设置
+----------------------------------------------------------------------------------------------------------------------*/
+
+#main-create {
+    grid-row: 2;
+    grid-column: 3 / span 12;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: subgrid;
+    gap: inherit;
+
+    justify-items: center;
+}
+
+#main-create h2 {
+    grid-row: 1;
+    grid-column: span 12;
+    justify-self: center;
+
+    padding: 1rem 0;
+}
+
+#main-create form {
+    grid-column: span 12;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-auto-rows: minmax(1rem, max-content);
+    gap: inherit;
+
+    input,
+    #student-gender {
+        grid-column: 4 /span 6;
+
+        font-size: 1rem;
+        /*height: 3rem;*/
+        line-height: 3rem;
+
+        border-radius: 8px;
+        border: 2px solid #999;
+    }
+
+    #student-gender label:nth-child(3) {
+        margin-right: 10%;
+    }
+
+    .student-grade {
+        grid-column: 4 /span 6;
+
+        display: grid;
+        grid-template-columns: subgrid;
+        gap: inherit;
+
+        label {
+            grid-column: 1 / span 2;
+
+            justify-self: end;
+            align-self: center;
+        }
+
+        input {
+            grid-column: 3 / span 4;
+        }
+    }
+
+    .create-button {
+        grid-column: 4 / span 4;
+        grid-row: 12;
+
+        border: none;
+        border-radius: 100px;
+        background-color: var(--jn-color-darkgreen);
+        color: whitesmoke;
+        font-size: 1.5rem;
+    }
+
+    .cancel-button {
+        grid-column: 8 / span 2;
+        grid-row: 12;
+
+        border: none;
+        border-radius: 100px;
+        background-color: #ccc;
+        color: #333;
+    }
+}
+
+/**-------------------------------------------------------------------------------------------------------------------- 
+* 记录详情 get 页面的main设置--1个
+----------------------------------------------------------------------------------------------------------------------*/
+
+#main-get {
+    grid-row: 2;
+    grid-column: 3 / span 12;
+    /*（整个窗口）的第3列开始跨12列，左右各空2列*/
+
+    display: grid;
+    grid-template-rows: repeat(14, minmax(1rem, auto)) 1fr;
+    grid-template-columns: subgrid;
+    gap: inherit;
+}
+
+#main-get h2 {
+    grid-row: 1;
+    /*放在main窗口的第一行*/
+    grid-column: span 12;
+    /*跨12列即充满main*/
+    justify-self: center;
+    /*水平居中*/
+    padding: 1rem 0;
+    /*上下空开一些*/
+
+    color: #999;
+}
+
+#main-get img {
+    grid-column: 4 / span 3;
+    /*照片：放在main窗口的第4列跨3列*/
+    max-width: 100%;
+    /*充满3列*/
+    border-radius: 50%;
+    /*边框圆角半径50%图片的宽，所以成了圆形*/
+}
+
+#main-get p,
+#main-get section {
+    grid-column: 7 / span 6;
+    align-self: center;
+    /*垂直居中*/
+}
+
+/*成绩放在 xx 行。主要是和上面信息隔开些。*/
+#id-u-grade01 {
+    grid-row: 8;
+}
+
+#id-u-grade02 {
+    grid-row: 9;
+}
+
+#id-u-grade03 {
+    grid-row: 10;
+}
+
+#id-u-grade04 {
+    grid-row: 11;
+}
+
+/*姓名+学号+性别的显示设置*/
+#main-get section.u-info-g01 p {
+    display: inline;
+    /*姓名、学号、性别，显示在一行（即不换行）*/
+}
+
+.u-name {
+    font-size: 3rem;
+    /*字大些*/
+    font-weight: bold;
+    /*字加粗*/
+    color: var(--jn-color-darkgreen);
+    /*字颜色*/
+    padding-left: 4%;
+
+    /*左边填充，和照片隔开些*/
+    &:before {
+        content: "";
+    }
+}
+
+.u-uid {
+    color: var(--jn-color-darkgreen);
+
+    &:before {
+        /*学号前面加个#*/
+        content: "#";
+
+        padding: 0 2%;
+    }
+}
+
+.u-gender {
+    color: var(--jn-color-darkgreen);
+
+    &:before {
+        content: "#";
+        padding: 0 2%;
+    }
+}
+
+/*其他信息的显示：籍贯、手机、email等。*/
+.u-from {
+    padding-left: 4%;
+
+    &:before {
+        content: "籍贯：";
+        /*籍贯前面加“籍贯：”*/
+    }
+}
+
+.u-phone {
+    padding-left: 4%;
+
+    &:before {
+        content: "手机：";
+    }
+}
+
+.u-email {
+    padding-left: 4%;
+
+    &:before {
+        content: "邮箱：";
+    }
+}
+
+/*成绩的显示*/
+.u-grade01 {
+    padding-left: 4%;
+
+    &:after {
+        content: "（数据结构）";
+        /*在成绩后面加上课程名称*/
+    }
+}
+
+.u-grade02 {
+    padding-left: 4%;
+
+    &:after {
+        content: "（操作系统）";
+    }
+}
+
+.u-grade03 {
+    padding-left: 4%;
+
+    &:after {
+        content: "（编译原理）";
+    }
+}
+
+.u-grade04 {
+    padding-left: 4%;
+
+    &:after {
+        content: "（算法分析与设计）";
+    }
+}
+
+/*自动在内容前后加的文字，显示为灰色*/
+p::before,
+p::after {
+    color: #999;
+}
+
+/*按钮格式*/
+.get-button {
+    line-height: 3rem;
+    /*3倍字体高*/
+    border-radius: 100px;
+    /*边框圆角半径设置很大的数，最后得到胶囊形状*/
+    border: none;
+    font-size: 1rem;
+    background-color: #ccc;
+}
+
+#get-cancel-btn {
+    grid-row: 14;
+    grid-column: 6 / span 2;
+
+    font-size: 1.5rem;
+    background-color: var(--jn-color-darkgreen);
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+#get-update-btn {
+    grid-row: 14;
+    grid-column: 8;
+}
+
+#get-delete-btn {
+    grid-row: 14;
+    grid-column: 9;
+    color: red;
+}
+
+/**-------------------------------------------------------------------------------------------------------------------- 
+* 记录详情 get 页面的main设置--N个
+----------------------------------------------------------------------------------------------------------------------*/
+
+#main-getn {
+    grid-row: 2;
+    grid-column: 3 / span 12;
+    /*（整个窗口）的第3列开始跨12列，左右各空2列*/
+
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto 1fr;
+    /*grid-template-rows: masonry;*/
+    grid-template-columns: subgrid;
+    gap: inherit;
+
+    h2 {
+        grid-row: 1;
+        grid-column: span 12;
+        justify-self: center;
+        line-height: 3rem;
+        color: #999;
+    }
+
+    counter-reset: get-rec-counter;
+}
+
+.n-details {
+    grid-column: span 4;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5rem;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: inherit;
+
+    .get-rec-sn {
+        counter-increment: get-rec-counter;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        width: max-content;
+        height: max-content;
+        padding:2%;
+        justify-self:end;
+        align-self:center;
+
+        &::after {
+            content: counter(get-rec-counter);
+        }
+    }
+    
+    /*子元素（不是孙、重孙元素）：跨4列，左边空开些*/
+    >* {
+        grid-column: 1 /span 4;
+        padding-left: 2%;
+    }
+
+    img {
+        grid-column: 1 / span 4;
+        max-width: 50%;
+        border-radius: 50%;
+        justify-self: center;
+    }
+
+    .n-info-g01 {
+        grid-column: 1 / span 4;
+
+
+        p {
+            display: inline;
+        }
+
+        .n-name {
+            padding-left: 2%;
+
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--jn-color-darkgreen);
+        }
+
+        .n-uid {
+            /*padding: 0 2%;*/
+            color: var(--jn-color-darkgreen);
+
+            &::before {
+                padding: 0 2%;
+                content: "#";
+            }
+        }
+
+        .n-gender {
+            color: var(--jn-color-darkgreen);
+
+            &::before {
+                padding: 0 2%;
+                content: "#";
+            }
+        }
+    }
+
+    .n-phone {
+        &::before {
+            content: "手机：";
+        }
+    }
+
+    .n-from {
+        &::before {
+            content: "籍贯：";
+        }
+    }
+
+    .n-email {
+        &::before {
+            content: "邮箱：";
+        }
+    }
+
+    /*成绩的显示*/
+    .n-grade01 {
+        &:after {
+            content: "（数据结构）";
+            /*在成绩后面加上课程名称*/
+        }
+    }
+    .n-grade02 {
+        &:after {
+            content: "（操作系统）";
+        }
+    }
+    .n-grade03 {
+        &:after {
+            content: "（编译原理）";
+        }
+    }
+    .n-grade04 {
+        &:after {
+            content: "（算法分析与设计）";
+        }
+    }
+}
+

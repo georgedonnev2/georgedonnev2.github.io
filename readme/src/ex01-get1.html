@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>记录详情页面--1个</title>
+
+    <!-- 引入用于样例 ex01 的样式文件 -->
+    <link href="./ex01-stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的页眉 
+    ------------------------------------------------------------------------------------------------------------------->
+    <header>
+
+        <!-- logo -->
+        <img src="./ex01-it-whitesmoke.png" alt="Logo" />
+
+        <h1>某某信息管理系统</h1>
+    </header>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的导航栏 
+    ------------------------------------------------------------------------------------------------------------------->
+    <nav>
+        <!-- 
+        1、href="#"表示点击链接后跳转到当前页面（就是没有跳转） 
+        2、真实界面中要修改为真实的链接，比如 <a href="/student/create">新增</a>
+        -->
+
+        <a href="#">首页</a>
+        <a href="#">新增</a>
+        <a href="#">更新</a>
+        <a href="#">删除</a>
+        <a href="#">统计</a>
+        <a href="#">关于</a>
+
+        <!--
+        <a href="/">首页</a>
+        <a href="/student/create">新增</a>
+        <a href="/student/update">更新</a>
+        <a href="/student/delete">删除</a>
+        <a href="/student/aggregate">统计</a>
+        <a href="/about">关于</a>
+        -->
+    </nav>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的页脚
+    ------------------------------------------------------------------------------------------------------------------->
+    <footer>
+
+        <!--
+        <a href="#">关于</a> 中的 # 也要改成真实链接，比如：<a href="/about">关于</a>
+        -->
+        <p> &copy GD™ 2024-2025. All Rights Reserved. 环球ICP备12345678号-9&nbsp&nbsp|&nbsp&nbsp
+            <a href="#">关于</a>
+        </p>
+
+        <p> Support:
+            <a href="mailto:georgedonnev2@outlook.com">georgedonnev2@outlook.com</a>
+        </p>
+
+    </footer>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站详细信息页面 get 的主要内容--显示1个记录的信息
+    ------------------------------------------------------------------------------------------------------------------->
+    <main id="main-get">
+
+        <h2>学号3169的学生信息如下：</h2>
+
+        <img src="./nc-m02.jpeg" alt="photo" />
+
+        <section class="u-info-g01">
+            <p class="u-name">韶文奕</p>
+            <p class="u-uid">3169</p>
+            <p class="u-gender">男</p>
+        </section>
+
+        <p class="u-phone">13747451107</p>
+        <p class="u-from">山东云锦</p>
+        <p class="u-email">rPz9gekFD@jiangnan.edu.cn</p>
+
+        <p id="id-u-grade01" class="u-grade01">73</p>
+        <p id="id-u-grade02" class="u-grade02">79</p>
+        <p id="id-u-grade03" class="u-grade03">93</p>
+        <p id="id-u-grade04" class="u-grade04">67</p>
+
+        <!-- onclick改成首页的网址，比如 onclick="/"-->
+        <input class="get-button" id="get-cancel-btn" type="button" value="返回首页"
+            onclick="javascrtpt:window.location.href='file:///'" />
+        <input class="get-button" id="get-update-btn" type="button" value="更新"
+            onclick="javascrtpt:window.location.href='file:///'" />
+        <input class="get-button" id="get-delete-btn" type="button" value="删除"
+            onclick="javascrtpt:window.location.href='file:///'" />
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>新建界面样例create</title>
+
+    <!-- 引入用于样例 ex01 的样式文件 -->
+    <link href="./ex01-stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的页眉 
+    ------------------------------------------------------------------------------------------------------------------->
+    <header>
+
+        <!-- logo -->
+        <img src="./ex01-it-whitesmoke.png" alt="Logo" />
+
+        <h1>某某信息管理系统</h1>
+    </header>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的导航栏 
+    ------------------------------------------------------------------------------------------------------------------->
+    <nav>
+        <!-- 
+        1、href="#"表示点击链接后跳转到当前页面（就是没有跳转） 
+        2、真实界面中要修改为真实的链接，比如 <a href="/student/create">新增</a>
+        -->
+
+        <a href="#">首页</a>
+        <a href="#">新增</a>
+        <a href="#">更新</a>
+        <a href="#">删除</a>
+        <a href="#">统计</a>
+        <a href="#">关于</a>
+
+        <!--
+        <a href="/">首页</a>
+        <a href="/student/create">新增</a>
+        <a href="/student/update">更新</a>
+        <a href="/student/delete">删除</a>
+        <a href="/student/aggregate">统计</a>
+        <a href="/about">关于</a>
+        -->
+    </nav>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的页脚
+    ------------------------------------------------------------------------------------------------------------------->
+    <footer>
+
+        <!--
+        <a href="#">关于</a> 中的 # 也要改成真实链接，比如：<a href="/about">关于</a>
+        -->
+        <p> &copy GD™ 2024-2025. All Rights Reserved. 环球ICP备12345678号-9&nbsp&nbsp|&nbsp&nbsp
+            <a href="#">关于</a>
+        </p>
+
+        <p> Support:
+            <a href="mailto:georgedonnev2@outlook.com">georgedonnev2@outlook.com</a>
+        </p>
+
+    </footer>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站新增记录页面 create 的主要内容
+    ------------------------------------------------------------------------------------------------------------------->
+    <main id="main-create">
+
+        <h2>请输入xx信息</h2>
+
+
+        <!-- action 要填上真实网址，比如 action="/student/create" -->
+        <form method="POST" action="">
+
+            <input name="name" type="text" placeholder="&nbsp&nbsp姓名" required />
+            <input name="uid" type="text" placeholder="&nbsp&nbsp学号" required />
+
+            <section id="student-gender">
+                <label>&nbsp&nbsp请选择性别：</label>
+                <input name="gender" type="radio" value="male" required />
+                <label>男</label>
+                <input name="gender" type="radio" value="female" required />
+                <label>女</label>
+            </section>
+
+            <input name="phone" type="number" placeholder="&nbsp&nbsp手机号码" required />
+            <input name="from" type="text" placeholder="&nbsp&nbsp籍贯（比如：江苏无锡，广东深圳）" required />
+            <input name="email" type="email" placeholder="&nbsp&nbsp邮箱（比如：zhangshan@qq.com）" required />
+
+            <section class="student-grade">
+                <label>数据结构：&nbsp&nbsp</label>
+                <input name="grade-1" type="number" placeholder="&nbsp&nbsp百分制成绩"  />
+            </section>
+            <section class="student-grade">
+                <label>操作系统：&nbsp&nbsp</label>
+                <input name="grade-2" type="number" placeholder="&nbsp&nbsp百分制成绩"  />
+            </section>
+            <section class="student-grade">
+                <label>编译原理：&nbsp&nbsp</label>
+                <input name="grade-3" type="number" placeholder="&nbsp&nbsp百分制成绩"  />
+            </section>
+            <section class="student-grade">
+                <label>算法分析与设计：&nbsp&nbsp</label>
+                <input name="grade-4" type="number" placeholder="&nbsp&nbsp百分制成绩"  />
+            </section>
+
+
+            <input class="create-button" type="submit" value="新建" />
+            <!-- onclick改成首页的网址，比如 onclick="/"-->
+            <input class="cancel-button" type="button" value="放弃并返回首页" onclick="javascrtpt:window.location.href='file:///'" />
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

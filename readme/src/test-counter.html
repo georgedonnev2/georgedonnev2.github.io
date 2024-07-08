@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        ol {
+            counter-reset: ol-counter;
+        }
+
+        li {
+            counter-increment: ol-counter;
+        }
+
+        li::after {
+            content: counter(ol-counter);
+        }
+
+        /**/
+        section {
+            counter-reset: section-counter;
+        }
+
+        p {
+            counter-increment: section-counter;
+        }
+
+        p::after {
+            content: counter(section-counter);
+        }
+
+        /**/
+        #main-test {
+            counter-reset: student-counter;
+        }
+
+        .n-details {
+            counter-increment: student-counter;
+        }
+
+        .n-details::after {
+            content: counter(student-counter);
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <main id="main-test">
+
+        <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+
+        <section>
+            <p>a</p>
+            <p>b</p>
+            <p>c</p>
+        </section>
+
+        <section class="n-details">
+            <p>na</p>
+        </section>
+        <p>after 1</p>
+        <section class="n-details">
+            <p>nb</p>
+        </section>
+        <p>after 2</p>
+        <section class="n-details">
+            <p>nc</p>
+        </section>
+        <p>after 3</p>
+        
+    </main>
+</body>
+
+</html>

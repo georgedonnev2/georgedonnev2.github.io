@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>记录详情页面get--N个</title>
+
+    <!-- 引入用于样例 ex01 的样式文件 -->
+    <link href="./ex01-stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的页眉 
+    ------------------------------------------------------------------------------------------------------------------->
+    <header>
+
+        <!-- logo -->
+        <img src="./ex01-it-whitesmoke.png" alt="Logo" />
+
+        <h1>某某信息管理系统</h1>
+    </header>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的导航栏 
+    ------------------------------------------------------------------------------------------------------------------->
+    <nav>
+        <!-- 
+        1、href=#表示点击链接后跳转到当前页面（就是没有跳转） 
+        2、真实界面中要修改为真实的链接，比如 <a href="/student/create">新增</a>
+        -->
+
+        <a href=#>首页</a>
+        <a href=#>新增</a>
+        <a href=#>更新</a>
+        <a href=#>删除</a>
+        <a href=#>统计</a>
+        <a href=#>关于</a>
+
+        <!--
+        <a href="/">首页</a>
+        <a href="/student/create">新增</a>
+        <a href="/student/update">更新</a>
+        <a href="/student/delete">删除</a>
+        <a href="/student/aggregate">统计</a>
+        <a href="/about">关于</a>
+        -->
+    </nav>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的页脚
+    ------------------------------------------------------------------------------------------------------------------->
+    <footer>
+
+        <!--
+        <a href=#>关于</a> 中的 # 也要改成真实链接，比如：<a href="/about">关于</a>
+        -->
+        <p> &copy GD™ 2024-2025. All Rights Reserved. 环球ICP备12345678号-9&nbsp&nbsp|&nbsp&nbsp
+            <a href=#>关于</a>
+        </p>
+
+        <p> Support:
+            <a href="mailto:georgedonnev2@outlook.com">georgedonnev2@outlook.com</a>
+        </p>
+
+    </footer>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站详细信息页面 get 的主要内容--显示多个记录的信息
+    ------------------------------------------------------------------------------------------------------------------->
+    <main id="main-getn">
+
+        <h2>查询结果如下：</h2>
+
+        <!-- 01 -->
+        <section class="n-details">
+
+            <p class="get-rec-sn">#</p>
+
+            <img src="./nc-m01.jpeg" alt="photo" />
+
+            <section class="n-info-g01">
+                <p class="n-name">彭响裙</p>
+                <p class="n-uid">3617</p>
+                <p class="n-gender">男</p>
+                <p class="n-counter"></p>
+            </section>
+
+            <p class="n-phone">13761031360</p>
+            <p class="n-from">江苏青岚</p>
+            <p class="n-email">DaIpEJojQ@qq.com</p>
+
+            <p id="id-n-grade01" class="n-grade01">82</p>
+            <p id="id-n-grade02" class="n-grade02">69</p>
+            <p id="id-n-grade03" class="n-grade03">70</p>
+            <p id="id-n-grade04" class="n-grade04">89</p>
+
+        </section>
+
+        <!-- 02 -->
+        <section class="n-details">
+
+            <p class="get-rec-sn">#</p>
+
+            <img src="./nc-f01.jpeg" alt="photo" />
+
+            <section class="n-info-g01">
+                <p class="n-name">周歌兵</p>
+                <p class="n-uid">7945</p>
+                <p class="n-gender">女</p>
+            </section>
+
+            <p class="n-phone">15232746135</p>
+            <p class="n-from">新疆碧水</p>
+            <p class="n-email">qtZbls@outlook.com</p>
+
+            <p id="id-n-grade01" class="n-grade01">87</p>
+            <p id="id-n-grade02" class="n-grade02">88</p>
+            <p id="id-n-grade03" class="n-grade03">95</p>
+            <p id="id-n-grade04" class="n-grade04">63</p>
+
+        </section>
+
+        <!-- 03 -->
+        <section class="n-details">
+
+            <p class="get-rec-sn">#</p>
+
+            <img src="./nc-m02.jpeg" alt="photo" />
+
+            <section class="n-info-g01">
+                <p class="n-name">韶文奕</p>
+                <p class="n-uid">3169</p>
+                <p class="n-gender">男</p>
+            </section>
+
+            <p class="n-phone">13747451107</p>
+            <p class="n-from">山东云锦</p>
+            <p class="n-email">rPz9gekFD@jiangnan.edu.cn</p>
+
+            <p id="id-n-grade01" class="n-grade01">73</p>
+            <p id="id-n-grade02" class="n-grade02">79</p>
+            <p id="id-n-grade03" class="n-grade03">93</p>
+            <p id="id-n-grade04" class="n-grade04">67</p>
+
+        </section>
+
+        <!-- 04 -->
+        <section class="n-details">
+
+            <p class="get-rec-sn">#</p>
+
+            <img src="./nc-f02.jpeg" alt="photo" />
+
+            <section class="n-info-g01">
+                <p class="n-name">侯璋丁</p>
+                <p class="n-uid">4514</p>
+                <p class="n-gender">女</p>
+            </section>
+
+            <p class="n-phone">15208796771</p>
+            <p class="n-from">浙江紫宸</p>
+            <p class="n-email">vSMpLV@outlook.com</p>
+
+            <p id="id-n-grade01" class="n-grade01">98</p>
+            <p id="id-n-grade02" class="n-grade02">99</p>
+            <p id="id-n-grade03" class="n-grade03">84</p>
+            <p id="id-n-grade04" class="n-grade04">83</p>
+
+        </section>
+
+        <!-- 05 -->
+        <section class="n-details">
+
+            <p class="get-rec-sn">#</p>
+
+            <img src="./nc-m03.jpeg" alt="photo" />
+
+            <section class="n-info-g01">
+                <p class="n-name">宋艺戈</p>
+                <p class="n-uid">9494</p>
+                <p class="n-gender">男</p>
+            </section>
+
+            <p class="n-phone">15203950502</p>
+            <p class="n-from">辽宁星河</p>
+            <p class="n-email">DcEvV@jiangnan.edu.cn</p>
+
+            <p id="id-n-grade01" class="n-grade01">65</p>
+            <p id="id-n-grade02" class="n-grade02">71</p>
+            <p id="id-n-grade03" class="n-grade03">91</p>
+            <p id="id-n-grade04" class="n-grade04">66</p>
+
+        </section>
+
+        <!-- 06 -->
+        <!--
+        <section class="n-details">
+
+            <p class="get-rec-sn">#</p>
+
+            <img src="./nc-f03.jpeg" alt="photo" />
+
+            <section class="n-info-g01">
+                <p class="n-name">史娉澄</p>
+                <p class="n-uid">2222</p>
+                <p class="n-gender">女</p>
+            </section>
+
+            <p class="n-phone">15293106443</p>
+            <p class="n-from">甘肃玉华</p>
+            <p class="n-email">mqN4K@163.com</p>
+
+            <p id="id-n-grade01" class="n-grade01">97</p>
+            <p id="id-n-grade02" class="n-grade02">76</p>
+            <p id="id-n-grade03" class="n-grade03">75</p>
+            <p id="id-n-grade04" class="n-grade04">64</p>
+
+        </section>
+        -->
+
+        <!-- 07 -->
+        <!--
+        <section class="n-details">
+
+            <p class="get-rec-sn">#</p>
+
+            <img src="./nc-m04.jpeg" alt="photo" />
+
+            <section class="n-info-g01">
+                <p class="n-name">戚鸿德</p>
+                <p class="n-uid">6599</p>
+                <p class="n-gender">男</p>
+            </section>
+
+            <p class="n-phone">15274769588</p>
+            <p class="n-from">湖南翠微</p>
+            <p class="n-email">aSJ0Gp7@163.com</p>
+
+            <p id="id-n-grade01" class="n-grade01">85</p>
+            <p id="id-n-grade02" class="n-grade02">62</p>
+            <p id="id-n-grade03" class="n-grade03">81</p>
+            <p id="id-n-grade04" class="n-grade04">96</p>
+
+        </section>
+        -->
+
+    </main>
+
+</body>
+
+</html>

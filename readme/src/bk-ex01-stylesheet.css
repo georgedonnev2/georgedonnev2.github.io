@@ -1,0 +1,498 @@
+:root {
+    --font-size: 16px;
+    --body-bg-color: whitesmoke;
+
+    --jn-color-red: #F291A3;
+    --jn-color-darkgreen: #026873;
+    --jn-color-green: #04D98B;
+    --jn-color-lightgreen: #B6F2BA;
+    --jn-color-yellow: #F2B56B;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /**/
+}
+
+/**-------------------------------------------------------------------------------------------------------------------- 
+ * 布局 
+----------------------------------------------------------------------------------------------------------------------*/
+
+body {
+    width: 90vw;
+    min-width: 480px;
+    min-height: 100vh;
+    margin: auto;
+    /*用于水平居中*/
+    padding: 0.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /*经典的12列，每列是可见区域的1/12大小*/
+    grid-template-rows: auto minmax(100px, 1fr) auto;
+    gap: 0.5rem;
+}
+
+/* header */
+header {
+    grid-row: 1;
+    /*第1行*/
+    grid-column: 1 / span 6;
+    /*第1列开始，跨6列*/
+
+    display: grid;
+    grid-template-columns: subgrid;
+    /*子网格，继承列*/
+    gap: inherit;
+}
+
+header img {
+    grid-column: 1;
+    justify-self: center;
+    /*自己水平居中对齐*/
+}
+
+header h1 {
+    grid-column: 2 / span 5;
+    align-self: center;
+    justify-self: start;
+}
+
+/* nav */
+nav {
+    grid-row: 1;
+    grid-column: 7 / span 6;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: inherit;
+
+    justify-items: center;
+    align-items: center;
+
+    /*display: flex; 
+    align-items: center;
+    justify-content: center;*/
+}
+
+/* homepage的main*/
+
+main#main-home {
+    grid-row: 2;
+    grid-column: 1 / span 12;
+
+    display: grid;
+    grid-template-rows: 1fr 2fr auto;
+    grid-template-columns: subgrid;
+    gap: inherit;
+
+    justify-items: center;
+}
+
+main#main-home section#logo-group {
+    grid-column: 1 / span 12;
+    align-self: end;
+}
+
+main#main-home form {
+    grid-column: 1 / span 12;
+    padding-top: 3rem;
+}
+
+main#main-home section#db-records {
+    grid-column: 1 / span 12;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*显示详情的main*/
+main#main-get {
+    grid-row: 2;
+    grid-column: 1 / span 12;
+
+    display: grid;
+    grid-template-rows: masonry;
+    grid-template-columns: subgrid;
+    gap: inherit;
+
+    justify-items: center;
+}
+
+main#main-get h2 {
+    grid-row: 1;
+    grid-column: span 12;
+}
+
+section.studetail {
+    grid-column: span 3;
+    justify-self: center;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-auto-rows: minmax(2rem, max-content);
+
+    align-items: center;
+}
+
+section.studetail * {
+    grid-column: span 3;
+}
+
+/*===== 输入新记录的的main =====*/
+main#main-create {
+    grid-row: 2;
+    grid-column: 1 / span 12;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: subgrid;
+    gap: inherit;
+}
+
+main#main-create h2 {
+    grid-row: 1;
+    grid-column: 3 / span 9;
+    justify-self: start;
+}
+
+main#main-create form {
+    grid-column: span 12;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-auto-rows: minmax(1rem, max-content);
+    gap: inherit;
+    align-items: center;
+}
+
+main#main-create form div#student-gender {
+    grid-column: 3 / span 6;
+    height: 3rem;
+    margin-bottom: 1rem;
+}
+
+main#main-create form label {
+    line-height: 3rem;
+}
+
+main#main-create form div label:nth-child(3) {
+    margin-right: 3rem;
+}
+
+
+
+main#main-create input#stu-name,
+main#main-create input#stu-phone,
+main#main-create input#stu-from,
+main#main-create input#stu-email {
+    grid-column: 3 / span 6;
+    min-height: 3rem;
+    margin-bottom: 1rem;
+
+    font-size: 1rem;
+    align-self: center;
+
+    border-radius: 6px;
+    border-color: #eee;
+}
+
+div.student-grade {
+    grid-column: 3 /span 6;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+form div.student-grade label {
+    grid-column: 1 /span 2;
+    line-height: 2rem;
+    justify-self: center;
+}
+form div.student-grade input {
+    grid-column: 3 / span 4;
+    min-height: 2rem;
+    margin-bottom: 0.1rem;
+
+    font-size: 1rem;
+    align-self: center;
+
+    border-radius: 6px;
+    border-color: #eee;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+form input.button {
+    grid-column: 3 / span 4;
+    grid-row: 12;
+    min-height: 3rem;
+    margin-bottom: 1rem;
+
+    font-size: 1rem;
+    align-self: center;
+
+    border-radius: 6px;
+    border-color: #eee;
+    background-color: grey;
+}
+
+form input#create-button {
+    background-color: var(--jn-color-green);
+}
+form input#cancel-button {
+    grid-column: 7/ span 2;
+    color: whitesmoke;
+}
+
+/*main#main-create input:nth-child(1) {
+    grid-row: 1;
+}
+main#main-create input:nth-child(2) {
+    grid-row: 3;
+}
+main#main-create input:nth-child(3) {
+    grid-row: 5;
+}*/
+
+
+main#main-create form input::file-selector-button {
+    color: var(--jn-color-green);
+    font-weight: lighter;
+}
+
+main#main-create form input::placeholder {
+    color: #999;
+    /*font-weight: lighter;*/
+}
+
+
+
+
+/*===== 统一的页脚 =====*/
+footer {
+    grid-row: 3;
+    grid-column: 1 /span 12;
+
+    /*margin: auto;*/
+    text-align: center;
+    padding: 0.5rem;
+}
+
+/**-------------------------------------------------------------------------------------------------------------------- 
+ * 字体，字号，文字颜色等
+----------------------------------------------------------------------------------------------------------------------*/
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: var(--font-size);
+
+    background-color: var(--body-bg-color);
+    color: #000;
+}
+
+/* header */
+header {
+    background: var(--jn-color-darkgreen);
+    padding: 0.5rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: whitesmoke;
+}
+
+header img {
+    border-radius: 10%;
+    max-width: 4rem;
+    object-fit: cover;
+}
+
+/* nav */
+nav {
+    background-color: #ccc;
+}
+
+nav a {
+    color: whitesmoke;
+    text-decoration: none;
+
+
+
+    /*padding: 1rem 0rem 1rem 1rem;
+
+    &:after {
+        content: '|';
+        margin-left: 1rem;
+    }*/
+
+    &:hover span {
+        border-bottom: 2px solid whitesmoke;
+    }
+
+}
+
+/*nav span {
+    padding: 0.2rem;
+
+}*/
+
+nav span#create {
+    /*color: var(--jn-color-green);*/
+    background: var(--jn-color-green);
+}
+
+nav span#update {
+    background: var(--jn-color-yellow);
+}
+
+nav span#delete {
+
+    background: var(--jn-color-red);
+}
+
+nav img {
+    width: 1rem;
+}
+
+/*5个logo组成的图片组*/
+main#main-home section#logo-group img:nth-child(1),
+main#main-home section#logo-group img:nth-child(5) {
+    width: 2rem;
+}
+
+main#main-home section#logo-group img:nth-child(2),
+main#main-home section#logo-group img:nth-child(4) {
+    width: 3rem;
+}
+
+main#main-home section#logo-group img:nth-child(3) {
+    width: 4rem;
+}
+
+main#main-home section#logo-group img {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+
+
+/*表单格式*/
+main#main-home form input {
+    font-size: 3rem;
+}
+
+main#main-home form input#input1 {
+    width: 40vw;
+    min-width: max-content;
+    height: 5rem;
+}
+
+main#main-home form input#submit1 {
+    width: 20vw;
+    min-width: max-content;
+
+    height: 5rem;
+
+    background: var(--jn-color-darkgreen);
+    border: none;
+    color: whitesmoke;
+}
+
+main#main-home form input::placeholder {
+    color: #ccc;
+    font-weight: lighter;
+}
+
+
+/*3个数据库记录条数*/
+main#main-home section#db-records p {
+
+    width: 8rem;
+    height: 8rem;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-radius: 50%;
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+    padding: 2.5rem 0;
+
+    text-align: center;
+}
+
+main#main-home section#db-records p:nth-child(1) {
+    color: var(--jn-color-green);
+    border-color: var(--jn-color-green);
+}
+
+main#main-home section#db-records p:nth-child(2) {
+    color: var(--jn-color-yellow);
+    border-color: var(--jn-color-yellow);
+}
+
+main#main-home section#db-records p:nth-child(3) {
+    color: var(--jn-color-red);
+    border-color: var(--jn-color-red);
+}
+
+span.number {
+    font-size: 2rem;
+}
+
+main#main-home section#db-records {
+    margin-bottom: 2rem;
+}
+
+/*===== main-get的标题 =====*/
+main#main-get h2 {
+    font-size: 3rem;
+    font-weight: lighter;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+section.studetail {
+    border-style: solid;
+    border-width: 0.1rem;
+    padding: 0.5rem;
+
+}
+
+section.studetail img {
+    border-radius: 50%;
+    max-width: 5rem;
+    object-fit: cover;
+
+    justify-self: center;
+}
+
+/*===== main-create的标题 =====*/
+main#main-create h2 {
+    font-size: 3rem;
+    font-weight: lighter;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/*===== 统一的页脚 =====*/
+footer {
+    font-size: 0.75rem;
+    color: whitesmoke;
+
+    padding: 1em;
+    padding: 1em calc(50% - 450px);
+
+    background: var(--jn-color-darkgreen);
+}
+
+footer a {
+    color: whitesmoke;
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>html5+css3入门指导</title>
+
+
+
+    <style>
+        :root {
+            --font-size: 16px;
+        }
+
+        /*
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        */
+
+        body {
+
+            width: 100vw;
+            min-width: 480px;
+            min-height: 100vh;
+            padding: 0.5rem 0;
+
+            display: grid;
+            grid-template-columns: repeat(16 1fr);
+            grid-template-rows: auto minmax(100px, 1fr) auto;
+            gap: 0.5vw;
+
+            font-size: var(--font-size);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        header {
+            grid-row: 1;
+            grid-column: 1 / span 16;
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-template-rows: auto auto auto 1fr;
+            gap: inherit;
+            justify-items: center;
+
+            background: #ccc;
+
+            h1,
+            .doc-version-info {
+                grid-column: 1 / span 16;
+            }
+
+            .doc-version-info p {
+                display: inline;
+            }
+
+            .doc-author {
+                &:before {
+                    content: "by";
+                    padding: 0 0.25rem;
+                }
+            }
+
+            .doc-release-date {
+                &:before {
+                    content: "|released on ";
+                    padding: 0 0.25rem;
+                }
+            }
+
+            .doc-update-date {
+                &:before {
+                    content: "last update";
+                    padding: 0 0.25rem;
+                }
+            }
+        }
+
+        main {
+            grid-row: 2;
+            grid-column: 3 / span 12;
+
+            display: grid;
+            grid-template-columns: subgrid;
+            gap: inherit;
+
+            p {
+                grid-column: 1 / span 12;
+            }
+
+            section {
+                grid-column: 1 / span 12;
+            }
+
+
+        }
+
+        footer {
+            grid-row: 3;
+            grid-column: 1 / span 16;
+            padding: 0.5rem;
+
+            font-size: 0.75rem;
+            text-align: center;
+            color: whitesmoke;
+            background: #ccc;
+
+            a {
+                color: whitesmoke;
+            }
+        }
+
+        p::before,
+        p::after {
+            color: #999;
+        }
+
+        p,
+        li {
+            font-size: 1rem;
+            line-height: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+   
+
+    <header>
+        <h1>html5+css3+js 入门指导</h1>
+
+        <section class="doc-version-info">
+            <p class="doc-author">George Donne</p>
+            <p class="doc-release-date">aa</p>
+            <p class="doc-update-date">bb</p>
+        </section>
+
+    </header>
+
+    <!------------------------------------------------------------------------------------------------------------------
+    网站统一的页脚
+    ------------------------------------------------------------------------------------------------------------------->
+    <footer>
+
+        <!--
+        <a href="#">关于</a> 中的 # 也要改成真实链接，比如：<a href="/about">关于</a>
+        -->
+        <p> &copy GD™ 2024-2025. All Rights Reserved. 环球ICP备12345678号-9&nbsp&nbsp|&nbsp&nbsp
+            <a href="#">关于</a>
+        </p>
+
+        <p> Support:
+            <a href="mailto:georgedonnev2@outlook.com">georgedonnev2@outlook.com</a>
+        </p>
+
+    </footer>
+
+    <main>
+
+
+        <!--
+        什么是网格布局？
+        网格是由一系列水平及垂直的线构成的一种布局模式。根据网格，我们能够将设计元素进行排列，帮助我们设计一系列具有固定位置以及宽度的元素的页面，使我们的网站页面更加统一。
+
+        早前在 CSS 中并没有内置的网格系统，但对于设计师和前端开发者言，对网格系统并不会感到陌生。因为设计师和前端开发者都熟悉（或有使用过）网格系统：
+
+        控制重叠内容：一个网格单元或区域中可以放置多个项目，并且它们可以部分地相互重叠，而且我们可以通过 z-index 属性来控制它的层级权重
+
+        网格顺序：在网格布局中，除了通过网格线或网格区域来调整网格顺序之外，还可以像 Flexbox 布局中一样，使用 order 属性来调整网格项的排列顺序（不需要调整 HTML 的源码）
+        -->
+
+        <!--
+        https://fedev.cn/css/grid-layout-part-9.html；放置 item 到网格中。
+        -->
+
+
+
+        <p>参考，编写网站主页面的 html。html 主要负责显示什么，为了实现语义化标记，HTML 提供了明确这些区段的专用标签，例如：</p>
+
+
+        <section>
+            <h2>
+                <a>主要参考资料</a>
+            </h2>
+            <ul>
+
+
+                <li id="文档与网站结构">
+                    <a href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure"
+                        target="_blank">文档与网站架构</a>，MDN
+                </li>
+
+                <li id="CSS3选择器基本选择器">
+                    <a href="https://fedev.cn/css3/basic-selectors.html" target="_blank">CSS3 选择器——基本选择器</a>，fedev.cn
+                </li>
+
+                <li id="聊聊input元素">
+                    <a href="https://fedev.cn/html5/input-in-web.html" target="_blank">聊聊input元素</a>，fedev.cn
+                </li>
+
+                <li id="2022年不能再错过CSS网格布局了">
+                    <a href="https://fedev.cn/css/css-grid-tutorial-collection.html" target="_blank">2022年不能再错过 CSS
+                        网格布局了</a>，fedev.cn
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

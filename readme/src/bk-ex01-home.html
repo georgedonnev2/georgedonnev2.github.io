@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>某某信息管理系统</title>
+
+    <!-- 引入用于样例 ex01 的样式文件 -->
+    <link href="./ex01-stylesheet.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- 网站统一的页眉 -->
+    <header>
+
+        <img src="../img/it-whitesmoke.png" alt="" />
+
+        <h1>
+            某某信息管理系统
+        </h1>
+    </header>
+
+    <!-- 网站统一的导航栏 -->
+    <nav>
+        <!-- 
+        1、href="#"表示点击链接后跳转到当前页面（就是没有跳转） 
+        2、真实界面中要修改为真实的链接，比如 <a href="/student/create">新增</a>
+        -->
+
+        <a href="#"><span>首页</span></a>
+        <a href="#">
+            <span id="create"><img src="../img/create-whitesmoke.png" alt="" />新增</span>
+        </a>
+        <a href="#">
+            <span id="update"><img src="../img/update-whitesmoke.png" alt="" />更新</span>
+        </a>
+        <a href="#">
+            <span id="delete"><img src="../img/delete-whitesmoke.png" alt="" />删除</span>
+        </a>
+        <a href="#"><span>统计</span></a>
+        <a href="#"><span>关于</span></a>
+
+
+        <!--
+        <a href="/student/create">新增</a>
+        <a href="/student/update">更新</a>
+        <a href="/student/delete">删除</a>
+        <a href="/student/aggregate">统计</a>
+        -->
+    </nav>
+
+    <!-- 网站主界面的主要内容 -->
+    <main id="main-home">
+        <!--
+        一个表单form，用于输出查询的学号。
+        1、action 是点击查询按钮后提交查询的网址。假定 localhost:8000 访问某某信息管理系统，action="/student/get"，输入学号1101，点击查询后的查询网址是localhost:8000/student/get?key=1101。
+        2、name="key"。"key"所在查询网址中的位置如1所示。后台代码会获取key对应的1101的值。"key"也可改成比如"jnuid"，则后台代码也好做相应修改。
+        -->
+
+        <!--
+        <img src="https://picsum.photos/300/100?random=3" alt="" />
+
+        -->
+        <section id="logo-group">
+            <img src="../img/it-jn-lightgreen.png" alt="" />
+            <img src="../img/it-jn-green.png" alt="" />
+            <img src="../img/it-jn-darkgreen.png" alt="" />
+            <img src="../img/it-jn-green.png" alt="" />
+            <img src="../img/it-jn-lightgreen.png" alt="" />
+        </section>
+
+        <!--
+        <form method="GET" action="/student/get">
+        -->
+        <form method="GET" action="">
+            <input id="input1" type="text" name="key" placeholder="输入4位数字的学号" />
+            <input id="submit1" type="submit" value="查询" />
+        </form>
+
+        <section id="db-records">
+            <p>
+                <span class="number">60</span>个<br />学生
+            </p>
+            <p>
+                <span class="number">10</span>门<br />课程
+            </p>
+            <p>
+                <span class="number">500</span>条<br />成绩
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- 网站统一的页脚 -->
+    <footer>
+        <p> &copy GD™ 2024-2025. All Rights Reserved. 环球ICP备12345678号-9 &nbsp&nbsp|&nbsp&nbsp <a href="#">关于</a> </p>
+        <p> Support:
+            <a href="mailto:georgedonnev2@outlook.com">georgedonnev2@outlook.com</a>
+        </p>
+
+        <!--
+        上述 <a href="#">关于</a> 中的 # 也要改成真实链接，比如：<a href="/about">关于</a>
+        -->
+    </footer>
+
+</body>
+
+</html>

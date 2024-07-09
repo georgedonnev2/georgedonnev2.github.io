@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>test grid - 240708</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: repeat(16, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 1vw;
+
+        }
+
+        header {
+            grid-row: 1;
+            grid-column: 1 / span 16;
+
+            display: grid;
+            grid-template-columns: subgrid;
+            gap: inherit;
+
+            justify-items: center;
+
+            h1 {
+                grid-row: 1;
+                grid-column: 1 / span 16;
+                /*text-align: center;*/
+                justify-self: center;
+            }
+        }
+
+
+
+        main {
+            grid-row: 2;
+            grid-column: 3 / span 12;
+
+            display: grid;
+            grid-template-columns: subgrid;
+            gap: inherit;
+
+            p,
+            section {
+                grid-column: 1 /span 12;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Lorem ipsum dolor
+        </h1>
+    </header>
+    <main>
+        <p>
+            aabbcc Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur ab adipisci necessitatibus
+            expedita
+            voluptatem magni. Amet officiis velit sunt eos, sapiente incidunt fugiat nobis odio temporibus, dolor quidem
+            aut
+            eum.
+        </p>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam, ad consectetur aliquid, dolore possimus quo ratione hic odio modi inventore iste? Quo inventore reprehenderit, non omnis officia explicabo eveniet debitis.
+        </p>
+
+        <section>
+            <p>
+                s1p3-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti inventore hic nulla maxime maiores non modi totam odio voluptates corporis. Aut nam suscipit recusandae sit rerum at assumenda, dolore cum?
+            </p>
+            <p>
+                s1p4-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam sapiente repellendus iusto perspiciatis vitae. Porro id sed autem aspernatur et nesciunt eos magnam totam recusandae earum. Consequuntur quidem rem commodi.
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>
